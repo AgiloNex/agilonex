@@ -81,6 +81,13 @@ export const translations = {
       tag: "Portfólio & Laboratório",
       title: "Projetos que demonstram nosso trabalho",
       subtitle: "Conheça soluções reais que desenvolvemos para resolver problemas complexos com tecnologia acessível.",
+      featuredLabel: "Solução em produção",
+      featured: {
+        name: "Agilo Milhas",
+        title: "Plataforma de gestão e troca de milhas aéreas",
+        description: "Uma das soluções da Agilo Nex em produção: ajuda viajantes e empresas a maximizar o valor das suas milhas com transparência e inteligência.",
+        cta: "Acessar plataforma",
+      },
       projects: [
         {
           name: "Zenith ID",
@@ -213,6 +220,13 @@ export const translations = {
       tag: "Portfolio & Lab",
       title: "Projects that showcase our work",
       subtitle: "Discover real solutions we built to solve complex problems with accessible technology.",
+      featuredLabel: "Solution in production",
+      featured: {
+        name: "Agilo Milhas",
+        title: "Airline miles management & exchange platform",
+        description: "One of Agilo Nex's production solutions: helps travelers and businesses maximize the value of their miles with transparency and intelligence.",
+        cta: "Open platform",
+      },
       projects: [
         {
           name: "Zenith ID",
@@ -345,6 +359,13 @@ export const translations = {
       tag: "Portafolio & Laboratorio",
       title: "Proyectos que demuestran nuestro trabajo",
       subtitle: "Conoce soluciones reales que desarrollamos para resolver problemas complejos con tecnología accesible.",
+      featuredLabel: "Solución en producción",
+      featured: {
+        name: "Agilo Milhas",
+        title: "Plataforma de gestión e intercambio de millas aéreas",
+        description: "Una de las soluciones de Agilo Nex en producción: ayuda a viajeros y empresas a maximizar el valor de sus millas con transparencia e inteligencia.",
+        cta: "Acceder a la plataforma",
+      },
       projects: [
         {
           name: "Zenith ID",
