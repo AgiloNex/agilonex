@@ -399,4 +399,5 @@ export const translations = {
   },
 } as const;
 
-export type TranslationShape = typeof translations.pt;
+type DeepMutable<T> = T extends object ? { -readonly [K in keyof T]: DeepMutable<T[K]> } : T;
+export type TranslationShape = DeepMutable<typeof translations.pt>;
