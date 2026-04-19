@@ -1,0 +1,402 @@
+export type Language = "pt" | "en" | "es";
+
+export const translations = {
+  pt: {
+    nav: {
+      about: "Sobre",
+      services: "Serviços",
+      how: "Como Funciona",
+      portfolio: "Portfólio",
+      contact: "Contato",
+      cta: "Fale Conosco",
+    },
+    hero: {
+      title1: "Automatize, Integre e Proteja seu Negócio com",
+      titleHighlight: "Tecnologia",
+      subtitle:
+        "Soluções em IA, sistemas e privacidade de dados para empresas que querem crescer com eficiência, não burocracia.",
+      ctaWhats: "Fale comigo no WhatsApp",
+      ctaServices: "Conheça os serviços",
+      imgAlt: "Ilustração de tecnologia conectada",
+    },
+    about: {
+      tag: "Sobre Nós",
+      title: "Tecnologia que resolve, não que complica",
+      subtitle:
+        "A Agilo Nex nasceu para tornar a tecnologia acessível e prática para empresas que querem crescer sem dor de cabeça.",
+      items: [
+        { title: "Foco em PMEs", text: "Entendemos os desafios de pequenas e médias empresas e criamos soluções que cabem na sua realidade." },
+        { title: "Soluções Acessíveis", text: "Tecnologia de ponta sem custos exorbitantes. Resultados reais com investimento justo." },
+        { title: "Abordagem Prática", text: "Sem complicação. Trabalhamos lado a lado com você para entregar o que realmente importa." },
+      ],
+    },
+    services: {
+      tag: "Serviços",
+      title: "Soluções que impulsionam seu negócio",
+      subtitle: "Do diagnóstico à entrega, cuidamos de tudo para que você foque no que importa: crescer.",
+      learnMore: "Saiba mais",
+      items: [
+        {
+          title: "Automação com IA",
+          description: "Chatbots, atendimento automático e integrações inteligentes para escalar sua operação sem aumentar custos.",
+          items: ["Chatbots personalizados", "Atendimento automático", "Integrações inteligentes"],
+        },
+        {
+          title: "Integração de Sistemas",
+          description: "Conectamos seus sistemas e automatizamos processos para eliminar retrabalho e ganhar produtividade.",
+          items: ["APIs sob medida", "Automação de processos", "Conexão entre sistemas"],
+        },
+        {
+          title: "Desenvolvimento para Nichos",
+          description: "Sistemas personalizados e dashboards feitos sob medida para atender as necessidades específicas do seu negócio.",
+          items: ["Sistemas personalizados", "Dashboards analíticos", "Soluções sob medida"],
+        },
+        {
+          title: "LGPD e Privacidade",
+          description: "Organize seus dados e fique em conformidade com a legislação. Termos de uso, políticas de privacidade e mais.",
+          items: ["Termos de uso", "Políticas de privacidade", "Organização de dados"],
+        },
+      ],
+    },
+    how: {
+      tag: "Como Funciona",
+      title: "Simples, direto e eficiente",
+      steps: [
+        { title: "Entendimento", text: "Analisamos seu negócio e identificamos onde a tecnologia pode gerar mais resultado." },
+        { title: "Desenvolvimento", text: "Criamos a solução ideal com agilidade, mantendo você no controle de cada etapa." },
+        { title: "Entrega e Suporte", text: "Implementamos, treinamos sua equipe e garantimos suporte contínuo." },
+      ],
+    },
+    benefits: {
+      tag: "Benefícios",
+      title: "Resultados reais para o seu negócio",
+      items: [
+        { title: "Economia de Tempo", text: "Automatize tarefas repetitivas e libere sua equipe para o que importa." },
+        { title: "Redução de Erros", text: "Processos digitais eliminam falhas humanas e aumentam a precisão." },
+        { title: "Mais Organização", text: "Sistemas integrados trazem clareza e controle para toda sua operação." },
+        { title: "Segurança de Dados", text: "Proteja as informações do seu negócio e dos seus clientes com as melhores práticas." },
+      ],
+    },
+    portfolio: {
+      tag: "Portfólio & Laboratório",
+      title: "Projetos que demonstram nosso trabalho",
+      subtitle: "Conheça soluções reais que desenvolvemos para resolver problemas complexos com tecnologia acessível.",
+      projects: [
+        {
+          name: "Zenith ID",
+          title: "Governança de Identidades & Sustentabilidade Digital",
+          description: "Auditoria automatizada de identidades em nuvem com cálculo de pegada de carbono usando Python e Pandas.",
+          cta: "Ver Código",
+        },
+        {
+          name: "Hybrid Architect",
+          title: "Middleware de IA para Gestão de Prioridades",
+          description: "Sistema inteligente que categoriza urgência e impacto de tarefas usando LLMs e integração com Supabase.",
+          cta: "Demo Interativa",
+        },
+        {
+          name: "Wave Flow Tracker",
+          title: "Gestão de Rotina & eCommerce",
+          description: "Plataforma de acompanhamento de rotina para grooming (waves) com integração de vendas.",
+          cta: "Saiba Mais",
+        },
+      ],
+    },
+    cta: {
+      title: "Pronto para melhorar seu negócio?",
+      subtitle: "Converse com a gente e descubra como a tecnologia pode transformar sua operação de forma simples e acessível.",
+      whats: "WhatsApp",
+      quote: "Solicitar orçamento",
+    },
+    contact: {
+      tag: "Contato",
+      title: "Vamos conversar?",
+      subtitle: "Preencha o formulário ou fale diretamente pelo WhatsApp. Respondemos em até 24 horas.",
+      whats: "Falar no WhatsApp",
+      name: "Nome",
+      namePh: "Seu nome",
+      email: "Email",
+      emailPh: "seu@email.com",
+      message: "Mensagem",
+      messagePh: "Como podemos ajudar?",
+      send: "Enviar mensagem",
+      sending: "Enviando...",
+      success: "Mensagem enviada com sucesso! Entraremos em contato em breve.",
+    },
+    footer: {
+      rights: "Todos os direitos reservados.",
+    },
+    lang: {
+      label: "Idioma",
+      pt: "Português",
+      en: "English",
+      es: "Español",
+    },
+  },
+  en: {
+    nav: {
+      about: "About",
+      services: "Services",
+      how: "How It Works",
+      portfolio: "Portfolio",
+      contact: "Contact",
+      cta: "Talk to Us",
+    },
+    hero: {
+      title1: "Automate, Integrate and Protect your Business with",
+      titleHighlight: "Technology",
+      subtitle:
+        "AI, systems and data privacy solutions for businesses that want to grow with efficiency, not bureaucracy.",
+      ctaWhats: "Chat on WhatsApp",
+      ctaServices: "Explore services",
+      imgAlt: "Illustration of connected technology",
+    },
+    about: {
+      tag: "About Us",
+      title: "Technology that solves, not complicates",
+      subtitle:
+        "Agilo Nex was born to make technology accessible and practical for companies that want to grow without headaches.",
+      items: [
+        { title: "SMB Focused", text: "We understand the challenges of small and medium businesses and create solutions that fit your reality." },
+        { title: "Affordable Solutions", text: "Cutting-edge technology without exorbitant costs. Real results with fair investment." },
+        { title: "Practical Approach", text: "No complications. We work side by side with you to deliver what really matters." },
+      ],
+    },
+    services: {
+      tag: "Services",
+      title: "Solutions that drive your business",
+      subtitle: "From diagnosis to delivery, we handle everything so you can focus on what matters: growing.",
+      learnMore: "Learn more",
+      items: [
+        {
+          title: "AI Automation",
+          description: "Chatbots, automatic service and intelligent integrations to scale operations without raising costs.",
+          items: ["Custom chatbots", "Automatic service", "Smart integrations"],
+        },
+        {
+          title: "Systems Integration",
+          description: "We connect your systems and automate processes to eliminate rework and gain productivity.",
+          items: ["Custom APIs", "Process automation", "System connections"],
+        },
+        {
+          title: "Niche Development",
+          description: "Custom systems and dashboards built to fit the specific needs of your business.",
+          items: ["Custom systems", "Analytics dashboards", "Tailored solutions"],
+        },
+        {
+          title: "Data Privacy & GDPR",
+          description: "Organize your data and stay compliant with regulations. Terms of use, privacy policies and more.",
+          items: ["Terms of use", "Privacy policies", "Data organization"],
+        },
+      ],
+    },
+    how: {
+      tag: "How It Works",
+      title: "Simple, direct and effective",
+      steps: [
+        { title: "Understanding", text: "We analyze your business and identify where technology can deliver the most results." },
+        { title: "Development", text: "We create the ideal solution with agility, keeping you in control of every step." },
+        { title: "Delivery & Support", text: "We deploy, train your team and ensure ongoing support." },
+      ],
+    },
+    benefits: {
+      tag: "Benefits",
+      title: "Real results for your business",
+      items: [
+        { title: "Time Savings", text: "Automate repetitive tasks and free your team for what matters." },
+        { title: "Fewer Errors", text: "Digital processes eliminate human errors and increase precision." },
+        { title: "More Organization", text: "Integrated systems bring clarity and control to your operation." },
+        { title: "Data Security", text: "Protect your business and customer information with best practices." },
+      ],
+    },
+    portfolio: {
+      tag: "Portfolio & Lab",
+      title: "Projects that showcase our work",
+      subtitle: "Discover real solutions we built to solve complex problems with accessible technology.",
+      projects: [
+        {
+          name: "Zenith ID",
+          title: "Identity Governance & Digital Sustainability",
+          description: "Automated cloud identity auditing with carbon footprint calculation using Python and Pandas.",
+          cta: "View Code",
+        },
+        {
+          name: "Hybrid Architect",
+          title: "AI Middleware for Priority Management",
+          description: "Intelligent system that categorizes urgency and task impact using LLMs and Supabase integration.",
+          cta: "Interactive Demo",
+        },
+        {
+          name: "Wave Flow Tracker",
+          title: "Routine Management & eCommerce",
+          description: "Routine tracking platform for grooming (waves) with sales integration.",
+          cta: "Learn More",
+        },
+      ],
+    },
+    cta: {
+      title: "Ready to improve your business?",
+      subtitle: "Talk to us and discover how technology can transform your operation simply and affordably.",
+      whats: "WhatsApp",
+      quote: "Request a quote",
+    },
+    contact: {
+      tag: "Contact",
+      title: "Let's talk?",
+      subtitle: "Fill out the form or chat directly on WhatsApp. We reply within 24 hours.",
+      whats: "Chat on WhatsApp",
+      name: "Name",
+      namePh: "Your name",
+      email: "Email",
+      emailPh: "you@email.com",
+      message: "Message",
+      messagePh: "How can we help?",
+      send: "Send message",
+      sending: "Sending...",
+      success: "Message sent successfully! We'll get back to you soon.",
+    },
+    footer: {
+      rights: "All rights reserved.",
+    },
+    lang: {
+      label: "Language",
+      pt: "Português",
+      en: "English",
+      es: "Español",
+    },
+  },
+  es: {
+    nav: {
+      about: "Sobre",
+      services: "Servicios",
+      how: "Cómo Funciona",
+      portfolio: "Portafolio",
+      contact: "Contacto",
+      cta: "Habla con Nosotros",
+    },
+    hero: {
+      title1: "Automatiza, Integra y Protege tu Negocio con",
+      titleHighlight: "Tecnología",
+      subtitle:
+        "Soluciones de IA, sistemas y privacidad de datos para empresas que quieren crecer con eficiencia, no burocracia.",
+      ctaWhats: "Habla por WhatsApp",
+      ctaServices: "Conoce los servicios",
+      imgAlt: "Ilustración de tecnología conectada",
+    },
+    about: {
+      tag: "Sobre Nosotros",
+      title: "Tecnología que resuelve, no que complica",
+      subtitle:
+        "Agilo Nex nació para hacer la tecnología accesible y práctica para empresas que quieren crecer sin dolores de cabeza.",
+      items: [
+        { title: "Foco en PYMEs", text: "Entendemos los desafíos de pequeñas y medianas empresas y creamos soluciones que se adaptan a tu realidad." },
+        { title: "Soluciones Accesibles", text: "Tecnología de punta sin costos exorbitantes. Resultados reales con inversión justa." },
+        { title: "Enfoque Práctico", text: "Sin complicaciones. Trabajamos contigo para entregar lo que realmente importa." },
+      ],
+    },
+    services: {
+      tag: "Servicios",
+      title: "Soluciones que impulsan tu negocio",
+      subtitle: "Del diagnóstico a la entrega, nos encargamos de todo para que te enfoques en lo importante: crecer.",
+      learnMore: "Saber más",
+      items: [
+        {
+          title: "Automatización con IA",
+          description: "Chatbots, atención automática e integraciones inteligentes para escalar tu operación sin aumentar costos.",
+          items: ["Chatbots personalizados", "Atención automática", "Integraciones inteligentes"],
+        },
+        {
+          title: "Integración de Sistemas",
+          description: "Conectamos tus sistemas y automatizamos procesos para eliminar retrabajo y ganar productividad.",
+          items: ["APIs a medida", "Automatización de procesos", "Conexión entre sistemas"],
+        },
+        {
+          title: "Desarrollo para Nichos",
+          description: "Sistemas personalizados y dashboards a medida para las necesidades específicas de tu negocio.",
+          items: ["Sistemas personalizados", "Dashboards analíticos", "Soluciones a medida"],
+        },
+        {
+          title: "Privacidad y RGPD",
+          description: "Organiza tus datos y cumple con la legislación. Términos de uso, políticas de privacidad y más.",
+          items: ["Términos de uso", "Políticas de privacidad", "Organización de datos"],
+        },
+      ],
+    },
+    how: {
+      tag: "Cómo Funciona",
+      title: "Simple, directo y eficiente",
+      steps: [
+        { title: "Entendimiento", text: "Analizamos tu negocio e identificamos dónde la tecnología puede generar más resultados." },
+        { title: "Desarrollo", text: "Creamos la solución ideal con agilidad, manteniéndote en control de cada etapa." },
+        { title: "Entrega y Soporte", text: "Implementamos, capacitamos a tu equipo y garantizamos soporte continuo." },
+      ],
+    },
+    benefits: {
+      tag: "Beneficios",
+      title: "Resultados reales para tu negocio",
+      items: [
+        { title: "Ahorro de Tiempo", text: "Automatiza tareas repetitivas y libera a tu equipo para lo importante." },
+        { title: "Menos Errores", text: "Los procesos digitales eliminan fallas humanas y aumentan la precisión." },
+        { title: "Más Organización", text: "Sistemas integrados aportan claridad y control a toda tu operación." },
+        { title: "Seguridad de Datos", text: "Protege la información de tu negocio y clientes con las mejores prácticas." },
+      ],
+    },
+    portfolio: {
+      tag: "Portafolio & Laboratorio",
+      title: "Proyectos que demuestran nuestro trabajo",
+      subtitle: "Conoce soluciones reales que desarrollamos para resolver problemas complejos con tecnología accesible.",
+      projects: [
+        {
+          name: "Zenith ID",
+          title: "Gobernanza de Identidades & Sostenibilidad Digital",
+          description: "Auditoría automatizada de identidades en la nube con cálculo de huella de carbono usando Python y Pandas.",
+          cta: "Ver Código",
+        },
+        {
+          name: "Hybrid Architect",
+          title: "Middleware de IA para Gestión de Prioridades",
+          description: "Sistema inteligente que categoriza urgencia e impacto de tareas usando LLMs e integración con Supabase.",
+          cta: "Demo Interactiva",
+        },
+        {
+          name: "Wave Flow Tracker",
+          title: "Gestión de Rutina & eCommerce",
+          description: "Plataforma de seguimiento de rutina para grooming (waves) con integración de ventas.",
+          cta: "Saber Más",
+        },
+      ],
+    },
+    cta: {
+      title: "¿Listo para mejorar tu negocio?",
+      subtitle: "Habla con nosotros y descubre cómo la tecnología puede transformar tu operación de forma simple y accesible.",
+      whats: "WhatsApp",
+      quote: "Solicitar presupuesto",
+    },
+    contact: {
+      tag: "Contacto",
+      title: "¿Hablamos?",
+      subtitle: "Completa el formulario o habla directamente por WhatsApp. Respondemos en 24 horas.",
+      whats: "Hablar por WhatsApp",
+      name: "Nombre",
+      namePh: "Tu nombre",
+      email: "Email",
+      emailPh: "tu@email.com",
+      message: "Mensaje",
+      messagePh: "¿Cómo podemos ayudar?",
+      send: "Enviar mensaje",
+      sending: "Enviando...",
+      success: "¡Mensaje enviado con éxito! Te contactaremos pronto.",
+    },
+    footer: {
+      rights: "Todos los derechos reservados.",
+    },
+    lang: {
+      label: "Idioma",
+      pt: "Português",
+      en: "English",
+      es: "Español",
+    },
+  },
+};
+
+export type TranslationShape = typeof translations.pt;

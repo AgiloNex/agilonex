@@ -1,26 +1,29 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-
-const navLinks = [
-  { label: "Sobre", href: "#sobre" },
-  { label: "Serviços", href: "#servicos" },
-  { label: "Como Funciona", href: "#como-funciona" },
-  { label: "Portfólio", href: "#portfolio" },
-  { label: "Contato", href: "#contato" },
-];
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
+  const { t } = useLanguage();
+
+  const navLinks = [
+    { label: t.nav.about, href: "#sobre" },
+    { label: t.nav.services, href: "#servicos" },
+    { label: t.nav.how, href: "#como-funciona" },
+    { label: t.nav.portfolio, href: "#portfolio" },
+    { label: t.nav.contact, href: "#contato" },
+  ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
       <div className="container flex items-center justify-between h-16">
         <a href="#" className="text-xl font-bold text-foreground tracking-tight">
-          Nexus<span className="text-primary">Tech</span>
+          Agilo<span className="text-primary"> Nex</span>
         </a>
 
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -30,13 +33,14 @@ const Header = () => {
               {link.label}
             </a>
           ))}
+          <LanguageSwitcher />
           <a
             href="https://wa.me/5500000000000"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm hover:shadow-lg transition-all duration-200"
           >
-            Fale Conosco
+            {t.nav.cta}
           </a>
         </nav>
 
@@ -68,13 +72,14 @@ const Header = () => {
                   {link.label}
                 </a>
               ))}
+              <LanguageSwitcher variant="mobile" />
               <a
                 href="https://wa.me/5500000000000"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-md bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground"
               >
-                Fale Conosco
+                {t.nav.cta}
               </a>
             </nav>
           </motion.div>
