@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ShieldCheck, BrainCircuit, BarChart3, Code, Play, ExternalLink } from "lucide-react";
+import { ShieldCheck, BrainCircuit, BarChart3, Code, Play, ExternalLink, Plane, ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const icons = [ShieldCheck, BrainCircuit, BarChart3];
@@ -32,6 +32,46 @@ const PortfolioSection = () => {
             {t.portfolio.subtitle}
           </p>
         </motion.div>
+
+        {/* Featured project: Agilo Milhas */}
+        <motion.a
+          href="https://agilo-miles.lovable.app"
+          target="_blank"
+          rel="noopener noreferrer"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="group relative block mb-10 rounded-[24px] border border-primary/30 bg-gradient-to-br from-primary/15 via-background/5 to-accent/10 backdrop-blur-sm p-8 md:p-10 overflow-hidden hover:border-primary/60 transition-all duration-300"
+        >
+          <div className="absolute -top-20 -right-20 h-64 w-64 rounded-full bg-primary/20 blur-3xl opacity-60 group-hover:opacity-100 transition-opacity" />
+
+          <div className="relative grid md:grid-cols-[auto,1fr,auto] items-center gap-6">
+            <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/20 text-primary shrink-0">
+              <Plane size={32} />
+            </div>
+
+            <div>
+              <span className="inline-block text-xs font-semibold uppercase tracking-widest text-primary mb-2">
+                ★ {t.portfolio.featuredLabel}
+              </span>
+              <h3 className="text-2xl md:text-3xl font-bold tracking-tight">
+                {t.portfolio.featured.name}
+              </h3>
+              <p className="mt-1 text-base text-background/80 font-medium">
+                {t.portfolio.featured.title}
+              </p>
+              <p className="mt-3 text-sm text-background/60 leading-relaxed max-w-2xl">
+                {t.portfolio.featured.description}
+              </p>
+            </div>
+
+            <div className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground group-hover:gap-3 transition-all shrink-0">
+              {t.portfolio.featured.cta}
+              <ArrowUpRight size={16} />
+            </div>
+          </div>
+        </motion.a>
 
         <div className="grid md:grid-cols-3 gap-6">
           {t.portfolio.projects.map((p, i) => {
