@@ -78,13 +78,16 @@ const PortfolioSection = () => {
             const Icon = icons[i];
             const CtaIcon = ctaIcons[i];
             return (
-              <motion.div
+              <motion.a
                 key={p.name}
+                href={p.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.12 }}
-                className="group relative rounded-[20px] border border-background/10 bg-background/5 backdrop-blur-sm p-8 flex flex-col hover:bg-background/10 transition-colors duration-300"
+                className="group relative block rounded-[20px] border border-background/10 bg-background/5 backdrop-blur-sm p-8 hover:bg-background/10 hover:border-primary/40 transition-all duration-300"
               >
                 <div
                   className={`absolute top-0 left-8 right-8 h-[2px] rounded-full bg-gradient-to-r ${accents[i]} opacity-60 group-hover:opacity-100 transition-opacity`}
@@ -94,17 +97,17 @@ const PortfolioSection = () => {
                   <Icon size={24} />
                 </div>
 
-                <span className="text-xs font-semibold uppercase tracking-widest text-primary/80 mb-2">
+                <span className="text-xs font-semibold uppercase tracking-widest text-primary/80 mb-2 block">
                   {p.name}
                 </span>
                 <h3 className="text-lg font-semibold tracking-tight leading-snug">{p.title}</h3>
-                <p className="mt-3 text-sm text-background/55 leading-relaxed flex-1">{p.description}</p>
+                <p className="mt-3 text-sm text-background/55 leading-relaxed">{p.description}</p>
 
-                <button className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-accent transition-colors duration-200 self-start">
+                <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-primary group-hover:text-accent group-hover:gap-3 transition-all duration-200">
                   <CtaIcon size={14} />
                   {p.cta}
-                </button>
-              </motion.div>
+                </span>
+              </motion.a>
             );
           })}
         </div>
