@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import { ShieldCheck, BrainCircuit, BarChart3, Code, Play, ExternalLink, Plane, ArrowUpRight } from "lucide-react";
+import { ShieldCheck, BrainCircuit, Sparkles, Code, Play, ExternalLink, Plane, ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
-const icons = [ShieldCheck, BrainCircuit, BarChart3];
+const icons = [ShieldCheck, BrainCircuit, Sparkles];
 const ctaIcons = [Code, Play, ExternalLink];
 const accents = [
   "from-primary to-accent",
