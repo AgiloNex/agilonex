@@ -23,7 +23,7 @@ export const translations = {
       tag: "Sobre Nós",
       title: "Tecnologia que resolve, não que complica",
       subtitle:
-        "A Agilo Nex nasceu para tornar a tecnologia acessível e prática para empresas que querem crescer sem dor de cabeça.",
+        "A AgiloNex nasceu para tornar a tecnologia acessível e prática para empresas que querem crescer sem dor de cabeça.",
       items: [
         { title: "Foco em PMEs", text: "Entendemos os desafios de pequenas e médias empresas e criamos soluções que cabem na sua realidade." },
         { title: "Soluções Acessíveis", text: "Tecnologia de ponta sem custos exorbitantes. Resultados reais com investimento justo." },
@@ -85,7 +85,7 @@ export const translations = {
       featured: {
         name: "Agilo Milhas",
         title: "Plataforma de gestão e troca de milhas aéreas",
-        description: "Uma das soluções da Agilo Nex em produção: ajuda viajantes e empresas a maximizar o valor das suas milhas com transparência e inteligência.",
+        description: "Uma das soluções da AgiloNex em produção: ajuda viajantes e empresas a maximizar o valor das suas milhas com transparência e inteligência.",
         cta: "Acessar plataforma",
       },
       projects: [
@@ -162,7 +162,7 @@ export const translations = {
       tag: "About Us",
       title: "Technology that solves, not complicates",
       subtitle:
-        "Agilo Nex was born to make technology accessible and practical for companies that want to grow without headaches.",
+        "AgiloNex was born to make technology accessible and practical for companies that want to grow without headaches.",
       items: [
         { title: "SMB Focused", text: "We understand the challenges of small and medium businesses and create solutions that fit your reality." },
         { title: "Affordable Solutions", text: "Cutting-edge technology without exorbitant costs. Real results with fair investment." },
@@ -224,7 +224,7 @@ export const translations = {
       featured: {
         name: "Agilo Milhas",
         title: "Airline miles management & exchange platform",
-        description: "One of Agilo Nex's production solutions: helps travelers and businesses maximize the value of their miles with transparency and intelligence.",
+        description: "One of AgiloNex's production solutions: helps travelers and businesses maximize the value of their miles with transparency and intelligence.",
         cta: "Open platform",
       },
       projects: [
@@ -301,7 +301,7 @@ export const translations = {
       tag: "Sobre Nosotros",
       title: "Tecnología que resuelve, no que complica",
       subtitle:
-        "Agilo Nex nació para hacer la tecnología accesible y práctica para empresas que quieren crecer sin dolores de cabeza.",
+        "AgiloNex nació para hacer la tecnología accesible y práctica para empresas que quieren crecer sin dolores de cabeza.",
       items: [
         { title: "Foco en PYMEs", text: "Entendemos los desafíos de pequeñas y medianas empresas y creamos soluciones que se adaptan a tu realidad." },
         { title: "Soluciones Accesibles", text: "Tecnología de punta sin costos exorbitantes. Resultados reales con inversión justa." },
@@ -363,7 +363,7 @@ export const translations = {
       featured: {
         name: "Agilo Milhas",
         title: "Plataforma de gestión e intercambio de millas aéreas",
-        description: "Una de las soluciones de Agilo Nex en producción: ayuda a viajeros y empresas a maximizar el valor de sus millas con transparencia e inteligencia.",
+        description: "Una de las soluciones de AgiloNex en producción: ayuda a viajeros y empresas a maximizar el valor de sus millas con transparencia e inteligencia.",
         cta: "Acceder a la plataforma",
       },
       projects: [
