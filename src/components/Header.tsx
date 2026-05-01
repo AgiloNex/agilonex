@@ -3,6 +3,7 @@ import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useLanguage } from "@/i18n/LanguageContext";
+import logoMark from "@/assets/agilonex-mark.png";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -19,8 +20,9 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
       <div className="container flex items-center justify-between h-16">
-        <a href="#" className="text-xl font-bold text-foreground tracking-tight">
-          Agilo<span className="text-primary">Nex</span>
+        <a href="#" className="flex items-center gap-2 text-xl font-bold text-foreground tracking-tight">
+          <img src={logoMark} alt="AgiloNex" className="h-8 w-8 object-contain" />
+          <span>Agilo<span className="text-primary">Nex</span></span>
         </a>
 
         <nav className="hidden md:flex items-center gap-6">
