@@ -1,16 +1,13 @@
 import { useLanguage } from "@/i18n/LanguageContext";
-import logoMark from "@/assets/agilonex-mark.png";
+import logoMark from "@/assets/agilonex-logo-full.png";
 
 const Footer = () => {
   const { t } = useLanguage();
   return (
     <footer className="border-t border-border py-10">
       <div className="container flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-        <div className="flex items-center gap-2">
-          <img src={logoMark} alt="AgiloNex" className="h-7 w-7 object-contain" />
-          <p className="font-semibold text-foreground tracking-tight">
-            Agilo<span className="text-primary">Nex</span>
-          </p>
+        <div className="flex items-center">
+          <img src={logoMark} alt="AgiloNex" className="h-7 w-auto object-contain" />
         </div>
         <p>© {new Date().getFullYear()} {t.footer.rights}</p>
       </div>
