@@ -19,9 +19,9 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
-      <div className="container flex items-center justify-between h-20">
+      <div className="container flex items-center justify-between h-24 md:h-28">
         <a href="#" className="flex items-center" aria-label="AgiloNex">
-          <img src={logoMark} alt="AgiloNex" className="h-12 md:h-14 w-auto object-contain" />
+          <img src={logoMark} alt="AgiloNex" className="h-20 md:h-24 w-auto object-contain" />
         </a>
 
         <nav className="hidden md:flex items-center gap-6">
