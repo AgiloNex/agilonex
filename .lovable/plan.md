@@ -1,64 +1,88 @@
+# Plano: Seção de Pricing com Ancoragem Psicológica
+
+Criar uma nova seção `PricingSection` posicionada **entre Serviços e Como Funciona**, aplicando a técnica de ancoragem: card âncora de alto valor à esquerda, oferta principal destacada ao centro (com preço âncora riscado dentro), e plano básico discreto à direita.
+
+## Planos propostos (baseados nos serviços atuais do site)
+
+Como a AgiloNex oferece automação com IA, integrações, desenvolvimento sob medida e LGPD, faz sentido empacotar como combos de implementação + assinatura de suporte. Mantive a âncora em ~4x o principal (regra de 3x–5x).
 
 
-## Plano: Renomear para "Agilo Nex" + Seletor de Idioma
+| Vamos diminuir os valores dos planos inIciar em 250, 397 800                                                                                                                                                                                                                                 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
+| Estrutura: ✅ BoaÂncora: ✅ FuncionaStarter: ⚠️ Sobe pra R$1.497Principal: ⚠️ Separa implementação + mensalidadeSuporte vitalício: ❌ Troca por prazo definido ou assinatura mensalMaior erro a evitar agora:Vender suporte vitalício sem ter estruturapra honrar isso em 2, 3, 5 anos. | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| Se é implementação + suporte mensal: → Separa os dois valores → Ex: R$2.500 implementação + R$300/mês suporte Se é só assinatura anual: → Deixa explícito: R$4.900/ano = R$408/mês → Soa muito melhor                                                                                        | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| &nbsp;                                                                                                                                                                                                                                                                                       | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 
-### 1. Renomear empresa: NexusTech → Agilo Nex
-Atualizar a marca em todos os componentes:
-- `Header.tsx` — logo "Agilo<span>Nex</span>"
-- `Footer.tsx` — "Agilo Nex Solutions"
-- `index.html` — title e meta description
-- `AboutSection.tsx`, `HeroSection.tsx` (se mencionarem o nome)
 
-### 2. Seletor de idioma compacto no Header
-Pequeno dropdown ao lado do botão "Fale Conosco" com 3 idiomas:
-- 🇧🇷 PT (padrão)
-- 🇺🇸 EN
-- 🇪🇸 ES
+Economia exibida no card principal: **R$ 15.000** (19.900 − 4.900).
 
-**Visual:** botão minimalista com ícone `Globe` (lucide) + código do idioma atual (ex: "PT"), abrindo um menu pequeno via `DropdownMenu` (shadcn) já presente no projeto. Aparece tanto no desktop quanto no menu mobile.
+## Conteúdo de cada card
 
-### 3. Sistema de tradução (i18n)
-Implementar tradução real do conteúdo (não só visual), pois a ideia é substituir o Google Tradutor:
+**Enterprise Custom (Âncora)**
 
-- Criar `src/i18n/translations.ts` com objetos `pt`, `en`, `es` contendo todos os textos das seções (hero, sobre, serviços, como funciona, benefícios, portfólio, CTA, contato, footer, header).
-- Criar `src/i18n/LanguageContext.tsx` — Context API com:
-  - estado `language` ('pt' | 'en' | 'es')
-  - função `setLanguage`
-  - função `t(key)` para buscar texto
-  - persistência em `localStorage`
-- Envolver `App.tsx` com `LanguageProvider`.
-- Atualizar cada seção (`HeroSection`, `AboutSection`, `ServicesSection`, `HowItWorksSection`, `BenefitsSection`, `PortfolioSection`, `CtaSection`, `ContactSection`, `Header`, `Footer`) para consumir `useLanguage()` e usar `t('chave.subchave')` em vez de strings fixas.
-- Atualizar `<html lang>` dinamicamente conforme idioma selecionado.
+- Badge: "Completo"
+- Subtítulo: "Valor completo do projeto"
+- Benefícios: Squad dedicado · IA + Integrações + Sistema sob medida · Adequação LGPD completa · SLA prioritário · Onboarding presencial
+- CTA: "Saiba mais" (outline, secundário)
 
-### 4. Estrutura do seletor
+**Essencial AgiloNex (Principal)**
+
+- Badge topo: "⭐ Melhor Escolha"
+- Preço riscado: R$ 19.900 (opacidade 50%, line-through)
+- Preço grande: **R$ 4.900**
+- Pill verde: "💰 Economia de R$ 15.000 em relação ao plano completo"
+- Tag "Suporte vitalício incluso" (por ser assinatura)
+- Benefícios: Automação com IA pronta · 1 integração-chave · Dashboard analítico · Treinamento da equipe · Suporte vitalício
+- CTA: "Quero agora" → abre WhatsApp
+
+**Starter Automation (Básico)**
+
+- Sem badge, visual discreto
+- Benefícios: 1 chatbot OU automação simples · Entrega em 7 dias · 7 dias de garantia · Suporte por 30 dias
+- CTA: "Começar" (ghost/outline)
+
+## Estrutura visual
 
 ```text
-Desktop Header:
-[Logo Agilo Nex]    [Sobre] [Serviços] ...    [🌐 PT ▾] [Fale Conosco]
-                                                  │
-                                                  ├─ 🇧🇷 Português
-                                                  ├─ 🇺🇸 English
-                                                  └─ 🇪🇸 Español
+┌─ Tag "Planos" + Título + Subtítulo ─────────────────────────┐
+│ Texto de ancoragem: "O valor total do Enterprise Custom é   │
+│ R$ 19.900. Mas hoje você pode acessar o essencial por uma   │
+│ fração desse valor."                                        │
+└─────────────────────────────────────────────────────────────┘
+
+  ┌─────────┐   ┌───────────┐   ┌─────────┐
+  │ Âncora  │   │ PRINCIPAL │   │ Básico  │
+  │ (dark)  │   │ scale 1.05│   │         │
+  │         │   │ shadow XL │   │         │
+  └─────────┘   └───────────┘   └─────────┘
+
+  🔒 Compra segura · ✅ 7 dias de garantia · ♾️ Suporte vitalício nas assinaturas
 ```
 
-No mobile, o seletor aparece dentro do menu hamburguer, acima do botão "Fale Conosco".
+Mobile: **Principal primeiro**, depois Âncora (reduzida), depois Básico — empilhados.
 
-### Arquivos a criar
-- `src/i18n/translations.ts`
-- `src/i18n/LanguageContext.tsx`
-- `src/components/LanguageSwitcher.tsx`
+## Detalhes técnicos
 
-### Arquivos a editar
-- `src/App.tsx` (LanguageProvider)
-- `src/components/Header.tsx` (logo + LanguageSwitcher)
-- `src/components/Footer.tsx` (logo)
-- `src/components/HeroSection.tsx`
-- `src/components/AboutSection.tsx`
-- `src/components/ServicesSection.tsx`
-- `src/components/HowItWorksSection.tsx`
-- `src/components/BenefitsSection.tsx`
-- `src/components/PortfolioSection.tsx`
-- `src/components/CtaSection.tsx`
-- `src/components/ContactSection.tsx`
-- `index.html` (title/meta)
+- **Novo arquivo**: `src/components/PricingSection.tsx`
+- **Registrar em**: `src/pages/Index.tsx` entre `<ServicesSection />` e `<HowItWorksSection />`
+- **Traduções**: adicionar bloco `pricing` em `src/i18n/translations.ts` (pt/en/es) com: tag, title, subtitle, anchorIntro, plans[3] (name, price, oldPrice, period, badge, features[], cta, ctaType), savingsLabel, trustRow
+- **Nav**: adicionar item "Planos" em `nav` (pt/en/es) e link `#planos` no Header
+- **Estilos**: usar tokens semânticos do design system (`bg-primary`, `bg-card`, `border-border`, `text-muted-foreground`). Nada de cores hardcoded.
+  - Card principal: `bg-primary text-primary-foreground shadow-2xl md:scale-105`
+  - Card âncora: `bg-secondary border-border`
+  - Pill economia: verde via classe utilitária com token (`bg-green-500/15 text-green-400` aceitável como acento, ou criar token `--success`)
+  - Preço riscado: `line-through opacity-50`
+- **CTA principal**: reaproveita o helper de link do WhatsApp já usado em `WhatsAppButton`/`CtaSection`
+- **Responsivo**: `grid-cols-1 md:grid-cols-3`, ordem mobile via `order-*` (Principal `order-1`, Âncora `order-2`, Básico `order-3`)
+- **Acessibilidade**: cada card é `<article>` com `<h3>`; badges com `aria-label`
 
+## Checklist de validação
+
+- Preço âncora riscado dentro do card Principal ✓
+- Economia calculada (R$ 15.000) exibida em pill vibrante ✓
+- Card Principal com `scale-1.05` + shadow elevado ✓
+- Badge "Melhor Escolha" só no Principal ✓
+- CTA forte (WhatsApp) só no Principal ✓
+- Texto de ancoragem acima dos cards ✓
+- Mobile: Principal no topo ✓
+- 3 idiomas traduzidos ✓

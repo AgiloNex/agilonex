@@ -13,6 +13,7 @@ const Header = () => {
     { label: t.nav.about, href: "#sobre" },
     { label: t.nav.services, href: "#servicos" },
     { label: t.nav.how, href: "#como-funciona" },
+    { label: t.nav.pricing, href: "#planos" },
     { label: t.nav.portfolio, href: "#portfolio" },
     { label: t.nav.contact, href: "#contato" },
   ];
