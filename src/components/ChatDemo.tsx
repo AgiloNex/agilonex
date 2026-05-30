@@ -201,7 +201,7 @@ const ChatDemo = () => {
                 </div>
                 <div className="flex items-center gap-1.5 text-[11px] font-medium text-emerald-400">
                   <span className="h-2 w-2 rounded-full bg-emerald-400" />
-                  online
+                  Online
                 </div>
               </div>
 
@@ -246,7 +246,7 @@ const ChatDemo = () => {
                           </span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <span className="text-xs text-slate-300">digitando...</span>
+                          <span className="text-xs text-slate-300">Digitando...</span>
                           <div className="flex items-center gap-1">
                             <span className="h-2 w-2 animate-bounce rounded-full bg-slate-300 [animation-delay:-0.2s]" />
                             <span className="h-2 w-2 animate-bounce rounded-full bg-slate-300 [animation-delay:-0.1s]" />
