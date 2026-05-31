@@ -313,8 +313,8 @@ const NichosSections = () => {
                       <div className="rounded-[24px] border border-white/10 bg-[linear-gradient(180deg,rgba(15,23,42,0.94),rgba(2,6,23,0.98))] p-5">
                         <div className="flex items-center justify-between border-b border-white/10 pb-4">
                           <div>
-                            <p className="text-sm font-semibold text-background">{niche.mockupTitle}</p>
-                            <p className="text-xs text-background/60">{niche.mockupSummary}</p>
+                            <p className="text-sm font-semibold text-foreground">{niche.mockupTitle}</p>
+                            <p className="text-xs text-muted-foreground">{niche.mockupSummary}</p>
                           </div>
                           <div className="rounded-full bg-primary/15 px-3 py-1 text-xs font-semibold text-primary">
                             IA ativa
@@ -330,10 +330,10 @@ const NichosSections = () => {
                               }`}
                             >
                               <div className="flex items-center justify-between gap-3">
-                                <span className="text-xs uppercase tracking-[0.22em] text-background/55">
+                                <span className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
                                   {item.label}
                                 </span>
-                                <span className="text-sm font-semibold text-background">{item.value}</span>
+                                <span className="text-sm font-semibold text-foreground">{item.value}</span>
                               </div>
                             </div>
                           ))}
@@ -343,7 +343,7 @@ const NichosSections = () => {
                           <p className="text-xs uppercase tracking-[0.25em] text-primary/80">
                             {niche.icon} Demo ao vivo
                           </p>
-                          <p className="mt-2 text-sm leading-relaxed text-background/85">
+                          <p className="mt-2 text-sm leading-relaxed text-foreground/85">
                             Atendimento automático, resposta rápida e transferência humana só quando necessário.
                           </p>
                         </div>
