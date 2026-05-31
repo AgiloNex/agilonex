@@ -36,7 +36,7 @@ const FAQ_ITEMS = [
 ];
 
 const WHATSAPP_URL =
-  "https://wa.me/553197546901020?text=Vim%20pelo%20site%20da%20AgiloNex%20e%20quero%20saber%20mais.";
+  "https://wa.me/5531975469010?text=Vim%20pelo%20site%20da%20AgiloNex%20e%20quero%20saber%20mais.";
 
 const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);

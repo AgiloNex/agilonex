@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
 
 const WHATSAPP_URL =
-  "https://wa.me/553197546901020?text=Vim%20pelo%20site%20da%20AgiloNex%20e%20quero%20saber%20mais.";
+  "https://wa.me/5531975469010?text=Vim%20pelo%20site%20da%20AgiloNex%20e%20quero%20saber%20mais.";
 
 const WhatsAppFloat = () => {
   const [isTooltipOpen, setIsTooltipOpen] = useState(false);
