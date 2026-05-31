@@ -1,4 +1,5 @@
 import { useLanguage } from "@/i18n/LanguageContext";
+import { Link } from "react-router-dom";
 import logoMark from "@/assets/agilonex-logo-full.png";
 
 const Footer = () => {
@@ -9,7 +10,17 @@ const Footer = () => {
         <div className="flex items-center">
           <img src={logoMark} alt="AgiloNex" className="h-20 w-auto object-contain" />
         </div>
-        <p>© {new Date().getFullYear()} {t.footer.rights}</p>
+        <div className="flex flex-col items-center gap-3 md:items-end">
+          <p>© {new Date().getFullYear()} {t.footer.rights}</p>
+          <div className="flex items-center gap-4">
+            <Link to="/lgpd" className="hover:text-foreground transition-colors">
+              LGPD
+            </Link>
+            <Link to="/termos-de-uso" className="hover:text-foreground transition-colors">
+              Termos de uso
+            </Link>
+          </div>
+        </div>
       </div>
     </footer>
   );
