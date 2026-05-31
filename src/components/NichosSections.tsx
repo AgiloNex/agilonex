@@ -253,7 +253,7 @@ const NichosSections = () => {
                     <h3 className="mt-5 text-2xl md:text-3xl font-bold tracking-tight text-foreground normal-case">
                       {niche.title}
                     </h3>
-                    <p className="mt-3 text-base text-muted-foreground text-pretty">
+                    <p className="mt-3 text-base text-foreground text-pretty">
                       {niche.subtitle}
                     </p>
 
@@ -262,7 +262,7 @@ const NichosSections = () => {
                         <p className="text-sm font-semibold text-foreground">Dores comuns</p>
                         <ul className="mt-4 space-y-3">
                           {niche.painPoints.map((item) => (
-                            <li key={item} className="flex items-start gap-3 text-sm text-muted-foreground">
+                            <li key={item} className="flex items-start gap-3 text-sm text-foreground">
                               <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-rose-500/15 text-rose-400">
                                 <X size={13} />
                               </span>
@@ -276,7 +276,7 @@ const NichosSections = () => {
                         <p className="text-sm font-semibold text-foreground">Soluções com IA</p>
                         <ul className="mt-4 space-y-3">
                           {niche.solutions.map((item) => (
-                            <li key={item} className="flex items-start gap-3 text-sm text-muted-foreground">
+                            <li key={item} className="flex items-start gap-3 text-sm text-foreground">
                               <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-400">
                                 <Check size={13} />
                               </span>
