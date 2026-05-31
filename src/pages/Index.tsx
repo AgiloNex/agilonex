@@ -7,6 +7,7 @@ import HowItWorksSection from "@/components/HowItWorksSection";
 import BenefitsSection from "@/components/BenefitsSection";
 import PortfolioSection from "@/components/PortfolioSection";
 import ChatDemo from "@/components/ChatDemo";
+import ROICalculator from "@/components/ROICalculator";
 import FAQSection from "@/components/FAQSection";
 import CtaSection from "@/components/CtaSection";
 import ContactSection from "@/components/ContactSection";
@@ -24,6 +25,7 @@ const Index = () => (
       <BenefitsSection />
       <PortfolioSection />
       <ChatDemo />
+      <ROICalculator />
       <FAQSection />
       <CtaSection />
       <ContactSection />
