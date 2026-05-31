@@ -7,10 +7,10 @@ import HowItWorksSection from "@/components/HowItWorksSection";
 import BenefitsSection from "@/components/BenefitsSection";
 import PortfolioSection from "@/components/PortfolioSection";
 import ChatDemo from "@/components/ChatDemo";
+import FAQSection from "@/components/FAQSection";
 import CtaSection from "@/components/CtaSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
 
 const Index = () => (
   <>
@@ -24,11 +24,11 @@ const Index = () => (
       <BenefitsSection />
       <PortfolioSection />
       <ChatDemo />
+      <FAQSection />
       <CtaSection />
       <ContactSection />
     </main>
     <Footer />
-    <WhatsAppButton />
   </>
 );
 
