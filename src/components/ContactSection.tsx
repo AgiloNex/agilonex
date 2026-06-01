@@ -254,9 +254,18 @@ const ContactSection = () => {
                 </div>
               </a>
 
-              <div className="mt-6">
-                <p className="text-sm font-medium text-foreground">{t.contactSection.direct.socials}</p>
-                <div className="mt-3 flex items-center gap-3">
+              <div className="flex items-center gap-3 rounded-2xl border border-border/70 bg-card/70 p-4">
+                <Loader2 className="h-5 w-5 text-cyan-400" />
+                <div>
+                  <p className="font-medium text-foreground">Atendimento</p>
+                  <p className="text-muted-foreground">Seg–Sex, 8h–18h</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-6">
+              <p className="text-sm font-medium text-foreground">{t.contactSection.direct.socials}</p>
+              <div className="mt-3 flex items-center gap-3">
                   <a
                     href="https://www.linkedin.com/company/agilonex"
                     target="_blank"
