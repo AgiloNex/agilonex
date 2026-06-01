@@ -266,25 +266,24 @@ const ContactSection = () => {
             <div className="mt-6">
               <p className="text-sm font-medium text-foreground">{t.contactSection.direct.socials}</p>
               <div className="mt-3 flex items-center gap-3">
-                  <a
-                    href="https://www.linkedin.com/company/agilonex"
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="LinkedIn"
-                    className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border/70 bg-card/70 text-muted-foreground transition-colors hover:border-blue-500/40 hover:bg-blue-500/10 hover:text-foreground"
-                  >
-                    <Linkedin className="h-5 w-5" />
-                  </a>
-                  <a
-                    href="https://www.instagram.com/agilonex"
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="Instagram"
-                    className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border/70 bg-card/70 text-muted-foreground transition-colors hover:border-blue-500/40 hover:bg-blue-500/10 hover:text-foreground"
-                  >
-                    <Instagram className="h-5 w-5" />
-                  </a>
-                </div>
+                <a
+                  href="https://www.linkedin.com/company/agilonex"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="LinkedIn"
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border/70 bg-card/70 text-muted-foreground transition-colors hover:border-blue-500/40 hover:bg-blue-500/10 hover:text-foreground"
+                >
+                  <Linkedin className="h-5 w-5" />
+                </a>
+                <a
+                  href="https://www.instagram.com/agilonex"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Instagram"
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border/70 bg-card/70 text-muted-foreground transition-colors hover:border-blue-500/40 hover:bg-blue-500/10 hover:text-foreground"
+                >
+                  <Instagram className="h-5 w-5" />
+                </a>
               </div>
             </div>
           </motion.aside>
