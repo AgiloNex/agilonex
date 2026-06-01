@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useLanguage } from "@/i18n/LanguageContext";
 import logoMark from "@/assets/agilonex-logo-full.png";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
-  const { t } = useLanguage();
+  const { t, languagePath } = useLanguage();
 
   const navLinks = [
     { label: t.nav.about, href: "#sobre" },
@@ -21,9 +22,9 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
       <div className="container flex items-center justify-between h-24 md:h-28">
-        <a href="#" className="flex items-center" aria-label="AgiloNex">
+        <Link to={languagePath()} className="flex items-center" aria-label="AgiloNex">
           <img src={logoMark} alt="AgiloNex" className="h-20 md:h-24 w-auto object-contain" />
-        </a>
+        </Link>
 
         <nav className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (

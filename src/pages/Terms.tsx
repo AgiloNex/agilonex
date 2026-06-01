@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const items = [
   {
@@ -29,6 +30,7 @@ const items = [
 ];
 
 const Terms = () => {
+  const { languagePath } = useLanguage();
   return (
     <main className="min-h-screen bg-background py-20 md:py-28">
       <div className="container max-w-4xl">
@@ -63,7 +65,7 @@ const Terms = () => {
         </p>
 
         <Link
-          to="/"
+          to={languagePath()}
           className="mt-8 inline-flex items-center rounded-md bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground"
         >
           Voltar para a home

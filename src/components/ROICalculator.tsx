@@ -47,7 +47,7 @@ const AnimatedNumber = ({ value, formatter, className }: AnimatedNumberProps) =>
     frame = window.requestAnimationFrame(animate);
 
     return () => window.cancelAnimationFrame(frame);
-  }, [value, displayValue]);
+  }, [value]);
 
   return <span className={className}>{formatter(displayValue)}</span>;
 };

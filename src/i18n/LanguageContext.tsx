@@ -5,6 +5,7 @@ interface LanguageContextValue {
   language: Language;
   setLanguage: (lang: Language) => void;
   t: TranslationShape;
+  languagePath: (path?: string) => string;
 }
 
 const LanguageContext = createContext<LanguageContextValue | undefined>(undefined);
@@ -17,10 +18,19 @@ const HTML_LANG_MAP: Record<Language, string> = {
 
 const STORAGE_KEY = "agilo-nex-language";
 
+const isLanguage = (value: string): value is Language => ["pt", "en", "es"].includes(value);
+
+export const getLanguageFromPath = (pathname: string): Language | null => {
+  const segment = pathname.split("/").filter(Boolean)[0];
+  return segment && isLanguage(segment) ? segment : null;
+};
+
 const getInitialLanguage = (): Language => {
   if (typeof window === "undefined") return "pt";
+  const fromPath = getLanguageFromPath(window.location.pathname);
+  if (fromPath) return fromPath;
   const stored = window.localStorage.getItem(STORAGE_KEY) as Language | null;
-  if (stored && ["pt", "en", "es"].includes(stored)) return stored;
+  if (stored && isLanguage(stored)) return stored;
   const browser = window.navigator.language.toLowerCase();
   if (browser.startsWith("en")) return "en";
   if (browser.startsWith("es")) return "es";
@@ -36,9 +46,10 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   }, [language]);
 
   const setLanguage = (lang: Language) => setLanguageState(lang);
+  const languagePath = (path = "") => `/${language}${path.startsWith("/") ? path : path ? `/${path}` : ""}`;
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t: translations[language] }}>
+    <LanguageContext.Provider value={{ language, setLanguage, t: translations[language], languagePath }}>
       {children}
     </LanguageContext.Provider>
   );

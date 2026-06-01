@@ -1,4 +1,5 @@
 import { Globe, Check } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -20,6 +21,7 @@ interface Props {
 
 const LanguageSwitcher = ({ variant = "header" }: Props) => {
   const { language, setLanguage, t } = useLanguage();
+  const navigate = useNavigate();
 
   const triggerClass =
     variant === "header"
@@ -36,7 +38,10 @@ const LanguageSwitcher = ({ variant = "header" }: Props) => {
         {options.map((opt) => (
           <DropdownMenuItem
             key={opt.code}
-            onClick={() => setLanguage(opt.code)}
+            onClick={() => {
+              setLanguage(opt.code);
+              navigate(`/${opt.code}`);
+            }}
             className="flex items-center gap-2 cursor-pointer"
           >
             <span className="text-base">{opt.flag}</span>
