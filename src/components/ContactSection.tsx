@@ -274,18 +274,7 @@ const ContactSection = () => {
                   <p className="font-medium text-foreground">WhatsApp</p>
                     <p className="text-muted-foreground">+55 (31) 97546-9010</p>
                   <p className="font-medium text-foreground">E-mail</p>
-                  <p className="text-muted-foreground">gabriel@agilonex.com.br</p>
-                </div>
-              </a>
-
-              <div className="flex items-center gap-3 rounded-2xl border border-border/70 bg-card/70 p-4">
-                <Loader2 className="h-5 w-5 text-cyan-400" />
-                <div>
-                  <p className="font-medium text-foreground">Atendimento</p>
-                  <p className="text-muted-foreground">Seg–Sex, 8h–18h</p>
-                </div>
-              </div>
-            </div>
+                  <p className="text-muted-foreground">agilonex@gmail.com</p>
 
             <div className="mt-6">
               <p className="text-sm font-medium text-foreground">Redes sociais</p>
