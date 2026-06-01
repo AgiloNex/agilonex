@@ -1,44 +1,13 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Minus, Plus } from "lucide-react";
-
-const FAQ_ITEMS = [
-  {
-    question: "Preciso de conhecimento técnico para usar?",
-    answer:
-      "Não. A gente configura tudo pra você em até 7 dias úteis. Você só precisa responder algumas perguntas sobre seu negócio. Depois disso, é só acompanhar os atendimentos pelo celular.",
-  },
-  {
-    question: "E se o cliente fizer uma pergunta que o bot não sabe responder?",
-    answer:
-      "O agente reconhece quando não sabe e transfere automaticamente para você no WhatsApp, sem o cliente perceber a transição. Você nunca perde um atendimento.",
-  },
-  {
-    question: "Tem fidelidade ou contrato longo?",
-    answer:
-      "Não. Nossos planos são mensais e você pode cancelar quando quiser, sem multa. Mas na prática, nossos clientes ficam porque os resultados aparecem rápido.",
-  },
-  {
-    question: "Funciona para qualquer tipo de negócio?",
-    answer:
-      "Funciona para qualquer negócio que atende clientes pelo WhatsApp — salões, clínicas, lojas, restaurantes, prestadores de serviço. Se seu cliente te manda mensagem, a IA consegue ajudar.",
-  },
-  {
-    question: "Quanto tempo leva para ver resultado?",
-    answer:
-      "A maioria dos clientes começa a perceber redução no volume de mensagens repetitivas ainda na primeira semana. Agendamentos automáticos e respostas fora do horário comercial são os primeiros ganhos visíveis.",
-  },
-  {
-    question: "E a segurança dos dados dos meus clientes?",
-    answer:
-      "Todos os dados ficam protegidos seguindo as diretrizes da LGPD. Não compartilhamos informações com terceiros e você tem controle total sobre o que o agente armazena.",
-  },
-];
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const WHATSAPP_URL =
   "https://wa.me/5531975469010?text=Vim%20pelo%20site%20da%20AgiloNex%20e%20quero%20saber%20mais.";
 
 const FAQSection = () => {
+  const { t } = useLanguage();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
@@ -53,18 +22,18 @@ const FAQSection = () => {
           className="max-w-3xl mx-auto text-center mb-12 md:mb-16"
         >
           <p className="text-sm font-semibold uppercase tracking-[0.28em] text-primary mb-3">
-            FAQ
+            {t.faq.tag}
           </p>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground">
-            Dúvidas frequentes
+            {t.faq.title}
           </h2>
           <p className="mt-4 text-muted-foreground text-pretty">
-            Respostas diretas para as perguntas mais comuns
+            {t.faq.subtitle}
           </p>
         </motion.div>
 
         <div className="mx-auto max-w-3xl space-y-4">
-          {FAQ_ITEMS.map((item, index) => {
+          {t.faq.items.map((item, index) => {
             const isOpen = openIndex === index;
 
             return (
@@ -111,7 +80,7 @@ const FAQSection = () => {
             rel="noopener noreferrer"
             className="inline-flex items-center rounded-md bg-whatsapp px-6 py-3 text-sm font-semibold text-whatsapp-foreground shadow-lg shadow-[#25D366]/15 transition-all duration-200 hover:opacity-90"
           >
-            Ainda tem dúvidas? Fale com a gente →
+            {t.faq.cta}
           </a>
         </div>
       </div>

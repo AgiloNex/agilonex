@@ -73,6 +73,131 @@ export const translations = {
         { title: "Entrega e Suporte", text: "Implementamos, treinamos sua equipe e garantimos suporte contínuo." },
       ],
     },
+    process: {
+      tag: "Como Funciona",
+      title: "Do primeiro contato ao agente no ar em 7 dias",
+      subtitle: "Um processo simples, sem surpresas e sem você precisar entender de tecnologia",
+      steps: [
+        {
+          icon: "🎯",
+          label: "Passo 1",
+          title: "Diagnóstico gratuito",
+          description:
+            "Você responde 5 perguntas sobre seu negócio pelo WhatsApp. Em menos de 15 minutos entendemos exatamente o que seu cliente pergunta todo dia.",
+        },
+        {
+          icon: "⚙️",
+          label: "Passo 2",
+          title: "A gente configura tudo",
+          description:
+            "Nossa equipe monta e treina o agente com as informações do seu negócio. Você não precisa instalar nada, mexer em código ou contratar técnico.",
+        },
+        {
+          icon: "🚀",
+          label: "Passo 3",
+          title: "Seu agente entra ao vivo",
+          description:
+            "Em até 7 dias úteis seu WhatsApp já está sendo atendido pela IA. Você acompanha tudo pelo celular e pode ajustar o que quiser.",
+        },
+        {
+          icon: "📈",
+          label: "Passo 4",
+          title: "Você foca no que importa",
+          description:
+            "Menos mensagens repetitivas, menos tempo perdido, mais clientes atendidos fora do horário. Os resultados aparecem na primeira semana.",
+        },
+      ],
+      cta: "Começar meu diagnóstico gratuito",
+    },
+    faq: {
+      tag: "FAQ",
+      title: "Dúvidas frequentes",
+      subtitle: "Respostas diretas para as perguntas mais comuns",
+      items: [
+        {
+          question: "Preciso de conhecimento técnico para usar?",
+          answer:
+            "Não. A gente configura tudo pra você em até 7 dias úteis. Você só precisa responder algumas perguntas sobre seu negócio. Depois disso, é só acompanhar os atendimentos pelo celular.",
+        },
+        {
+          question: "E se o cliente fizer uma pergunta que o bot não sabe responder?",
+          answer:
+            "O agente reconhece quando não sabe e transfere automaticamente para você no WhatsApp, sem o cliente perceber a transição. Você nunca perde um atendimento.",
+        },
+        {
+          question: "Tem fidelidade ou contrato longo?",
+          answer:
+            "Não. Nossos planos são mensais e você pode cancelar quando quiser, sem multa. Mas na prática, nossos clientes ficam porque os resultados aparecem rápido.",
+        },
+        {
+          question: "Funciona para qualquer tipo de negócio?",
+          answer:
+            "Funciona para qualquer negócio que atende clientes pelo WhatsApp — salões, clínicas, lojas, restaurantes, prestadores de serviço. Se seu cliente te manda mensagem, a IA consegue ajudar.",
+        },
+        {
+          question: "Quanto tempo leva para ver resultado?",
+          answer:
+            "A maioria dos clientes começa a perceber redução no volume de mensagens repetitivas ainda na primeira semana. Agendamentos automáticos e respostas fora do horário comercial são os primeiros ganhos visíveis.",
+        },
+        {
+          question: "E a segurança dos dados dos meus clientes?",
+          answer:
+            "Todos os dados ficam protegidos seguindo as diretrizes da LGPD. Não compartilhamos informações com terceiros e você tem controle total sobre o que o agente armazena.",
+        },
+      ],
+      cta: "Ainda tem dúvidas? Fale com a gente →",
+    },
+    roi: {
+      tag: "Calculadora de ROI",
+      title: "Quanto você está perdendo sem IA?",
+      subtitle: "Calcule em 30 segundos o impacto real no seu negócio",
+      labels: {
+        messagesPerDay: "Quantas mensagens você recebe por dia no WhatsApp?",
+        manualHours: "Quantas horas por dia você gasta respondendo manualmente?",
+        ticketAverage: "Qual o ticket médio dos seus serviços/produtos? (R$)",
+        conversionRate: "Qual sua taxa de conversão atual? (% de mensagens que viram clientes)",
+      },
+      stats: {
+        revenueLost: "Receita perdida por mês",
+        timeCost: "Custo do seu tempo por mês",
+        totalLost: "Total que você perde mensalmente",
+        netSavings: "Economia líquida com AgiloNex",
+        payback: "Payback estimado",
+        note: "* Estimativas baseadas em médias do mercado brasileiro. Resultados reais podem variar.",
+        lowVolume: "Seu volume ainda é baixo, mas cada cliente perdido fora do horário já tem custo",
+        planSavings: "Com {price}/mês você recupera {value} em potencial perdido",
+      },
+      cta: "Quero automatizar e parar de perder vendas",
+    },
+    contactSection: {
+      tag: "Atendimento comercial",
+      title: "Pronto para automatizar seu atendimento?",
+      subtitle: "Preencha o formulário e nossa equipe entra em contato em até 1 hora no horário comercial.",
+      cards: [
+        { title: "Resposta rápida", text: "Fluxo pensado para captura imediata de leads locais." },
+        { title: "Foco em conversão", text: "Contato direto pelo WhatsApp e rotina de atendimento comercial." },
+      ],
+      success: "Recebemos seu contato, {name}! Em breve nossa equipe vai te chamar no WhatsApp.",
+      form: {
+        name: "Nome completo",
+        namePh: "Seu nome completo",
+        whatsapp: "WhatsApp",
+        segment: "Segmento do negócio",
+        segmentPh: "Selecione uma opção",
+        message: "Mensagem",
+        messagePh: "Conte brevemente sobre seu negócio",
+        submit: "Enviar contato",
+        sending: "Enviando...",
+      },
+      direct: {
+        title: "Contato direto",
+        subtitle: "Use estes canais se preferir falar com a equipe sem preencher o formulário.",
+        socials: "Redes sociais",
+      },
+      toast: "Ops, algo deu errado. Tente pelo WhatsApp diretamente.",
+      toastAction: "Abrir WhatsApp",
+      buttonWhatsapp: "Falar no WhatsApp",
+    },
     benefits: {
       tag: "Benefícios",
       title: "Resultados reais para o seu negócio",
@@ -279,6 +404,131 @@ export const translations = {
         { title: "Delivery & Support", text: "We deploy, train your team and ensure ongoing support." },
       ],
     },
+    process: {
+      tag: "How It Works",
+      title: "From first contact to live agent in 7 days",
+      subtitle: "A simple process, without surprises and without needing to understand technology",
+      steps: [
+        {
+          icon: "🎯",
+          label: "Step 1",
+          title: "Free diagnosis",
+          description:
+            "You answer 5 questions about your business on WhatsApp. In less than 15 minutes we understand exactly what your customers ask every day.",
+        },
+        {
+          icon: "⚙️",
+          label: "Step 2",
+          title: "We set everything up",
+          description:
+            "Our team builds and trains the agent with your business information. You do not need to install anything, touch code or hire a technician.",
+        },
+        {
+          icon: "🚀",
+          label: "Step 3",
+          title: "Your agent goes live",
+          description:
+            "Within 7 business days your WhatsApp is already being handled by AI. You can follow everything from your phone and adjust whatever you want.",
+        },
+        {
+          icon: "📈",
+          label: "Step 4",
+          title: "You focus on what matters",
+          description:
+            "Fewer repetitive messages, less wasted time, more customers served outside business hours. Results show up in the first week.",
+        },
+      ],
+      cta: "Start my free diagnosis",
+    },
+    faq: {
+      tag: "FAQ",
+      title: "Frequently asked questions",
+      subtitle: "Straight answers to the most common questions",
+      items: [
+        {
+          question: "Do I need technical knowledge to use it?",
+          answer:
+            "No. We set everything up for you in up to 7 business days. You only need to answer a few questions about your business. After that, just follow the conversations from your phone.",
+        },
+        {
+          question: "What if the bot cannot answer a customer question?",
+          answer:
+            "The agent knows when it does not know and automatically transfers the conversation to you on WhatsApp, without the customer noticing the transition. You never lose a lead.",
+        },
+        {
+          question: "Is there a lock-in or long contract?",
+          answer:
+            "No. Our plans are monthly and you can cancel whenever you want, without penalty. In practice, clients stay because the results come quickly.",
+        },
+        {
+          question: "Does it work for any business type?",
+          answer:
+            "It works for any business that serves customers on WhatsApp, including salons, clinics, stores, restaurants and service providers. If your customer sends a message, AI can help.",
+        },
+        {
+          question: "How long until I see results?",
+          answer:
+            "Most clients start noticing fewer repetitive messages in the first week. Automated bookings and after-hours replies are the first visible wins.",
+        },
+        {
+          question: "What about my customers' data security?",
+          answer:
+            "All data is protected following LGPD guidelines. We do not share information with third parties and you keep full control over what the agent stores.",
+        },
+      ],
+      cta: "Still have questions? Talk to us →",
+    },
+    roi: {
+      tag: "ROI Calculator",
+      title: "How much are you losing without AI?",
+      subtitle: "Calculate the real impact on your business in 30 seconds",
+      labels: {
+        messagesPerDay: "How many WhatsApp messages do you receive per day?",
+        manualHours: "How many hours per day do you spend answering manually?",
+        ticketAverage: "What is your average service/product ticket? (R$)",
+        conversionRate: "What is your current conversion rate? (% of messages that become customers)",
+      },
+      stats: {
+        revenueLost: "Revenue lost per month",
+        timeCost: "Your time cost per month",
+        totalLost: "Total monthly loss",
+        netSavings: "Net savings with AgiloNex",
+        payback: "Estimated payback",
+        note: "* Estimates are based on Brazilian market averages. Real results may vary.",
+        lowVolume: "Your volume is still low, but every customer lost after hours already has a cost",
+        planSavings: "With {price}/month you recover {value} in lost potential",
+      },
+      cta: "I want to automate and stop losing sales",
+    },
+    contactSection: {
+      tag: "Commercial support",
+      title: "Ready to automate your service?",
+      subtitle: "Fill out the form and our team will contact you within 1 hour during business hours.",
+      cards: [
+        { title: "Fast response", text: "A flow designed for immediate local lead capture." },
+        { title: "Conversion focused", text: "Direct WhatsApp contact and a sales-oriented follow-up routine." },
+      ],
+      success: "We received your contact, {name}! Our team will reach out on WhatsApp soon.",
+      form: {
+        name: "Full name",
+        namePh: "Your full name",
+        whatsapp: "WhatsApp",
+        segment: "Business segment",
+        segmentPh: "Select an option",
+        message: "Message",
+        messagePh: "Tell us briefly about your business",
+        submit: "Send contact",
+        sending: "Sending...",
+      },
+      direct: {
+        title: "Direct contact",
+        subtitle: "Use these channels if you prefer to talk to the team without filling out the form.",
+        socials: "Social media",
+      },
+      toast: "Something went wrong. Please try WhatsApp directly.",
+      toastAction: "Open WhatsApp",
+      buttonWhatsapp: "Chat on WhatsApp",
+    },
     benefits: {
       tag: "Benefits",
       title: "Real results for your business",
@@ -484,6 +734,131 @@ export const translations = {
         { title: "Desarrollo", text: "Creamos la solución ideal con agilidad, manteniéndote en control de cada etapa." },
         { title: "Entrega y Soporte", text: "Implementamos, capacitamos a tu equipo y garantizamos soporte continuo." },
       ],
+    },
+    process: {
+      tag: "Cómo Funciona",
+      title: "Del primer contacto al agente en vivo en 7 días",
+      subtitle: "Un proceso simple, sin sorpresas y sin que tengas que entender de tecnología",
+      steps: [
+        {
+          icon: "🎯",
+          label: "Paso 1",
+          title: "Diagnóstico gratuito",
+          description:
+            "Respondes 5 preguntas sobre tu negocio por WhatsApp. En menos de 15 minutos entendemos exactamente lo que tus clientes preguntan a diario.",
+        },
+        {
+          icon: "⚙️",
+          label: "Paso 2",
+          title: "Nosotros configuramos todo",
+          description:
+            "Nuestro equipo monta y entrena el agente con la información de tu negocio. No necesitas instalar nada, tocar código ni contratar un técnico.",
+        },
+        {
+          icon: "🚀",
+          label: "Paso 3",
+          title: "Tu agente entra en vivo",
+          description:
+            "En hasta 7 días hábiles tu WhatsApp ya estará siendo atendido por IA. Puedes seguir todo desde el celular y ajustar lo que quieras.",
+        },
+        {
+          icon: "📈",
+          label: "Paso 4",
+          title: "Tú te enfocas en lo importante",
+          description:
+            "Menos mensajes repetitivos, menos tiempo perdido y más clientes atendidos fuera de horario. Los resultados aparecen en la primera semana.",
+        },
+      ],
+      cta: "Empezar mi diagnóstico gratuito",
+    },
+    faq: {
+      tag: "FAQ",
+      title: "Preguntas frecuentes",
+      subtitle: "Respuestas directas a las dudas más comunes",
+      items: [
+        {
+          question: "¿Necesito conocimientos técnicos para usarlo?",
+          answer:
+            "No. Nosotros configuramos todo para ti en hasta 7 días hábiles. Solo necesitas responder algunas preguntas sobre tu negocio. Después, solo sigue la atención desde el celular.",
+        },
+        {
+          question: "¿Y si el cliente hace una pregunta que el bot no sabe responder?",
+          answer:
+            "El agente reconoce cuando no sabe y transfiere automáticamente la conversación a ti por WhatsApp, sin que el cliente note la transición. Nunca pierdes una atención.",
+        },
+        {
+          question: "¿Hay permanencia o contrato largo?",
+          answer:
+            "No. Nuestros planes son mensuales y puedes cancelar cuando quieras, sin multa. En la práctica, los clientes se quedan porque los resultados aparecen rápido.",
+        },
+        {
+          question: "¿Funciona para cualquier tipo de negocio?",
+          answer:
+            "Funciona para cualquier negocio que atienda clientes por WhatsApp, incluyendo salones, clínicas, tiendas, restaurantes y prestadores de servicio. Si tu cliente escribe, la IA ayuda.",
+        },
+        {
+          question: "¿Cuánto tiempo tarda en verse el resultado?",
+          answer:
+            "La mayoría de los clientes empieza a notar menos mensajes repetitivos en la primera semana. Las reservas automáticas y las respuestas fuera del horario comercial son las primeras mejoras visibles.",
+        },
+        {
+          question: "¿Y la seguridad de los datos de mis clientes?",
+          answer:
+            "Todos los datos quedan protegidos siguiendo las directrices de la LGPD. No compartimos información con terceros y tú mantienes control total sobre lo que el agente almacena.",
+        },
+      ],
+      cta: "¿Aún tienes dudas? Habla con nosotros →",
+    },
+    roi: {
+      tag: "Calculadora de ROI",
+      title: "¿Cuánto estás perdiendo sin IA?",
+      subtitle: "Calcula en 30 segundos el impacto real en tu negocio",
+      labels: {
+        messagesPerDay: "¿Cuántos mensajes recibes por día en WhatsApp?",
+        manualHours: "¿Cuántas horas al día pasas respondiendo manualmente?",
+        ticketAverage: "¿Cuál es tu ticket promedio de servicios/productos? (R$)",
+        conversionRate: "¿Cuál es tu tasa de conversión actual? (% de mensajes que se convierten en clientes)",
+      },
+      stats: {
+        revenueLost: "Ingresos perdidos por mes",
+        timeCost: "Costo de tu tiempo por mes",
+        totalLost: "Total perdido mensualmente",
+        netSavings: "Ahorro neto con AgiloNex",
+        payback: "Retorno estimado",
+        note: "* Estimaciones basadas en promedios del mercado brasileño. Los resultados reales pueden variar.",
+        lowVolume: "Tu volumen aún es bajo, pero cada cliente perdido fuera de horario ya tiene un costo",
+        planSavings: "Con {price}/mes recuperas {value} en potencial perdido",
+      },
+      cta: "Quiero automatizar y dejar de perder ventas",
+    },
+    contactSection: {
+      tag: "Atención comercial",
+      title: "¿Listo para automatizar tu atención?",
+      subtitle: "Completa el formulario y nuestro equipo te contactará en hasta 1 hora en horario comercial.",
+      cards: [
+        { title: "Respuesta rápida", text: "Flujo pensado para capturar leads locales de inmediato." },
+        { title: "Enfoque en conversión", text: "Contacto directo por WhatsApp y rutina de atención comercial." },
+      ],
+      success: "Recibimos tu contacto, {name}! Nuestro equipo te escribirá por WhatsApp pronto.",
+      form: {
+        name: "Nombre completo",
+        namePh: "Tu nombre completo",
+        whatsapp: "WhatsApp",
+        segment: "Segmento del negocio",
+        segmentPh: "Selecciona una opción",
+        message: "Mensaje",
+        messagePh: "Cuéntanos brevemente sobre tu negocio",
+        submit: "Enviar contacto",
+        sending: "Enviando...",
+      },
+      direct: {
+        title: "Contacto directo",
+        subtitle: "Usa estos canales si prefieres hablar con el equipo sin completar el formulario.",
+        socials: "Redes sociales",
+      },
+      toast: "Algo salió mal. Intenta por WhatsApp directamente.",
+      toastAction: "Abrir WhatsApp",
+      buttonWhatsapp: "Hablar por WhatsApp",
     },
     benefits: {
       tag: "Beneficios",

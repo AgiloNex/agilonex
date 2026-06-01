@@ -1,44 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-
-type Step = {
-  icon: string;
-  title: string;
-  description: string;
-};
-
-const steps: Step[] = [
-  {
-    icon: "🎯",
-    title: "Diagnóstico gratuito",
-    description:
-      "Você responde 5 perguntas sobre seu negócio pelo WhatsApp. Em menos de 15 minutos entendemos exatamente o que seu cliente pergunta todo dia.",
-  },
-  {
-    icon: "⚙️",
-    title: "A gente configura tudo",
-    description:
-      "Nossa equipe monta e treina o agente com as informações do seu negócio. Você não precisa instalar nada, mexer em código ou contratar técnico.",
-  },
-  {
-    icon: "🚀",
-    title: "Seu agente entra ao vivo",
-    description:
-      "Em até 7 dias úteis seu WhatsApp já está sendo atendido pela IA. Você acompanha tudo pelo celular e pode ajustar o que quiser.",
-  },
-  {
-    icon: "📈",
-    title: "Você foca no que importa",
-    description:
-      "Menos mensagens repetitivas, menos tempo perdido, mais clientes atendidos fora do horário. Os resultados aparecem na primeira semana.",
-  },
-];
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const WHATSAPP_URL =
   "https://wa.me/5531975469010?text=Ol%C3%A1!%20Quero%20fazer%20o%20diagn%C3%B3stico%20gratuito%20para%20meu%20neg%C3%B3cio.";
 
 const ProcessSection = () => {
+  const { t } = useLanguage();
   const sectionRef = useRef<HTMLElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -79,13 +48,13 @@ const ProcessSection = () => {
           className="max-w-3xl mx-auto text-center mb-12 md:mb-16"
         >
           <p className="text-sm font-semibold uppercase tracking-[0.28em] text-primary mb-3">
-            Como funciona
+            {t.process.tag}
           </p>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground normal-case">
-            Do primeiro contato ao agente no ar em 7 dias
+            {t.process.title}
           </h2>
           <p className="mt-4 text-muted-foreground text-pretty">
-            Um processo simples, sem surpresas e sem você precisar entender de tecnologia
+            {t.process.subtitle}
           </p>
         </motion.div>
 
@@ -104,7 +73,7 @@ const ProcessSection = () => {
           </div>
 
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4 md:gap-8">
-            {steps.map((step, index) => {
+            {t.process.steps.map((step, index) => {
               const delay = index * 150;
               return (
                 <motion.div
@@ -124,7 +93,7 @@ const ProcessSection = () => {
                         {String(index + 1).padStart(2, "0")}
                       </span>
                       <span className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
-                        Passo {index + 1}
+                        {step.label}
                       </span>
                     </div>
 
@@ -148,7 +117,7 @@ const ProcessSection = () => {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-all duration-200 hover:gap-3 hover:opacity-95"
           >
-            Começar meu diagnóstico gratuito
+            {t.process.cta}
             <ArrowRight size={16} />
           </a>
         </div>

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Slider } from "@/components/ui/slider";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const MONTHLY_PLAN_PRICE = 397;
 const VALUE_PER_HOUR = 25;
@@ -46,12 +47,13 @@ const AnimatedNumber = ({ value, formatter, className }: AnimatedNumberProps) =>
     frame = window.requestAnimationFrame(animate);
 
     return () => window.cancelAnimationFrame(frame);
-  }, [value]);
+  }, [value, displayValue]);
 
   return <span className={className}>{formatter(displayValue)}</span>;
 };
 
 const ROICalculator = () => {
+  const { t } = useLanguage();
   const [messagesPerDay, setMessagesPerDay] = useState(50);
   const [manualHours, setManualHours] = useState(3);
   const [ticketAverage, setTicketAverage] = useState(200);
@@ -64,8 +66,6 @@ const ROICalculator = () => {
   const totalLostPerMonth = revenueLostPerMonth + timeCostPerMonth;
   const netSavings = totalLostPerMonth - MONTHLY_PLAN_PRICE;
   const roiPercent = ((totalLostPerMonth - MONTHLY_PLAN_PRICE) / MONTHLY_PLAN_PRICE) * 100;
-  const paybackDays =
-    totalLostPerMonth > 0 ? Math.max(1, Math.round((MONTHLY_PLAN_PRICE / totalLostPerMonth) * 30)) : 0;
 
   const updateFromSlider =
     (setter: (value: number) => void) => (value: number[]) => setter(value[0] ?? 0);
@@ -89,14 +89,12 @@ const ROICalculator = () => {
           className="max-w-3xl mx-auto text-center mb-12 md:mb-16"
         >
           <p className="text-sm font-semibold uppercase tracking-[0.28em] text-primary mb-3">
-            Calculadora de ROI
+            {t.roi.tag}
           </p>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground">
-            Quanto você está perdendo sem IA?
+            {t.roi.title}
           </h2>
-          <p className="mt-4 text-muted-foreground text-pretty">
-            Calcule em 30 segundos o impacto real no seu negócio
-          </p>
+          <p className="mt-4 text-muted-foreground text-pretty">{t.roi.subtitle}</p>
         </motion.div>
 
         <div className="grid gap-6 lg:grid-cols-[1.05fr,0.95fr]">
@@ -111,20 +109,13 @@ const ROICalculator = () => {
               <div className="space-y-4">
                 <div className="flex items-center justify-between gap-4">
                   <label className="text-sm font-medium text-foreground">
-                    Quantas mensagens você recebe por dia no WhatsApp?
+                    {t.roi.labels.messagesPerDay}
                   </label>
                   <span className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-sm font-semibold text-primary">
                     {numberFormatter.format(messagesPerDay)}
                   </span>
                 </div>
-                <Slider
-                  value={[messagesPerDay]}
-                  min={10}
-                  max={500}
-                  step={1}
-                  onValueChange={updateFromSlider(setMessagesPerDay)}
-                  className="w-full"
-                />
+                <Slider value={[messagesPerDay]} min={10} max={500} step={1} onValueChange={updateFromSlider(setMessagesPerDay)} className="w-full" />
                 <div className="flex items-center justify-between text-xs text-muted-foreground">
                   <span>10</span>
                   <input
@@ -133,9 +124,7 @@ const ROICalculator = () => {
                     max={500}
                     value={messagesPerDay}
                     onChange={(event) =>
-                      setMessagesPerDay(
-                        Math.min(500, Math.max(10, Number(event.target.value) || 10))
-                      )
+                      setMessagesPerDay(Math.min(500, Math.max(10, Number(event.target.value) || 10)))
                     }
                     className="w-24 rounded-md border border-input bg-background px-3 py-2 text-right text-sm text-foreground shadow-sm outline-none transition-colors focus:border-primary"
                   />
@@ -145,21 +134,12 @@ const ROICalculator = () => {
 
               <div className="space-y-4">
                 <div className="flex items-center justify-between gap-4">
-                  <label className="text-sm font-medium text-foreground">
-                    Quantas horas por dia você gasta respondendo manualmente?
-                  </label>
+                  <label className="text-sm font-medium text-foreground">{t.roi.labels.manualHours}</label>
                   <span className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-sm font-semibold text-primary">
                     {numberFormatter.format(manualHours)}h
                   </span>
                 </div>
-                <Slider
-                  value={[manualHours]}
-                  min={1}
-                  max={12}
-                  step={1}
-                  onValueChange={updateFromSlider(setManualHours)}
-                  className="w-full"
-                />
+                <Slider value={[manualHours]} min={1} max={12} step={1} onValueChange={updateFromSlider(setManualHours)} className="w-full" />
                 <div className="flex items-center justify-between text-xs text-muted-foreground">
                   <span>1h</span>
                   <input
@@ -178,21 +158,12 @@ const ROICalculator = () => {
 
               <div className="space-y-4">
                 <div className="flex items-center justify-between gap-4">
-                  <label className="text-sm font-medium text-foreground">
-                    Qual o ticket médio dos seus serviços/produtos? (R$)
-                  </label>
+                  <label className="text-sm font-medium text-foreground">{t.roi.labels.ticketAverage}</label>
                   <span className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-sm font-semibold text-primary">
                     {currency.format(ticketAverage)}
                   </span>
                 </div>
-                <Slider
-                  value={[ticketAverage]}
-                  min={50}
-                  max={2000}
-                  step={10}
-                  onValueChange={updateFromSlider(setTicketAverage)}
-                  className="w-full"
-                />
+                <Slider value={[ticketAverage]} min={50} max={2000} step={10} onValueChange={updateFromSlider(setTicketAverage)} className="w-full" />
                 <div className="flex items-center justify-between text-xs text-muted-foreground">
                   <span>R$ 50</span>
                   <input
@@ -202,9 +173,7 @@ const ROICalculator = () => {
                     step={10}
                     value={ticketAverage}
                     onChange={(event) =>
-                      setTicketAverage(
-                        Math.min(2000, Math.max(50, Number(event.target.value) || 50))
-                      )
+                      setTicketAverage(Math.min(2000, Math.max(50, Number(event.target.value) || 50)))
                     }
                     className="w-28 rounded-md border border-input bg-background px-3 py-2 text-right text-sm text-foreground shadow-sm outline-none transition-colors focus:border-primary"
                   />
@@ -214,21 +183,12 @@ const ROICalculator = () => {
 
               <div className="space-y-4">
                 <div className="flex items-center justify-between gap-4">
-                  <label className="text-sm font-medium text-foreground">
-                    Qual sua taxa de conversão atual? (% de mensagens que viram clientes)
-                  </label>
+                  <label className="text-sm font-medium text-foreground">{t.roi.labels.conversionRate}</label>
                   <span className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-sm font-semibold text-primary">
                     {formatPercent(conversionRate)}
                   </span>
                 </div>
-                <Slider
-                  value={[conversionRate]}
-                  min={5}
-                  max={80}
-                  step={1}
-                  onValueChange={updateFromSlider(setConversionRate)}
-                  className="w-full"
-                />
+                <Slider value={[conversionRate]} min={5} max={80} step={1} onValueChange={updateFromSlider(setConversionRate)} className="w-full" />
                 <div className="flex items-center justify-between text-xs text-muted-foreground">
                   <span>5%</span>
                   <input
@@ -237,9 +197,7 @@ const ROICalculator = () => {
                     max={80}
                     value={conversionRate}
                     onChange={(event) =>
-                      setConversionRate(
-                        Math.min(80, Math.max(5, Number(event.target.value) || 5))
-                      )
+                      setConversionRate(Math.min(80, Math.max(5, Number(event.target.value) || 5)))
                     }
                     className="w-24 rounded-md border border-input bg-background px-3 py-2 text-right text-sm text-foreground shadow-sm outline-none transition-colors focus:border-primary"
                   />
@@ -259,51 +217,35 @@ const ROICalculator = () => {
             <div className="space-y-4">
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="rounded-[18px] border border-white/10 bg-white/5 p-4">
-                  <p className="text-sm text-background/70">💸 Receita perdida por mês</p>
-                  <AnimatedNumber
-                    value={revenueLostPerMonth}
-                    formatter={(value) => currency.format(value)}
-                    className="mt-2 block text-xl font-bold tracking-tight text-background"
-                  />
+                  <p className="text-sm text-background/70">{t.roi.stats.revenueLost}</p>
+                  <AnimatedNumber value={revenueLostPerMonth} formatter={(value) => currency.format(value)} className="mt-2 block text-xl font-bold tracking-tight text-background" />
                 </div>
                 <div className="rounded-[18px] border border-white/10 bg-white/5 p-4">
-                  <p className="text-sm text-background/70">⏰ Custo do seu tempo por mês</p>
-                  <AnimatedNumber
-                    value={timeCostPerMonth}
-                    formatter={(value) => currency.format(value)}
-                    className="mt-2 block text-xl font-bold tracking-tight text-background"
-                  />
+                  <p className="text-sm text-background/70">{t.roi.stats.timeCost}</p>
+                  <AnimatedNumber value={timeCostPerMonth} formatter={(value) => currency.format(value)} className="mt-2 block text-xl font-bold tracking-tight text-background" />
                 </div>
               </div>
 
               <div className="rounded-[20px] border border-orange-500/20 bg-gradient-to-br from-orange-500/15 to-red-500/10 p-5">
-                <p className="text-sm font-medium text-orange-200">📉 Total que você perde mensalmente</p>
-                <AnimatedNumber
-                  value={totalLostPerMonth}
-                  formatter={(value) => currency.format(value)}
-                  className="mt-2 block text-3xl md:text-4xl font-bold tracking-tight text-orange-100"
-                />
+                <p className="text-sm font-medium text-orange-200">{t.roi.stats.totalLost}</p>
+                <AnimatedNumber value={totalLostPerMonth} formatter={(value) => currency.format(value)} className="mt-2 block text-3xl md:text-4xl font-bold tracking-tight text-orange-100" />
               </div>
 
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="rounded-[18px] border border-emerald-500/20 bg-emerald-500/10 p-4">
-                  <p className="text-sm text-emerald-100/80">✅ Economia líquida com AgiloNex</p>
+                  <p className="text-sm text-emerald-100/80">{t.roi.stats.netSavings}</p>
                   <AnimatedNumber
                     value={netSavings}
                     formatter={formatSignedCurrency}
-                    className={`mt-2 block text-xl font-bold tracking-tight ${
-                      netSavings >= 0 ? "text-emerald-100" : "text-rose-100"
-                    }`}
+                    className={`mt-2 block text-xl font-bold tracking-tight ${netSavings >= 0 ? "text-emerald-100" : "text-rose-100"}`}
                   />
                 </div>
                 <div className="rounded-[18px] border border-emerald-500/20 bg-emerald-500/10 p-4">
-                  <p className="text-sm text-emerald-100/80">📈 Seu ROI estimado</p>
+                  <p className="text-sm text-emerald-100/80">ROI</p>
                   <AnimatedNumber
                     value={roiPercent}
                     formatter={formatPercent}
-                    className={`mt-2 block text-xl font-bold tracking-tight ${
-                      roiPercent > 0 ? "text-emerald-100" : "text-rose-100"
-                    }`}
+                    className={`mt-2 block text-xl font-bold tracking-tight ${roiPercent > 0 ? "text-emerald-100" : "text-rose-100"}`}
                   />
                 </div>
               </div>
@@ -311,30 +253,27 @@ const ROICalculator = () => {
               <div className="rounded-[20px] border border-border/60 bg-background/5 p-5">
                 {netSavings > 0 ? (
                   <p className="text-sm leading-relaxed text-background/80">
-                    Com {currency.format(MONTHLY_PLAN_PRICE)}/mês você recupera{" "}
-                    <strong className="text-background">{currency.format(netSavings)}</strong> — o
-                    plano se paga em{" "}
-                    <strong className="text-background">{paybackDays} dias</strong>.
+                    {t.roi.stats.planSavings
+                      .replace("{price}", currency.format(MONTHLY_PLAN_PRICE))
+                      .replace("{value}", currency.format(netSavings))}
+                    {" "}
+                    - {t.roi.stats.payback}{" "}
+                    <strong className="text-background">{Math.max(1, Math.round((MONTHLY_PLAN_PRICE / totalLostPerMonth) * 30))} dias</strong>.
                   </p>
                 ) : (
-                  <p className="text-sm leading-relaxed text-background/80">
-                    Seu volume ainda é baixo, mas cada cliente perdido fora do horário já tem custo
-                    real.
-                  </p>
+                  <p className="text-sm leading-relaxed text-background/80">{t.roi.stats.lowVolume}</p>
                 )}
 
                 <a
                   href="#contato"
                   className="mt-5 inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-all duration-200 hover:gap-3 hover:opacity-95"
                 >
-                  Quero recuperar essa receita
+                  {t.roi.cta}
                   <ArrowRight size={16} />
                 </a>
               </div>
 
-              <p className="pt-1 text-xs text-background/45">
-                * Estimativas baseadas em médias do mercado brasileiro. Resultados reais podem variar.
-              </p>
+              <p className="pt-1 text-xs text-background/45">{t.roi.stats.note}</p>
             </div>
           </motion.div>
         </div>
