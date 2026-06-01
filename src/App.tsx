@@ -32,31 +32,29 @@ const LanguageRouteGuard = () => {
     return <Navigate to="/pt" replace />;
   }
 
-  return (
-    <LanguageProvider>
-      <LanguageRouteSync />
-    </LanguageProvider>
-  );
+  return <LanguageRouteSync />;
 };
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <BrowserRouter>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <WhatsAppFloat />
-        <Routes>
-          <Route path="/" element={<Navigate to="/pt" replace />} />
-          <Route path="/:lang" element={<LanguageRouteGuard />}>
-            <Route index element={<Index />} />
-            <Route path="lgpd" element={<Lgpd />} />
-            <Route path="termos-de-uso" element={<Terms />} />
-          </Route>
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </TooltipProvider>
-    </BrowserRouter>
+    <LanguageProvider>
+      <BrowserRouter>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <WhatsAppFloat />
+          <Routes>
+            <Route path="/" element={<Navigate to="/pt" replace />} />
+            <Route path="/:lang" element={<LanguageRouteGuard />}>
+              <Route index element={<Index />} />
+              <Route path="lgpd" element={<Lgpd />} />
+              <Route path="termos-de-uso" element={<Terms />} />
+            </Route>
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </TooltipProvider>
+      </BrowserRouter>
+    </LanguageProvider>
   </QueryClientProvider>
 );
 
