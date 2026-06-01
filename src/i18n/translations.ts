@@ -34,7 +34,7 @@ export const translations = {
     services: {
       tag: "Serviços",
       title: "Soluções que impulsionam seu negócio",
-      subtitle: "Do diagnóstico à entrega, cuidamos de tudo para que você foque no que importa: crescer.",
+      subtitle: "Do diagnóstico à entrega, cuidamos de tudo para que você foque no que importa: crescer. Também faço upscaling e melhoria de imagens para redes sociais, deixando suas artes e fotos mais nítidas e prontas para publicar.",
       learnMore: "Saiba mais",
       items: [
         {
@@ -56,6 +56,11 @@ export const translations = {
           title: "LGPD e Privacidade",
           description: "Organize seus dados e fique em conformidade com a legislação. Termos de uso, políticas de privacidade e mais.",
           items: ["Termos de uso", "Políticas de privacidade", "Organização de dados"],
+        },
+        {
+          title: "Upscaling e Melhoria de Imagens",
+          description: "Faço upscaling, aumento de qualidade e refinamento de imagens para uso em redes sociais, anúncios e materiais digitais.",
+          items: ["Imagens mais nítidas", "Prontas para redes sociais", "Melhoria de qualidade"],
         },
       ],
     },
@@ -235,7 +240,7 @@ export const translations = {
     services: {
       tag: "Services",
       title: "Solutions that drive your business",
-      subtitle: "From diagnosis to delivery, we handle everything so you can focus on what matters: growing.",
+      subtitle: "From diagnosis to delivery, we handle everything so you can focus on what matters: growing. I also offer image upscaling and enhancement for social media, making your visuals sharper and ready to post.",
       learnMore: "Learn more",
       items: [
         {
@@ -257,6 +262,11 @@ export const translations = {
           title: "Data Privacy & GDPR",
           description: "Organize your data and stay compliant with regulations. Terms of use, privacy policies and more.",
           items: ["Terms of use", "Privacy policies", "Data organization"],
+        },
+        {
+          title: "Image Upscaling & Enhancement",
+          description: "I upscale and improve images for social media, ads and digital materials so they look cleaner and more professional.",
+          items: ["Sharper images", "Ready for social media", "Quality enhancement"],
         },
       ],
     },
@@ -436,7 +446,7 @@ export const translations = {
     services: {
       tag: "Servicios",
       title: "Soluciones que impulsan tu negocio",
-      subtitle: "Del diagnóstico a la entrega, nos encargamos de todo para que te enfoques en lo importante: crecer.",
+      subtitle: "Del diagnóstico a la entrega, nos encargamos de todo para que te enfoques en lo importante: crecer. También hago upscaling y mejora de imágenes para redes sociales, dejando tus piezas visuales más nítidas y listas para publicar.",
       learnMore: "Saber más",
       items: [
         {
@@ -458,6 +468,11 @@ export const translations = {
           title: "Privacidad y RGPD",
           description: "Organiza tus datos y cumple con la legislación. Términos de uso, políticas de privacidad y más.",
           items: ["Términos de uso", "Políticas de privacidad", "Organización de datos"],
+        },
+        {
+          title: "Upscaling y Mejora de Imágenes",
+          description: "Hago upscaling y mejoro imágenes para redes sociales, anuncios y materiales digitales para que se vean más profesionales.",
+          items: ["Imágenes más nítidas", "Listas para redes sociales", "Mejora de calidad"],
         },
       ],
     },
