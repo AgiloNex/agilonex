@@ -295,7 +295,6 @@ const ContactSection = () => {
                   </a>
                 </div>
               </div>
-            </div>
           </motion.aside>
         </div>
       </div>
