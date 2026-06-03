@@ -10,7 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const WEBHOOK_URL = "[WEBHOOK_URL]";
-const WHATSAPP_LINK = "https://wa.me/5531975469010";
+const WHATSAPP_LINK = "https://wa.me/5500000000000";
 
 const SEGMENTOS = [
   "Salão de beleza",
@@ -182,7 +182,7 @@ const ContactSection = () => {
                     autoComplete="tel"
                     required
                     maxLength={15}
-                    placeholder="(31) 97546-9010"
+                    placeholder="(11) 99999-9999"
                     className="h-11 border-border/70 bg-background/90 focus-visible:ring-2 focus-visible:ring-blue-500/80 focus-visible:ring-offset-0"
                   />
                 </div>
@@ -249,6 +249,15 @@ const ContactSection = () => {
                 <div>
                   <p className="font-medium text-foreground">WhatsApp</p>
                   <p className="text-muted-foreground">+55 (31) 97546-9010</p>
+                </div>
+              </a>
+
+              <a
+                href="mailto:gabriel@agilonex.com.br"
+                className="flex items-center gap-3 rounded-2xl border border-border/70 bg-card/70 p-4 transition-colors hover:border-blue-500/40 hover:bg-blue-500/10"
+              >
+                <AlertCircle className="h-5 w-5 text-blue-400" />
+                <div>
                   <p className="font-medium text-foreground">E-mail</p>
                   <p className="text-muted-foreground">agilonex@gmail.com</p>
                 </div>

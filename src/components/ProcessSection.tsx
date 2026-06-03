@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const WHATSAPP_URL =
-  "https://wa.me/5531975469010?text=Ol%C3%A1!%20Quero%20fazer%20o%20diagn%C3%B3stico%20gratuito%20para%20meu%20neg%C3%B3cio.";
+  "https://wa.me/553197546901020?text=Ol%C3%A1!%20Quero%20fazer%20o%20diagn%C3%B3stico%20gratuito%20para%20meu%20neg%C3%B3cio.";
 
 const ProcessSection = () => {
   const { t } = useLanguage();

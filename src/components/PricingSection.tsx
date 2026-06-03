@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 
 type BillingCycle = "monthly" | "annual";
 
-const WHATSAPP_NUMBER = "5531975469010";
+const WHATSAPP_NUMBER = "5500000000000";
 const WHATSAPP_BASE_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
 
 const createWhatsAppUrl = (message: string) =>
@@ -305,7 +305,7 @@ const PricingSection = () => {
                 </ul>
 
                 <a
-                  href={plan.custom ? "https://wa.me/5531975469010?text=Olá!%20Tenho%20interesse%20no%20plano%20Enterprise%20da%20AgiloNex%20e%20quero%20entender%20as%20opções." : whatsappUrl}
+                  href={plan.custom ? "https://wa.me/5500000000000?text=Olá!%20Tenho%20interesse%20no%20plano%20Enterprise%20da%20AgiloNex%20e%20quero%20entender%20as%20opções." : whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={cn(

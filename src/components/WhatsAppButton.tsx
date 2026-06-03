@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const WhatsAppButton = () => (
   <motion.a
-    href="https://wa.me/5531975469010"
+    href="https://wa.me/5500000000000"
     target="_blank"
     rel="noopener noreferrer"
     aria-label="Fale pelo WhatsApp"

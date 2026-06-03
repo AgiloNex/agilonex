@@ -20,7 +20,7 @@ type Niche = {
 };
 
 const WHATSAPP_BASE_URL =
-  "https://wa.me/5531975469010?text=";
+  "https://wa.me/553197546901020?text=";
 
 const niches: Niche[] = [
   {
