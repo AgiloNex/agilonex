@@ -1,6 +1,6 @@
 import { useMemo, useState, type ChangeEvent, type FormEvent } from "react";
 import { motion } from "framer-motion";
-import { AlertCircle, Instagram, Linkedin, Loader2, MessageCircle, Send, Sparkles } from "lucide-react";
+import { Instagram, Linkedin, Loader2, MessageCircle, Send, Sparkles } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
