@@ -1,9 +1,10 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { useEffect } from "react";
+import { BrowserRouter, Navigate, Outlet, Route, Routes, useParams } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { LanguageProvider } from "@/i18n/LanguageContext";
+import { LanguageProvider, useLanguage } from "@/i18n/LanguageContext";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import Index from "./pages/Index.tsx";
 import Lgpd from "./pages/Lgpd.tsx";
@@ -11,6 +12,28 @@ import Terms from "./pages/Terms.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
+
+const LanguageRouteSync = () => {
+  const { lang } = useParams();
+  const { setLanguage } = useLanguage();
+
+  useEffect(() => {
+    if (lang === "pt" || lang === "en" || lang === "es") {
+      setLanguage(lang);
+    }
+  }, [lang, setLanguage]);
+
+  return <Outlet />;
+};
+
+const LanguageRouteGuard = () => {
+  const { lang } = useParams();
+  if (lang !== "pt" && lang !== "en" && lang !== "es") {
+    return <Navigate to="/pt" replace />;
+  }
+
+  return <LanguageRouteSync />;
+};
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -21,9 +44,12 @@ const App = () => (
           <Sonner />
           <WhatsAppFloat />
           <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/lgpd" element={<Lgpd />} />
-            <Route path="/termos-de-uso" element={<Terms />} />
+            <Route path="/" element={<Navigate to="/pt" replace />} />
+            <Route path="/:lang" element={<LanguageRouteGuard />}>
+              <Route index element={<Index />} />
+              <Route path="lgpd" element={<Lgpd />} />
+              <Route path="termos-de-uso" element={<Terms />} />
+            </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
         </TooltipProvider>
