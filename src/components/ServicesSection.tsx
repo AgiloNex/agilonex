@@ -27,7 +27,7 @@ const ServicesSection = () => {
 
         <div className="grid sm:grid-cols-2 gap-6">
           {t.services.items.map((service, i) => {
-            const Icon = icons[i];
+            const Icon = icons[i] ?? Brain;
             return (
               <motion.div
                 key={service.title}
