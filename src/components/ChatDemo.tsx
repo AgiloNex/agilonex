@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
+import { translations } from "@/i18n/translations";
 
 type NodeId =
   | "start"
@@ -26,56 +28,162 @@ type Message = {
   text: string;
 };
 
-const FLOW: Record<NodeId, Node> = {
-  start: {
-    bot: "Olá! 👋 Seja bem-vindo ao Salão da Ana. Como posso te ajudar?",
-    options: [
-      { label: "Quero agendar um horário", next: "schedule_service" },
-      { label: "Ver serviços e preços", next: "services_offer" },
-      { label: "Falar com a Ana", next: "human_name" },
-    ],
-  },
-  schedule_service: {
-    bot: "Ótimo! Qual serviço você quer agendar?",
-    options: [
-      { label: "Corte feminino", next: "schedule_time" },
-      { label: "Escova progressiva", next: "schedule_time" },
-      { label: "Coloração", next: "schedule_time" },
-    ],
-  },
-  schedule_time: {
-    bot: "Perfeito! Temos horários na terça e quinta. Qual prefere?",
-    options: [
-      { label: "Terça às 14h", next: "schedule_done" },
-      { label: "Quinta às 10h", next: "schedule_done" },
-    ],
-  },
-  schedule_done: {
-    bot: "Agendamento confirmado! ✅ Você receberá uma confirmação no WhatsApp. Até lá!",
-    options: [],
-  },
-  services_offer: {
-    bot: "Nossos principais serviços: ✂️ Corte R$60 | 💆 Escova R$80 | 🎨 Coloração a partir de R$150. Quer agendar algum?",
-    options: [
-      { label: "Sim, quero agendar", next: "schedule_service" },
-      { label: "Obrigado, só estava vendo", next: "services_end" },
-    ],
-  },
-  services_end: {
-    bot: "Perfeito! Fico à disposição quando quiser agendar. 😊",
-    options: [],
-  },
-  human_name: {
-    bot: "A Ana está ocupada no momento, mas vou avisar que você quer falar com ela! Seu nome?",
-    options: [{ label: "Pode me chamar de cliente 😄", next: "ana_done" }],
-  },
-  ana_done: {
-    bot: "Anotado! Ela retorna em breve. 😊",
-    options: [],
-  },
+const getFlowForLanguage = (lang: "pt" | "en" | "es"): Record<NodeId, Node> => {
+  const flows: Record<"pt" | "en" | "es", Record<NodeId, Node>> = {
+    pt: {
+      start: {
+        bot: "Olá! 👋 Seja bem-vindo ao Salão da Ana. Como posso te ajudar?",
+        options: [
+          { label: "Quero agendar um horário", next: "schedule_service" },
+          { label: "Ver serviços e preços", next: "services_offer" },
+          { label: "Falar com a Ana", next: "human_name" },
+        ],
+      },
+      schedule_service: {
+        bot: "Ótimo! Qual serviço você quer agendar?",
+        options: [
+          { label: "Corte feminino", next: "schedule_time" },
+          { label: "Escova progressiva", next: "schedule_time" },
+          { label: "Coloração", next: "schedule_time" },
+        ],
+      },
+      schedule_time: {
+        bot: "Perfeito! Temos horários na terça e quinta. Qual prefere?",
+        options: [
+          { label: "Terça às 14h", next: "schedule_done" },
+          { label: "Quinta às 10h", next: "schedule_done" },
+        ],
+      },
+      schedule_done: {
+        bot: "Agendamento confirmado! ✅ Você receberá uma confirmação no WhatsApp. Até lá!",
+        options: [],
+      },
+      services_offer: {
+        bot: "Nossos principais serviços: ✂️ Corte R$60 | 💆 Escova R$80 | 🎨 Coloração a partir de R$150. Quer agendar algum?",
+        options: [
+          { label: "Sim, quero agendar", next: "schedule_service" },
+          { label: "Obrigado, só estava vendo", next: "services_end" },
+        ],
+      },
+      services_end: {
+        bot: "Perfeito! Fico à disposição quando quiser agendar. 😊",
+        options: [],
+      },
+      human_name: {
+        bot: "A Ana está ocupada no momento, mas vou avisar que você quer falar com ela! Seu nome?",
+        options: [{ label: "Pode me chamar de cliente 😄", next: "ana_done" }],
+      },
+      ana_done: {
+        bot: "Anotado! Ela retorna em breve. 😊",
+        options: [],
+      },
+    },
+    en: {
+      start: {
+        bot: "Hello! 👋 Welcome to Ana's Salon. How can I help you?",
+        options: [
+          { label: "I want to schedule an appointment", next: "schedule_service" },
+          { label: "View services and prices", next: "services_offer" },
+          { label: "Speak with Ana", next: "human_name" },
+        ],
+      },
+      schedule_service: {
+        bot: "Great! Which service would you like to book?",
+        options: [
+          { label: "Women's haircut", next: "schedule_time" },
+          { label: "Progressive straightening", next: "schedule_time" },
+          { label: "Hair coloring", next: "schedule_time" },
+        ],
+      },
+      schedule_time: {
+        bot: "Perfect! We have appointments on Tuesday and Thursday. Which do you prefer?",
+        options: [
+          { label: "Tuesday at 2pm", next: "schedule_done" },
+          { label: "Thursday at 10am", next: "schedule_done" },
+        ],
+      },
+      schedule_done: {
+        bot: "Appointment confirmed! ✅ You'll receive a confirmation on WhatsApp. See you then!",
+        options: [],
+      },
+      services_offer: {
+        bot: "Our main services: ✂️ Haircut $20 | 💆 Straightening $25 | 🎨 Hair coloring from $45. Want to book?",
+        options: [
+          { label: "Yes, I want to schedule", next: "schedule_service" },
+          { label: "Thanks, just browsing", next: "services_end" },
+        ],
+      },
+      services_end: {
+        bot: "Perfect! I'm here whenever you're ready to book. 😊",
+        options: [],
+      },
+      human_name: {
+        bot: "Ana is busy right now, but I'll let her know you want to talk! What's your name?",
+        options: [{ label: "You can call me customer 😄", next: "ana_done" }],
+      },
+      ana_done: {
+        bot: "Got it! She'll be back soon. 😊",
+        options: [],
+      },
+    },
+    es: {
+      start: {
+        bot: "¡Hola! 👋 Bienvenido al Salón de Ana. ¿Cómo puedo ayudarte?",
+        options: [
+          { label: "Quiero agendar una cita", next: "schedule_service" },
+          { label: "Ver servicios y precios", next: "services_offer" },
+          { label: "Hablar con Ana", next: "human_name" },
+        ],
+      },
+      schedule_service: {
+        bot: "¡Excelente! ¿Qué servicio deseas agendar?",
+        options: [
+          { label: "Corte femenino", next: "schedule_time" },
+          { label: "Alisado progresivo", next: "schedule_time" },
+          { label: "Coloración", next: "schedule_time" },
+        ],
+      },
+      schedule_time: {
+        bot: "¡Perfecto! Tenemos citas el martes y jueves. ¿Cuál prefieres?",
+        options: [
+          { label: "Martes a las 14h", next: "schedule_done" },
+          { label: "Jueves a las 10h", next: "schedule_done" },
+        ],
+      },
+      schedule_done: {
+        bot: "¡Cita confirmada! ✅ Recibirás una confirmación por WhatsApp. ¡Hasta pronto!",
+        options: [],
+      },
+      services_offer: {
+        bot: "Nuestros servicios principales: ✂️ Corte $15 | 💆 Alisado $20 | 🎨 Coloración desde $35. ¿Deseas agendar?",
+        options: [
+          { label: "Sí, quiero agendar", next: "schedule_service" },
+          { label: "Gracias, solo estaba mirando", next: "services_end" },
+        ],
+      },
+      services_end: {
+        bot: "¡Perfecto! Estoy aquí cuando quieras agendar. 😊",
+        options: [],
+      },
+      human_name: {
+        bot: "Ana está ocupada ahora, ¡pero le diré que quieres hablar con ella! ¿Cuál es tu nombre?",
+        options: [{ label: "Puedes llamarme cliente 😄", next: "ana_done" }],
+      },
+      ana_done: {
+        bot: "¡Anotado! Ella vuelve pronto. 😊",
+        options: [],
+      },
+    },
+  };
+
+  return flows[lang];
 };
 
 const ChatDemo = () => {
+  const { language } = useLanguage();
+  const t = translations[language];
+  const FLOW = getFlowForLanguage(language);
+  
   const [messages, setMessages] = useState<Message[]>([]);
   const [options, setOptions] = useState<Node["options"]>([]);
   const [typing, setTyping] = useState(false);
@@ -136,7 +244,7 @@ const ChatDemo = () => {
       clearTimer();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [language]);
 
   useEffect(() => {
     const element = scrollRef.current;
@@ -170,13 +278,13 @@ const ChatDemo = () => {
           className="max-w-3xl mx-auto text-center mb-12 md:mb-16"
         >
           <p className="text-sm font-semibold uppercase tracking-[0.28em] text-primary mb-3">
-            Veja como funciona
+            {t.chatDemo.tag}
           </p>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground">
-            Veja seu negócio com IA — ao vivo
+            {t.chatDemo.title}
           </h2>
           <p className="mt-4 text-muted-foreground text-pretty">
-            Esse é o mesmo agente que seus clientes vão usar no WhatsApp
+            {t.chatDemo.subtitle}
           </p>
         </motion.div>
 
@@ -195,8 +303,8 @@ const ChatDemo = () => {
                     A
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-foreground">AgiloNex IA</p>
-                    <p className="text-xs text-muted-foreground">Responde em segundos</p>
+                    <p className="text-sm font-semibold text-foreground">{t.chatDemo.agentName}</p>
+                    <p className="text-xs text-muted-foreground">{t.chatDemo.agentStatus}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-1.5 text-[11px] font-medium text-emerald-400">
@@ -225,7 +333,7 @@ const ChatDemo = () => {
                               A
                             </div>
                             <span className="text-[11px] uppercase tracking-[0.2em] text-primary/80">
-                              AgiloNex IA
+                              {t.chatDemo.agentName}
                             </span>
                           </div>
                         )}
@@ -242,11 +350,11 @@ const ChatDemo = () => {
                             A
                           </div>
                           <span className="text-[11px] uppercase tracking-[0.2em] text-primary/80">
-                            AgiloNex IA
+                            {t.chatDemo.agentName}
                           </span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <span className="text-xs text-slate-300">Digitando...</span>
+                          <span className="text-xs text-slate-300">{t.chatDemo.typing}</span>
                           <div className="flex items-center gap-1">
                             <span className="h-2 w-2 animate-bounce rounded-full bg-slate-300 [animation-delay:-0.2s]" />
                             <span className="h-2 w-2 animate-bounce rounded-full bg-slate-300 [animation-delay:-0.1s]" />
@@ -277,7 +385,7 @@ const ChatDemo = () => {
                     <div className="flex items-center justify-between gap-3">
                       <p className="text-xs text-slate-400">
                         {isComplete
-                          ? "Fluxo concluído. Você pode reiniciar a demo."
+                          ? t.chatDemo.completed
                           : "Aguardando a próxima interação..."}
                       </p>
                       {isComplete && (
@@ -286,7 +394,7 @@ const ChatDemo = () => {
                           onClick={resetDemo}
                           className="inline-flex items-center justify-center rounded-full bg-slate-100 px-4 py-2 text-xs font-semibold text-slate-950 transition-transform hover:scale-[1.02]"
                         >
-                          Reiniciar demo
+                          {t.chatDemo.restart}
                         </button>
                       )}
                     </div>
@@ -300,7 +408,7 @@ const ChatDemo = () => {
                 href="#contato"
                 className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-all duration-200 hover:gap-3 hover:shadow-primary/30"
               >
-                Quero esse agente no meu negócio
+                {t.chatDemo.cta}
                 <ArrowRight size={16} />
               </a>
             </div>

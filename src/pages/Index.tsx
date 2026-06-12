@@ -20,6 +20,7 @@ const Index = () => (
     <Header />
     <main>
       <HeroSection />
+      <ChatDemo />
       <ProcessSection />
       <PricingSection />
       <AboutSection />
@@ -27,7 +28,6 @@ const Index = () => (
       <HowItWorksSection />
       <BenefitsSection />
       <PortfolioSection />
-      <ChatDemo />
       <ROICalculator />
       <NichosSections />
       <FAQSection />
