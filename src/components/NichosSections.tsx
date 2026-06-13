@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Check, X } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 type NicheId = "salao" | "clinica" | "restaurante" | "loja";
 
@@ -22,124 +23,18 @@ type Niche = {
 const WHATSAPP_BASE_URL =
   "https://wa.me/553197546901020?text=";
 
-const niches: Niche[] = [
-  {
-    id: "salao",
-    icon: "✂️",
-    title: "Chatbot para Salão de Beleza",
-    subtitle:
-      "Seu salão agendando 24h por dia, sem você precisar parar o atendimento para responder mensagem",
-    painPoints: [
-      "Clientes mandando mensagem enquanto você está atendendo",
-      "Perdendo agendamentos fora do horário comercial",
-      "Esquecendo de confirmar horários e tendo faltas",
-    ],
-    solutions: [
-      "Agendamento automático pelo WhatsApp, sem você tocar no celular",
-      "Confirmação e lembrete automático 24h antes",
-      "Cardápio de serviços e preços respondido na hora",
-      "Transferência para você só quando o cliente realmente precisar",
-    ],
-    impact: "Salões que usam IA da AgiloNex reduzem em até 70% as mensagens manuais no WhatsApp.",
-    ctaLabel: "Quero isso no meu salão →",
-    whatsappText:
-      "Olá! Tenho um salão de beleza e quero saber como funciona o chatbot da AgiloNex.",
-    mockupTitle: "Agendamento automático",
-    mockupSummary: "Ana - Salão Premium",
-    mockupItems: [
-      { label: "Novo agendamento", value: "Terça, 14h" },
-      { label: "Lembrete enviado", value: "24h antes" },
-      { label: "Fila de espera", value: "3 clientes" },
-    ],
-  },
-  {
-    id: "clinica",
-    icon: "🦷",
-    title: "Chatbot para Clínica e Consultório",
-    subtitle: "Sua recepção virtual funcionando antes mesmo de você abrir a clínica",
-    painPoints: [
-      "Pacientes ligando fora do horário sem conseguir agendar",
-      "Recepcionista sobrecarregada com perguntas repetitivas",
-      "Confirmações de consulta feitas manualmente, uma por uma",
-    ],
-    solutions: [
-      "Agendamento e confirmação automática de consultas",
-      "Respostas sobre convênios, valores e procedimentos na hora",
-      "Lembretes automáticos para reduzir faltas",
-      "Triagem inicial: coleta nome, queixa e plano antes de você ver",
-    ],
-    impact: "Clínicas economizam até 2h por dia eliminando tarefas repetitivas de recepção.",
-    ctaLabel: "Quero isso na minha clínica →",
-    whatsappText:
-      "Olá! Tenho uma clínica/consultório e quero saber como funciona o chatbot da AgiloNex.",
-    mockupTitle: "Recepção digital",
-    mockupSummary: "Clínica Sorriso",
-    mockupItems: [
-      { label: "Consulta marcada", value: "Seg 09:30" },
-      { label: "Triagem coletada", value: "Nome + queixa" },
-      { label: "Lembrete", value: "Confirmado" },
-    ],
-  },
-  {
-    id: "restaurante",
-    icon: "🍽️",
-    title: "Chatbot para Restaurante e Lanchonete",
-    subtitle: "Pedidos, reservas e cardápio no WhatsApp — sem deixar cliente sem resposta na hora do rush",
-    painPoints: [
-      "WhatsApp lotado de perguntas sobre cardápio e horário de funcionamento",
-      "Perdendo pedidos porque não consegue responder todo mundo ao mesmo tempo",
-      "Sem controle de reservas, cliente chega e não tem mesa",
-    ],
-    solutions: [
-      "Cardápio completo respondido automaticamente com fotos e preços",
-      "Recebimento e confirmação de pedidos pelo WhatsApp",
-      "Gestão de reservas sem intervenção manual",
-      "Respostas instantâneas sobre horário, endereço e promoções do dia",
-    ],
-    impact: "No horário de pico, seu agente IA atende dezenas de clientes ao mesmo tempo — você não atende um.",
-    ctaLabel: "Quero isso no meu restaurante →",
-    whatsappText:
-      "Olá! Tenho um restaurante/lanchonete e quero saber como funciona o chatbot da AgiloNex.",
-    mockupTitle: "Pedidos em fila",
-    mockupSummary: "Bistrô AgiloNex",
-    mockupItems: [
-      { label: "Pedido recebido", value: "2 combos" },
-      { label: "Reserva", value: "Mesa 4" },
-      { label: "Promoção do dia", value: "Enviada" },
-    ],
-  },
-  {
-    id: "loja",
-    icon: "🛍️",
-    title: "Chatbot para Loja e Comércio Local",
-    subtitle: "Sua loja respondendo clientes e fechando vendas mesmo quando você está ocupado",
-    painPoints: [
-      "Clientes perguntando preço, tamanho e disponibilidade o dia todo",
-      "Perdendo vendas porque demorou para responder",
-      "Sem tempo para prospectar porque fica preso no atendimento",
-    ],
-    solutions: [
-      "Catálogo de produtos respondido automaticamente",
-      "Qualificação do cliente antes de você entrar na conversa",
-      "Follow-up automático para clientes que perguntaram mas não compraram",
-      "Integração com link de pagamento PIX direto na conversa",
-    ],
-    impact: "Cada mensagem não respondida em até 5 minutos tem 80% menos chance de virar venda.",
-    ctaLabel: "Quero isso na minha loja →",
-    whatsappText:
-      "Olá! Tenho uma loja e quero saber como funciona o chatbot da AgiloNex.",
-    mockupTitle: "Venda assistida",
-    mockupSummary: "Loja Premium Local",
-    mockupItems: [
-      { label: "Produto visto", value: "Tênis 42" },
-      { label: "Follow-up", value: "Automático" },
-      { label: "PIX", value: "Enviado" },
-    ],
-  },
-];
-
 const NichosSections = () => {
+  const { t } = useLanguage();
   const [activeId, setActiveId] = useState<NicheId>("salao");
+
+  const niches: Niche[] = useMemo(
+    () =>
+      (t.nichos.items as Niche[]).map((item) => ({
+        ...item,
+        id: item.id as NicheId,
+      })),
+    [t]
+  );
 
   const tabs = useMemo(
     () => [
@@ -175,7 +70,7 @@ const NichosSections = () => {
     sections.forEach((section) => observer.observe(section));
 
     return () => observer.disconnect();
-  }, []);
+  }, [niches]);
 
   const handleTabClick = (id: NicheId) => {
     setActiveId(id);
@@ -197,13 +92,13 @@ const NichosSections = () => {
           className="max-w-3xl mx-auto text-center mb-12 md:mb-16"
         >
           <p className="text-sm font-semibold uppercase tracking-[0.28em] text-primary mb-3">
-            Nichos
+            {t.nichos.tag}
           </p>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground normal-case">
-            Sua área de atuação tem solução pronta
+            {t.nichos.title}
           </h2>
           <p className="mt-4 text-muted-foreground text-pretty">
-            A AgiloNex já mapeou os principais problemas do seu segmento — e tem IA configurada para resolver
+            {t.nichos.subtitle}
           </p>
         </motion.div>
 
@@ -259,7 +154,9 @@ const NichosSections = () => {
 
                     <div className="mt-6 grid gap-5 md:grid-cols-2">
                       <div className="rounded-[20px] border border-white/10 bg-white/[0.03] p-5">
-                        <p className="text-sm font-semibold text-foreground">Dores comuns</p>
+                        <p className="text-sm font-semibold text-foreground">
+                          {t.nichos.labels.painPoints}
+                        </p>
                         <ul className="mt-4 space-y-3">
                           {niche.painPoints.map((item) => (
                             <li key={item} className="flex items-start gap-3 text-sm text-foreground">
@@ -273,7 +170,9 @@ const NichosSections = () => {
                       </div>
 
                       <div className="rounded-[20px] border border-primary/15 bg-primary/5 p-5">
-                        <p className="text-sm font-semibold text-foreground">Soluções com IA</p>
+                        <p className="text-sm font-semibold text-foreground">
+                          {t.nichos.labels.solutions}
+                        </p>
                         <ul className="mt-4 space-y-3">
                           {niche.solutions.map((item) => (
                             <li key={item} className="flex items-start gap-3 text-sm text-foreground">
@@ -300,6 +199,8 @@ const NichosSections = () => {
                       {niche.ctaLabel}
                       <ArrowRight size={16} />
                     </a>
+                      <ArrowRight size={16} />
+                    </a>
                   </motion.div>
 
                   <motion.div
@@ -317,7 +218,7 @@ const NichosSections = () => {
                             <p className="text-xs text-muted-foreground">{niche.mockupSummary}</p>
                           </div>
                           <div className="rounded-full bg-primary/15 px-3 py-1 text-xs font-semibold text-primary">
-                            IA ativa
+                            {t.nichos.labels.aiActive}
                           </div>
                         </div>
 
@@ -341,10 +242,10 @@ const NichosSections = () => {
 
                         <div className="mt-5 rounded-2xl border border-primary/20 bg-primary/10 p-4">
                           <p className="text-xs uppercase tracking-[0.25em] text-primary/80">
-                            {niche.icon} Demo ao vivo
+                            {niche.icon} {t.nichos.labels.liveDemo}
                           </p>
                           <p className="mt-2 text-sm leading-relaxed text-foreground/85">
-                            Atendimento automático, resposta rápida e transferência humana só quando necessário.
+                            {t.nichos.labels.demoDescription}
                           </p>
                         </div>
                       </div>
