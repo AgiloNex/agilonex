@@ -2,90 +2,54 @@ import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Check, Crown, Headphones, Lock, ShieldCheck, Sparkles, Star } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 type BillingCycle = "monthly" | "annual";
-
-const WHATSAPP_NUMBER = "5500000000000";
-const WHATSAPP_BASE_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
-
-const createWhatsAppUrl = (message: string) =>
-  `${WHATSAPP_BASE_URL}?text=${encodeURIComponent(message)}`;
-
-const formatBRL = (value: number) =>
-  new Intl.NumberFormat("pt-BR", {
-    style: "currency",
-    currency: "BRL",
-    maximumFractionDigits: 0,
-  }).format(value);
-
-const annualMonthlyEquivalent = (monthlyPrice: number) => Math.round(monthlyPrice * 0.85);
-const annualTotal = (monthlyPrice: number) => monthlyPrice * 12 * 0.85;
-const annualSavings = (monthlyPrice: number) => monthlyPrice * 12 - annualTotal(monthlyPrice);
 
 const plans = [
   {
     key: "starter",
     icon: "⚡",
-    name: "Starter",
-    subtitle: "Para começar com atendimento automatizado sem complicação",
     monthly: 250,
-    annual: annualMonthlyEquivalent(250),
+    annual: 213,
     annualTotal: 2550,
     annualSavings: 450,
-    badge: "Economize R$450 no ano",
-    features: [
-      "1 agente de atendimento no WhatsApp",
-      "Implementação em até 7 dias úteis",
-      "Respostas automáticas 24h/dia",
-      "Até 500 conversas/mês",
-      "Suporte por e-mail",
-    ],
+    featuresKey: "basic" as const,
   },
   {
     key: "essential",
     icon: "🚀",
-    name: "Essencial AgiloNex",
-    subtitle: "A automação principal para escalar operação e agendamentos",
     monthly: 397,
-    annual: annualMonthlyEquivalent(397),
+    annual: 318,
     annualTotal: 3816,
     annualSavings: 948,
-    badge: "Economize R$948 no ano",
     featured: true,
-    popularBadge: "Mais popular",
-    features: [
-      "Tudo do Starter, mais:",
-      "IA com personalidade treinada no seu negócio",
-      "Integração com Google Calendar (agendamentos)",
-      "Dashboard de atendimentos",
-      "Conversas ilimitadas",
-      "Suporte prioritário via WhatsApp",
-    ],
+    featuresKey: "main" as const,
   },
   {
     key: "enterprise",
     icon: "🏢",
-    name: "Enterprise",
-    subtitle: "Solução personalizada para o seu negócio",
     custom: true,
-    badge: "Personalizado",
-    features: [
-      "Tudo do Essencial, mais:",
-      "Múltiplos agentes e canais",
-      "Integrações customizadas",
-      "SLA garantido",
-      "Gerente de conta dedicado",
-      "Treinamento da equipe",
-    ],
+    featuresKey: "anchor" as const,
   },
-] as const;
+];
 
 const PricingSection = () => {
+  const { t, language } = useLanguage();
   const [billingCycle, setBillingCycle] = useState<BillingCycle>("monthly");
 
+  const locale = language === "en" ? "en-US" : language === "es" ? "es-ES" : "pt-BR";
+
+  const formatBRL = (value: number) =>
+    new Intl.NumberFormat(locale, {
+      style: "currency",
+      currency: "BRL",
+      maximumFractionDigits: 0,
+    }).format(value);
+
   const monthlyLabel = useMemo(
-    () => billingCycle === "monthly" ? "Mensal selecionado" : "Mensal",
-    [billingCycle],
+    () => billingCycle === "monthly" ? t.pricing.monthlySelected : t.pricing.monthly,
+    [billingCycle, t],
   );
 
   return (
@@ -99,13 +63,13 @@ const PricingSection = () => {
           className="max-w-3xl mx-auto text-center"
         >
           <span className="inline-block text-xs font-semibold tracking-widest uppercase text-primary">
-            Planos
+            {t.pricing.tag}
           </span>
           <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tighter text-foreground">
-            Escolha o plano ideal para o seu momento
+            {t.pricing.title}
           </h2>
           <p className="mt-4 text-muted-foreground text-pretty">
-            Comece pequeno, escale quando fizer sentido. Sem fidelidade, sem letra miúda.
+            {t.pricing.subtitle}
           </p>
         </motion.div>
 
@@ -124,7 +88,7 @@ const PricingSection = () => {
             >
               🏷️
             </motion.span>
-            <span>Economize pagando anualmente</span>
+            <span>{t.pricing.saveAnnual}</span>
           </motion.div>
 
           <div className="flex items-center gap-3">
@@ -136,7 +100,7 @@ const PricingSection = () => {
                 billingCycle === "monthly" ? "text-foreground" : "text-muted-foreground",
               )}
             >
-              Mensal
+              {t.pricing.monthly}
             </button>
 
             <button
@@ -162,7 +126,7 @@ const PricingSection = () => {
                   billingCycle === "annual" ? "text-foreground" : "text-muted-foreground",
                 )}
               >
-                Anual
+                {t.pricing.annual}
               </button>
               <AnimatePresence>
                 {billingCycle === "annual" && (
@@ -173,7 +137,7 @@ const PricingSection = () => {
                     transition={{ duration: 0.25 }}
                     className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-2.5 py-1 text-[10px] font-semibold text-primary"
                   >
-                    Melhor custo-benefício
+                    {t.pricing.bestValue}
                   </motion.span>
                 )}
               </AnimatePresence>
@@ -185,11 +149,20 @@ const PricingSection = () => {
         <div className="mt-14 grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 items-stretch max-w-6xl mx-auto">
           {plans.map((plan) => {
             const isAnnual = billingCycle === "annual";
+            const name = t.pricing.plans[plan.featuresKey].name;
+            const subtitle = t.pricing.plans[plan.featuresKey].subtitle;
+            const badge = t.pricing.plans[plan.featuresKey].badge;
+            const features = t.pricing.plans[plan.featuresKey].features;
+            const period = t.pricing.plans[plan.featuresKey].period;
+
+            const billingCycleLabel = isAnnual ? t.whatsapp.annual : t.whatsapp.monthly;
             const whatsappText =
               plan.key === "enterprise"
-                ? "Olá! Tenho interesse no plano Enterprise da AgiloNex e quero entender as opções."
-                : `Olá! Quero contratar o plano ${plan.name} ${isAnnual ? "Anual" : "Mensal"} da AgiloNex.`;
-            const whatsappUrl = createWhatsAppUrl(whatsappText);
+                ? t.whatsapp.msgEnterprise
+                : t.whatsapp.msgPlanBuy
+                    .replace("{planName}", name)
+                    .replace("{billingCycle}", billingCycleLabel);
+            const whatsappUrl = `https://wa.me/${t.whatsapp.number}?text=${encodeURIComponent(whatsappText)}`;
 
             return (
               <motion.article
@@ -209,7 +182,7 @@ const PricingSection = () => {
                 {plan.featured && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2">
                     <span className="inline-flex items-center gap-1 rounded-full bg-primary px-3 py-1 text-[11px] font-bold tracking-wide uppercase text-primary-foreground shadow-lg">
-                      <Star size={12} className="fill-current" /> {plan.popularBadge}
+                      <Star size={12} className="fill-current" /> {badge}
                     </span>
                   </div>
                 )}
@@ -217,25 +190,25 @@ const PricingSection = () => {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <span className="text-xl">{plan.icon}</span>
-                    <h3 className="text-xl font-bold text-foreground">{plan.name}</h3>
+                    <h3 className="text-xl font-bold text-foreground">{name}</h3>
                   </div>
-                  {plan.badge && (
+                  {badge && !plan.featured && (
                     <span className="rounded-full border border-border px-2.5 py-1 text-[10px] font-semibold tracking-widest uppercase text-muted-foreground">
-                      {plan.badge}
+                      {badge}
                     </span>
                   )}
                 </div>
 
-                <p className="mt-2 text-sm text-muted-foreground">{plan.subtitle}</p>
+                <p className="mt-2 text-sm text-muted-foreground">{subtitle}</p>
 
                 <div className="mt-6 min-h-[110px]">
                   {plan.custom ? (
                     <div className="space-y-3">
                       <div className="rounded-xl border border-dashed border-border/80 bg-background/40 px-4 py-5 text-sm text-muted-foreground">
-                        Solução personalizada para o seu negócio
+                        {t.pricing.customSolution}
                       </div>
                       <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                        Sob consulta
+                        {t.pricing.onDemand}
                       </div>
                     </div>
                   ) : (
@@ -253,16 +226,16 @@ const PricingSection = () => {
                               <span className="text-2xl font-semibold text-muted-foreground line-through decoration-destructive/80">
                                 {formatBRL(plan.monthly)}
                               </span>
-                              <span className="text-sm text-muted-foreground">/mês</span>
+                              <span className="text-sm text-muted-foreground">{period}</span>
                             </div>
                             <div className="flex items-end gap-2">
                               <span className="text-5xl font-extrabold tracking-tight text-emerald-400">
                                 {formatBRL(plan.annual)}
                               </span>
-                              <span className="pb-1 text-base text-emerald-300/90">/mês</span>
+                              <span className="pb-1 text-base text-emerald-300/90">{period}</span>
                             </div>
                             <div className="text-sm text-muted-foreground">
-                              Cobrado como {formatBRL(plan.annualTotal)}/ano
+                              {t.pricing.billedYearly.replace("{amount}", formatBRL(plan.annualTotal))}
                             </div>
                             <motion.div
                               initial={{ opacity: 0, y: 10 }}
@@ -270,7 +243,7 @@ const PricingSection = () => {
                               transition={{ duration: 0.3, delay: 0.08 }}
                               className="inline-flex items-center rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1.5 text-xs font-semibold text-emerald-300"
                             >
-                              Economize {formatBRL(annualSavings(plan.monthly))} no ano
+                              {t.pricing.saveYearly.replace("{amount}", formatBRL(plan.annualSavings))}
                             </motion.div>
                           </div>
                         ) : (
@@ -279,7 +252,7 @@ const PricingSection = () => {
                               <span className="text-5xl font-extrabold tracking-tight text-foreground">
                                 {formatBRL(plan.monthly)}
                               </span>
-                              <span className="pb-1 text-base text-muted-foreground">/mês</span>
+                              <span className="pb-1 text-base text-muted-foreground">{period}</span>
                             </div>
                           </div>
                         )}
@@ -289,7 +262,7 @@ const PricingSection = () => {
                 </div>
 
                 <ul className="mt-6 space-y-3 flex-1">
-                  {plan.features.map((feature, index) => (
+                  {features.map((feature, index) => (
                     <li
                       key={feature}
                       className={cn(
@@ -305,7 +278,7 @@ const PricingSection = () => {
                 </ul>
 
                 <a
-                  href={plan.custom ? "https://wa.me/5500000000000?text=Olá!%20Tenho%20interesse%20no%20plano%20Enterprise%20da%20AgiloNex%20e%20quero%20entender%20as%20opções." : whatsappUrl}
+                  href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={cn(
@@ -315,7 +288,7 @@ const PricingSection = () => {
                       : "border border-border text-foreground hover:bg-secondary",
                   )}
                 >
-                  {plan.custom ? "Falar com especialista →" : isAnnual ? "Garantir desconto →" : "Começar agora →"}
+                  {plan.custom ? t.pricing.speakSpecialist : isAnnual ? t.pricing.getDiscount : t.pricing.startNow}
                 </a>
               </motion.article>
             );
@@ -324,19 +297,19 @@ const PricingSection = () => {
 
         <div className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-muted-foreground">
           <span className="inline-flex items-center gap-2">
-            <Lock size={16} className="text-primary" /> Compra segura
+            <Lock size={16} className="text-primary" /> {t.pricing.trust.secure}
           </span>
           <span className="inline-flex items-center gap-2">
-            <ShieldCheck size={16} className="text-primary" /> 7 dias de garantia
+            <ShieldCheck size={16} className="text-primary" /> {t.pricing.trust.guarantee}
           </span>
           <span className="inline-flex items-center gap-2">
-            <Headphones size={16} className="text-primary" /> Suporte incluso enquanto assinante
+            <Headphones size={16} className="text-primary" /> {t.pricing.trust.support}
           </span>
           <span className="inline-flex items-center gap-2">
-            <Crown size={16} className="text-primary" /> Atendimento consultivo
+            <Crown size={16} className="text-primary" /> {t.pricing.trust.consultive}
           </span>
           <span className="inline-flex items-center gap-2">
-            <Sparkles size={16} className="text-primary" /> Implantação guiada
+            <Sparkles size={16} className="text-primary" /> {t.pricing.trust.guided}
           </span>
         </div>
       </div>

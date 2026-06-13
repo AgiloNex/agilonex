@@ -3,11 +3,9 @@ import { motion } from "framer-motion";
 import { Minus, Plus } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
-const WHATSAPP_URL =
-  "https://wa.me/553197546901020?text=Vim%20pelo%20site%20da%20AgiloNex%20e%20quero%20saber%20mais.";
-
 const FAQSection = () => {
   const { t } = useLanguage();
+  const whatsappUrl = `https://wa.me/${t.whatsapp.number}?text=${encodeURIComponent(t.whatsapp.msgDefault)}`;
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
@@ -75,7 +73,7 @@ const FAQSection = () => {
 
         <div className="mt-10 text-center">
           <a
-            href={WHATSAPP_URL}
+            href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center rounded-md bg-whatsapp px-6 py-3 text-sm font-semibold text-whatsapp-foreground shadow-lg shadow-[#25D366]/15 transition-all duration-200 hover:opacity-90"

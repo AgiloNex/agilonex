@@ -1,15 +1,16 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
-
-const WHATSAPP_URL =
-  "https://wa.me/553197546901020?text=Vim%20pelo%20site%20da%20AgiloNex%20e%20quero%20saber%20mais.";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const WhatsAppFloat = () => {
+  const { t } = useLanguage();
   const [isTooltipOpen, setIsTooltipOpen] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
   const [isTooltipDismissed, setIsTooltipDismissed] = useState(false);
   const containerRef = useRef<HTMLDivElement | null>(null);
+
+  const whatsappUrl = `https://wa.me/${t.whatsapp.number}?text=${encodeURIComponent(t.whatsapp.msgDefault)}`;
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(min-width: 768px)");
@@ -65,17 +66,17 @@ const WhatsAppFloat = () => {
             className="absolute bottom-full right-0 mb-3 hidden md:block"
           >
             <div className="whitespace-nowrap rounded-2xl border border-white/10 bg-slate-950 px-4 py-2 text-sm font-medium text-white shadow-2xl shadow-black/30">
-              💬 Fale com a gente agora
+              {t.whatsappFloat.tooltip}
             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
       <a
-        href={WHATSAPP_URL}
+        href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Fale com a gente no WhatsApp"
+        aria-label={t.whatsappFloat.ariaLabel}
         onClick={() => {
           setIsTooltipOpen(false);
           setIsTooltipDismissed(true);

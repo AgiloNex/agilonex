@@ -258,7 +258,7 @@ const ROICalculator = () => {
                       .replace("{value}", currency.format(netSavings))}
                     {" "}
                     - {t.roi.stats.payback}{" "}
-                    <strong className="text-background">{Math.max(1, Math.round((MONTHLY_PLAN_PRICE / totalLostPerMonth) * 30))} dias</strong>.
+                    <strong className="text-background">{Math.max(1, Math.round((MONTHLY_PLAN_PRICE / totalLostPerMonth) * 30))} {t.roi.stats.days}</strong>.
                   </p>
                 ) : (
                   <p className="text-sm leading-relaxed text-background/80">{t.roi.stats.lowVolume}</p>

@@ -5,6 +5,7 @@ import { useLanguage } from "@/i18n/LanguageContext";
 
 const HeroSection = () => {
   const { t } = useLanguage();
+  const whatsappUrl = `https://wa.me/${t.whatsapp.number}?text=${encodeURIComponent(t.whatsapp.msgDefault)}`;
   return (
     <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
       <div className="absolute inset-0 grid-dots opacity-50" />
@@ -24,7 +25,7 @@ const HeroSection = () => {
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <a
-                href="https://wa.me/5500000000000"
+                href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-sm hover:shadow-lg transition-all duration-200"

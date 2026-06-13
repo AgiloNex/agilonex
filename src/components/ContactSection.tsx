@@ -10,18 +10,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const WEBHOOK_URL = "[WEBHOOK_URL]";
-const WHATSAPP_LINK = "https://wa.me/5500000000000";
 
-const SEGMENTOS = [
-  "Salão de beleza",
-  "Clínica/Consultório",
-  "Restaurante/Lanchonete",
-  "Loja/Comércio",
-  "Prestador de serviços",
-  "Outro",
-] as const;
 
-type Segmento = (typeof SEGMENTOS)[number];
 
 const formatWhatsapp = (value: string) => {
   const digits = value.replace(/\D/g, "").slice(0, 11);
@@ -34,9 +24,10 @@ const isValidWhatsapp = (value: string) => /^\(\d{2}\)\s\d{4,5}-\d{4}$/.test(val
 
 const ContactSection = () => {
   const { t } = useLanguage();
+  const whatsappLink = `https://wa.me/${t.whatsapp.number}`;
   const [name, setName] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
-  const [segmento, setSegmento] = useState<Segmento | "">("");
+  const [segmento, setSegmento] = useState<string>("");
   const [mensagem, setMensagem] = useState("");
   const [loading, setLoading] = useState(false);
   const [submittedName, setSubmittedName] = useState("");
@@ -57,7 +48,7 @@ const ContactSection = () => {
       toast.error(t.contactSection.toast, {
         action: {
           label: t.contactSection.toastAction,
-          onClick: () => window.open(WHATSAPP_LINK, "_blank", "noopener,noreferrer"),
+          onClick: () => window.open(whatsappLink, "_blank", "noopener,noreferrer"),
         },
       });
       return;
@@ -90,7 +81,7 @@ const ContactSection = () => {
       toast.error(t.contactSection.toast, {
         action: {
           label: t.contactSection.toastAction,
-          onClick: () => window.open(WHATSAPP_LINK, "_blank", "noopener,noreferrer"),
+          onClick: () => window.open(whatsappLink, "_blank", "noopener,noreferrer"),
         },
       });
     } finally {
@@ -150,7 +141,7 @@ const ContactSection = () => {
                   {t.contactSection.success.replace("{name}", submittedName)}
                 </p>
                 <Button asChild className="mt-6 bg-gradient-to-r from-blue-500 to-cyan-400 text-slate-950 hover:opacity-95">
-                  <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer">
+                  <a href={whatsappLink} target="_blank" rel="noreferrer">
                     <MessageCircle className="h-4 w-4" />
                     {t.contactSection.buttonWhatsapp}
                   </a>
@@ -189,12 +180,12 @@ const ContactSection = () => {
 
                 <div className="space-y-2">
                   <Label htmlFor="segmento">{t.contactSection.form.segment}</Label>
-                  <Select value={segmento} onValueChange={(value) => setSegmento(value as Segmento)}>
+                  <Select value={segmento} onValueChange={(value) => setSegmento(value)}>
                     <SelectTrigger id="segmento" className="h-11 border-border/70 bg-background/90 focus:ring-2 focus:ring-blue-500/80 focus:ring-offset-0">
                       <SelectValue placeholder={t.contactSection.form.segmentPh} />
                     </SelectTrigger>
                     <SelectContent>
-                      {SEGMENTOS.map((option) => (
+                      {t.contactSection.segmentos.map((option) => (
                         <SelectItem key={option} value={option}>
                           {option}
                         </SelectItem>
@@ -240,7 +231,7 @@ const ContactSection = () => {
 
             <div className="mt-6 space-y-4 text-sm">
               <a
-                href={WHATSAPP_LINK}
+                href={whatsappLink}
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-3 rounded-2xl border border-border/70 bg-card/70 p-4 transition-colors hover:border-blue-500/40 hover:bg-blue-500/10"
@@ -266,8 +257,8 @@ const ContactSection = () => {
               <div className="flex items-center gap-3 rounded-2xl border border-border/70 bg-card/70 p-4">
                 <Loader2 className="h-5 w-5 text-cyan-400" />
                 <div>
-                  <p className="font-medium text-foreground">Atendimento</p>
-                  <p className="text-muted-foreground">Seg–Sex, 8h–18h</p>
+                  <p className="font-medium text-foreground">{t.contactSection.direct.hours}</p>
+                  <p className="text-muted-foreground">{t.contactSection.direct.hoursValue}</p>
                 </div>
               </div>
             </div>

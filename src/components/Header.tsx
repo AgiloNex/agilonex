@@ -9,6 +9,7 @@ import logoMark from "@/assets/agilonex-logo-full.png";
 const Header = () => {
   const [open, setOpen] = useState(false);
   const { t, languagePath } = useLanguage();
+  const whatsappUrl = `https://wa.me/${t.whatsapp.number}?text=${encodeURIComponent(t.whatsapp.msgDefault)}`;
 
   const navLinks = [
     { label: t.nav.about, href: "#sobre" },
@@ -38,7 +39,7 @@ const Header = () => {
           ))}
           <LanguageSwitcher />
           <a
-            href="https://wa.me/5500000000000"
+            href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm hover:shadow-lg transition-all duration-200"
@@ -77,7 +78,7 @@ const Header = () => {
               ))}
               <LanguageSwitcher variant="mobile" />
               <a
-                href="https://wa.me/5500000000000"
+                href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-md bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground"

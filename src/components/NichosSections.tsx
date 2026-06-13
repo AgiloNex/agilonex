@@ -20,11 +20,9 @@ type Niche = {
   mockupItems: Array<{ label: string; value: string }>;
 };
 
-const WHATSAPP_BASE_URL =
-  "https://wa.me/553197546901020?text=";
-
 const NichosSections = () => {
   const { t } = useLanguage();
+  const whatsappBaseUrl = `https://wa.me/${t.whatsapp.number}?text=`;
   const [activeId, setActiveId] = useState<NicheId>("salao");
 
   const niches: Niche[] = useMemo(
@@ -191,14 +189,12 @@ const NichosSections = () => {
                     </p>
 
                     <a
-                      href={`${WHATSAPP_BASE_URL}${encodeURIComponent(niche.whatsappText)}`}
+                      href={`${whatsappBaseUrl}${encodeURIComponent(niche.whatsappText)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="mt-7 inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-all duration-200 hover:gap-3 hover:opacity-95"
                     >
                       {niche.ctaLabel}
-                      <ArrowRight size={16} />
-                    </a>
                       <ArrowRight size={16} />
                     </a>
                   </motion.div>

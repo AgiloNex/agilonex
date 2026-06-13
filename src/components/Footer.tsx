@@ -14,10 +14,10 @@ const Footer = () => {
           <p>© {new Date().getFullYear()} {t.footer.rights}</p>
           <div className="flex items-center gap-4">
             <Link to={languagePath("lgpd")} className="hover:text-foreground transition-colors">
-              LGPD
+              {t.footer.lgpd}
             </Link>
             <Link to={languagePath("termos-de-uso")} className="hover:text-foreground transition-colors">
-              Termos de uso
+              {t.footer.terms}
             </Link>
           </div>
         </div>
