@@ -212,56 +212,56 @@ const ROICalculator = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="rounded-[24px] border border-border/70 bg-foreground/95 p-6 md:p-8 shadow-[0_18px_48px_rgba(0,0,0,0.28)] text-background"
+            className="rounded-[24px] border border-border/70 bg-card p-6 md:p-8 shadow-[0_18px_48px_rgba(0,0,0,0.28)] text-card-foreground"
           >
             <div className="space-y-4">
               <div className="grid gap-4 sm:grid-cols-2">
-                <div className="rounded-[18px] border border-white/10 bg-white/5 p-4">
-                  <p className="text-sm text-background/70">{t.roi.stats.revenueLost}</p>
-                  <AnimatedNumber value={revenueLostPerMonth} formatter={(value) => currency.format(value)} className="mt-2 block text-xl font-bold tracking-tight text-background" />
+                <div className="rounded-[18px] border border-border/20 bg-muted/50 p-4">
+                  <p className="text-sm text-muted-foreground">{t.roi.stats.revenueLost}</p>
+                  <AnimatedNumber value={revenueLostPerMonth} formatter={(value) => currency.format(value)} className="mt-2 block text-xl font-bold tracking-tight text-foreground" />
                 </div>
-                <div className="rounded-[18px] border border-white/10 bg-white/5 p-4">
-                  <p className="text-sm text-background/70">{t.roi.stats.timeCost}</p>
-                  <AnimatedNumber value={timeCostPerMonth} formatter={(value) => currency.format(value)} className="mt-2 block text-xl font-bold tracking-tight text-background" />
+                <div className="rounded-[18px] border border-border/20 bg-muted/50 p-4">
+                  <p className="text-sm text-muted-foreground">{t.roi.stats.timeCost}</p>
+                  <AnimatedNumber value={timeCostPerMonth} formatter={(value) => currency.format(value)} className="mt-2 block text-xl font-bold tracking-tight text-foreground" />
                 </div>
               </div>
 
-              <div className="rounded-[20px] border border-orange-500/20 bg-gradient-to-br from-orange-500/15 to-red-500/10 p-5">
-                <p className="text-sm font-medium text-orange-200">{t.roi.stats.totalLost}</p>
-                <AnimatedNumber value={totalLostPerMonth} formatter={(value) => currency.format(value)} className="mt-2 block text-3xl md:text-4xl font-bold tracking-tight text-orange-100" />
+              <div className="rounded-[20px] border border-orange-500/30 bg-gradient-to-br from-orange-500/10 to-red-500/5 p-5">
+                <p className="text-sm font-medium text-orange-300">{t.roi.stats.totalLost}</p>
+                <AnimatedNumber value={totalLostPerMonth} formatter={(value) => currency.format(value)} className="mt-2 block text-3xl md:text-4xl font-bold tracking-tight text-orange-200" />
               </div>
 
               <div className="grid gap-4 sm:grid-cols-2">
-                <div className="rounded-[18px] border border-emerald-500/20 bg-emerald-500/10 p-4">
-                  <p className="text-sm text-emerald-100/80">{t.roi.stats.netSavings}</p>
+                <div className="rounded-[18px] border border-emerald-500/30 bg-emerald-500/10 p-4">
+                  <p className="text-sm text-emerald-300">{t.roi.stats.netSavings}</p>
                   <AnimatedNumber
                     value={netSavings}
                     formatter={formatSignedCurrency}
-                    className={`mt-2 block text-xl font-bold tracking-tight ${netSavings >= 0 ? "text-emerald-100" : "text-rose-100"}`}
+                    className={`mt-2 block text-xl font-bold tracking-tight ${netSavings >= 0 ? "text-emerald-200" : "text-rose-200"}`}
                   />
                 </div>
-                <div className="rounded-[18px] border border-emerald-500/20 bg-emerald-500/10 p-4">
-                  <p className="text-sm text-emerald-100/80">ROI</p>
+                <div className="rounded-[18px] border border-emerald-500/30 bg-emerald-500/10 p-4">
+                  <p className="text-sm text-emerald-300">ROI</p>
                   <AnimatedNumber
                     value={roiPercent}
                     formatter={formatPercent}
-                    className={`mt-2 block text-xl font-bold tracking-tight ${roiPercent > 0 ? "text-emerald-100" : "text-rose-100"}`}
+                    className={`mt-2 block text-xl font-bold tracking-tight ${roiPercent > 0 ? "text-emerald-200" : "text-rose-200"}`}
                   />
                 </div>
               </div>
 
-              <div className="rounded-[20px] border border-border/60 bg-background/5 p-5">
+              <div className="rounded-[20px] border border-border/60 bg-muted/50 p-5">
                 {netSavings > 0 ? (
-                  <p className="text-sm leading-relaxed text-background/80">
+                  <p className="text-sm leading-relaxed text-muted-foreground">
                     {t.roi.stats.planSavings
                       .replace("{price}", currency.format(MONTHLY_PLAN_PRICE))
                       .replace("{value}", currency.format(netSavings))}
                     {" "}
                     - {t.roi.stats.payback}{" "}
-                    <strong className="text-background">{Math.max(1, Math.round((MONTHLY_PLAN_PRICE / totalLostPerMonth) * 30))} {t.roi.stats.days}</strong>.
+                    <strong className="text-foreground">{Math.max(1, Math.round((MONTHLY_PLAN_PRICE / totalLostPerMonth) * 30))} {t.roi.stats.days}</strong>.
                   </p>
                 ) : (
-                  <p className="text-sm leading-relaxed text-background/80">{t.roi.stats.lowVolume}</p>
+                  <p className="text-sm leading-relaxed text-muted-foreground">{t.roi.stats.lowVolume}</p>
                 )}
 
                 <a
@@ -273,7 +273,7 @@ const ROICalculator = () => {
                 </a>
               </div>
 
-              <p className="pt-1 text-xs text-background/45">{t.roi.stats.note}</p>
+              <p className="pt-1 text-xs text-muted-foreground">{t.roi.stats.note}</p>
             </div>
           </motion.div>
         </div>
