@@ -337,6 +337,58 @@ export const translations = {
       startNow: "Começar agora →",
       customSolution: "Solução personalizada para o seu negócio",
       onDemand: "Sob consulta",
+      tabs: {
+        ai: "Automação & IA",
+        sites: "Sites (Venda Isolada)",
+        robust: "Sistemas Robustos",
+      },
+      oneTimePayment: "Pagamento único",
+      robustSection: {
+        title: "Sistemas e Sites Robustos",
+        subtitle: "Portais corporativos, plataformas SaaS, e-commerces e sistemas sob medida.",
+        description: "Desenvolvemos soluções robustas e personalizadas para atender à demanda específica do seu negócio, com integrações complexas, banco de dados dedicado e máxima segurança.",
+        cta: "Solicitar Orçamento no WhatsApp",
+      },
+      sitePlans: {
+        simple: {
+          name: "Landing Page Simples",
+          subtitle: "Presença digital rápida e profissional",
+          price: "300",
+          features: [
+            "1 Página (Single Page)",
+            "Design responsivo (celular e PC)",
+            "Otimização para SEO básico",
+            "Botão de WhatsApp integrado",
+            "Domínio próprio configurado",
+          ],
+        },
+        features: {
+          name: "Landing Page com Agenda",
+          subtitle: "Ideal para profissionais e prestadores de serviços",
+          price: "600",
+          features: [
+            "Tudo da Landing Page Simples",
+            "Sistema de agendamento online",
+            "Formulários de contato dinâmicos",
+            "Seção de depoimentos e FAQ",
+            "Integração com Google Maps",
+            "Pixel do Facebook / Google Analytics",
+          ],
+        },
+        premium: {
+          name: "Landing Page Premium",
+          subtitle: "Destaque total com alta conversão e design exclusivo",
+          price: "800",
+          features: [
+            "Tudo da Landing Page com Agenda",
+            "Design ultra-premium e exclusivo",
+            "Animações e interações interativas",
+            "Copywriting focado em vendas",
+            "Integração com CRM ou ferramenta de email marketing",
+            "Suporte prioritário por 30 dias pós-entrega",
+          ],
+        },
+      },
     },
     cta: {
       title: "Pronto para melhorar seu negócio?",
@@ -371,6 +423,8 @@ export const translations = {
       msgDiagnosis: "Olá! Quero fazer o diagnóstico gratuito para meu negócio.",
       msgEnterprise: "Olá! Tenho interesse no plano Enterprise da AgiloNex e quero entender as opções.",
       msgPlanBuy: "Olá! Quero contratar o plano {planName} {billingCycle} da AgiloNex.",
+      msgSiteBuy: "Olá! Quero contratar a criação de site: {planName} da AgiloNex.",
+      msgRobust: "Olá! Gostaria de fazer um orçamento para um site ou sistema robusto sob medida.",
       monthly: "Mensal",
       annual: "Anual",
     },
@@ -904,6 +958,58 @@ export const translations = {
       startNow: "Get started now →",
       customSolution: "Custom solution for your business",
       onDemand: "On demand",
+      tabs: {
+        ai: "AI & Automation",
+        sites: "Websites (One-time)",
+        robust: "Robust Systems",
+      },
+      oneTimePayment: "One-time payment",
+      robustSection: {
+        title: "Robust Systems & Websites",
+        subtitle: "Corporate portals, SaaS platforms, e-commerce, and custom systems.",
+        description: "We develop robust and tailored solutions to meet the specific demands of your business, featuring complex integrations, dedicated databases, and top-tier security.",
+        cta: "Request Quote on WhatsApp",
+      },
+      sitePlans: {
+        simple: {
+          name: "Simple Landing Page",
+          subtitle: "Fast and professional digital presence",
+          price: "300",
+          features: [
+            "1 Page (Single Page)",
+            "Responsive design (mobile & desktop)",
+            "Basic SEO optimization",
+            "Integrated WhatsApp button",
+            "Custom domain configuration",
+          ],
+        },
+        features: {
+          name: "Landing Page with Scheduling",
+          subtitle: "Ideal for professionals and service providers",
+          price: "600",
+          features: [
+            "Everything in Simple Landing Page",
+            "Online scheduling system",
+            "Dynamic contact forms",
+            "Testimonials and FAQ section",
+            "Google Maps integration",
+            "Facebook Pixel / Google Analytics",
+          ],
+        },
+        premium: {
+          name: "Premium Landing Page",
+          subtitle: "Stand out with high conversion and exclusive design",
+          price: "800",
+          features: [
+            "Everything in Scheduling Landing Page",
+            "Ultra-premium & exclusive design",
+            "Interactive animations & transitions",
+            "Sales-focused copywriting",
+            "CRM or email marketing integration",
+            "Priority support for 30 days post-delivery",
+          ],
+        },
+      },
     },
     cta: {
       title: "Ready to improve your business?",
@@ -1471,6 +1577,58 @@ export const translations = {
       startNow: "Empezar ahora →",
       customSolution: "Solución personalizada para tu negocio",
       onDemand: "Bajo consulta",
+      tabs: {
+        ai: "Automatización e IA",
+        sites: "Sitios Web (Único)",
+        robust: "Sistemas Robustos",
+      },
+      oneTimePayment: "Pago único",
+      robustSection: {
+        title: "Sistemas y Sitios Robustos",
+        subtitle: "Portales corporativos, plataformas SaaS, e-commerce y sistemas a medida.",
+        description: "Desarrollamos soluciones robustas y personalizadas para satisfacer las demandas específicas de tu negocio, con integraciones complejas, bases de datos dedicadas y máxima seguridad.",
+        cta: "Solicitar Presupuesto en WhatsApp",
+      },
+      sitePlans: {
+        simple: {
+          name: "Landing Page Simple",
+          subtitle: "Presencia digital rápida y profesional",
+          price: "300",
+          features: [
+            "1 Página (Single Page)",
+            "Diseño responsivo (móvil y PC)",
+            "Optimización SEO básica",
+            "Botón de WhatsApp integrado",
+            "Configuración de dominio propio",
+          ],
+        },
+        features: {
+          name: "Landing Page con Agenda",
+          subtitle: "Ideal para profesionales y proveedores de servicios",
+          price: "600",
+          features: [
+            "Todo lo de la Landing Page Simple",
+            "Sistema de programación en línea",
+            "Formularios de contacto dinámicos",
+            "Sección de testimonios y FAQ",
+            "Integración con Google Maps",
+            "Pixel de Facebook / Google Analytics",
+          ],
+        },
+        premium: {
+          name: "Landing Page Premium",
+          subtitle: "Destaca con alta conversión y diseño exclusivo",
+          price: "800",
+          features: [
+            "Todo lo de la Landing Page con Agenda",
+            "Diseño ultra-premium y exclusivo",
+            "Animaciones e interacciones interactivas",
+            "Redacción enfocada en ventas (Copywriting)",
+            "Integración con CRM o marketing por correo",
+            "Soporte prioritario por 30 dias post-entrega",
+          ],
+        },
+      },
     },
     cta: {
       title: "¿Listo para mejorar tu negocio?",
@@ -1496,6 +1654,17 @@ export const translations = {
     footer: {
       rights: "Todos los derechos reservados.",
       backHome: "Volver al inicio",
+    },
+    whatsapp: {
+      number: "553197546901020",
+      msgDefault: "Vengo del sitio web de AgiloNex y quiero saber más.",
+      msgDiagnosis: "¡Hola! Quiero hacer el diagnóstico gratuito para mi negocio.",
+      msgEnterprise: "¡Hola! Estoy interesado en el plan Enterprise de AgiloNex y quiero entender las opciones.",
+      msgPlanBuy: "¡Hola! Quiero contratar el plan {planName} {billingCycle} de AgiloNex.",
+      msgSiteBuy: "¡Hola! Quiero contratar la creación del sitio web: {planName} de AgiloNex.",
+      msgRobust: "¡Hola! Me gustaría solicitar un presupuesto para un sitio o sistema robusto a medida.",
+      monthly: "Mensual",
+      annual: "Anual",
     },
     nichos: {
       tag: "Nichos",
@@ -1692,3 +1861,5 @@ export const translations = {
     },
   },
 };
+
+export type TranslationShape = typeof translations.pt;
