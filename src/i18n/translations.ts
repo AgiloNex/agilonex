@@ -34,7 +34,7 @@ export const translations = {
     services: {
       tag: "Serviços",
       title: "Soluções que impulsionam seu negócio",
-      subtitle: "Do diagnóstico à entrega, cuidamos de tudo para que você foque no que importa: crescer. Também faço upscaling e melhoria de imagens para redes sociais, deixando suas artes e fotos mais nítidas e prontas para publicar.",
+      subtitle: "Do diagnóstico à entrega, cuidamos de tudo para que você foque no que importa: crescer. Oferecemos serviço de upscaling, geração de imagens e banners profissionais para marcas.",
       learnMore: "Saiba mais",
       items: [
         {
@@ -58,9 +58,9 @@ export const translations = {
           items: ["Termos de uso", "Políticas de privacidade", "Organização de dados"],
         },
         {
-          title: "Upscaling e Melhoria de Imagens",
-          description: "Faço upscaling, aumento de qualidade e refinamento de imagens para uso em redes sociais, anúncios e materiais digitais.",
-          items: ["Imagens mais nítidas", "Prontas para redes sociais", "Melhoria de qualidade"],
+          title: "Geração e Upscaling de Imagens",
+          description: "Oferecemos serviço de upscaling de imagens e geração de imagens e banners profissionais para marcas, garantindo alta qualidade para suas campanhas.",
+          items: ["Upscaling de imagens", "Geração com IA", "Banners profissionais"],
         },
       ],
     },
@@ -655,7 +655,7 @@ export const translations = {
     services: {
       tag: "Services",
       title: "Solutions that drive your business",
-      subtitle: "From diagnosis to delivery, we handle everything so you can focus on what matters: growing. I also offer image upscaling and enhancement for social media, making your visuals sharper and ready to post.",
+      subtitle: "From diagnosis to delivery, we handle everything so you can focus on what matters: growing. We offer image upscaling, image generation, and professional banners for brands.",
       learnMore: "Learn more",
       items: [
         {
@@ -679,9 +679,9 @@ export const translations = {
           items: ["Terms of use", "Privacy policies", "Data organization"],
         },
         {
-          title: "Image Upscaling & Enhancement",
-          description: "I upscale and improve images for social media, ads and digital materials so they look cleaner and more professional.",
-          items: ["Sharper images", "Ready for social media", "Quality enhancement"],
+          title: "Image Generation & Upscaling",
+          description: "We offer image upscaling and generation of professional images and banners for brands, ensuring high quality for your campaigns.",
+          items: ["Image upscaling", "AI Generation", "Professional banners"],
         },
       ],
     },
@@ -1274,7 +1274,7 @@ export const translations = {
     services: {
       tag: "Servicios",
       title: "Soluciones que impulsan tu negocio",
-      subtitle: "Del diagnóstico a la entrega, nos encargamos de todo para que te enfoques en lo importante: crecer. También hago upscaling y mejora de imágenes para redes sociales, dejando tus piezas visuales más nítidas y listas para publicar.",
+      subtitle: "Del diagnóstico a la entrega, nos encargamos de todo para que te enfoques en lo importante: crecer. Ofrecemos servicio de upscaling, generación de imágenes y banners profesionales para marcas.",
       learnMore: "Saber más",
       items: [
         {
@@ -1298,9 +1298,9 @@ export const translations = {
           items: ["Términos de uso", "Políticas de privacidad", "Organización de datos"],
         },
         {
-          title: "Upscaling y Mejora de Imágenes",
-          description: "Hago upscaling y mejoro imágenes para redes sociales, anuncios y materiales digitales para que se vean más profesionales.",
-          items: ["Imágenes más nítidas", "Listas para redes sociales", "Mejora de calidad"],
+          title: "Generación y Upscaling de Imágenes",
+          description: "Ofrecemos servicio de upscaling de imágenes y generación de imágenes y banners profesionales para marcas, garantizando alta calidad para tus campañas.",
+          items: ["Upscaling de imágenes", "Generación con IA", "Banners profesionales"],
         },
       ],
     },

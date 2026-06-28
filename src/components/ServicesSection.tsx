@@ -1,8 +1,8 @@
-import { Brain, Cpu, LayoutDashboard, ShieldCheck, ArrowRight } from "lucide-react";
+import { Brain, Cpu, LayoutDashboard, ShieldCheck, ArrowRight, ImagePlus } from "lucide-react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/i18n/LanguageContext";
 
-const icons = [Brain, Cpu, LayoutDashboard, ShieldCheck];
+const icons = [Brain, Cpu, LayoutDashboard, ShieldCheck, ImagePlus];
 
 const ServicesSection = () => {
   const { t } = useLanguage();
