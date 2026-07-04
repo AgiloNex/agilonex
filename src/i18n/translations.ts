@@ -62,6 +62,11 @@ export const translations = {
           description: "Oferecemos serviço de upscaling de imagens e geração de imagens e banners profissionais para marcas, garantindo alta qualidade para suas campanhas.",
           items: ["Upscaling de imagens", "Geração com IA", "Banners profissionais"],
         },
+        {
+          title: "Consultoria e Treinamentos",
+          description: "Oferecemos consultoria especializada e treinamentos práticos para ensinar você e sua equipe a utilizar ferramentas de inteligência artificial de forma eficiente.",
+          items: ["Consultoria em IA", "Treinamento de equipes", "Uso prático de ferramentas"],
+        },
       ],
     },
     how: {
@@ -683,6 +688,11 @@ export const translations = {
           description: "We offer image upscaling and generation of professional images and banners for brands, ensuring high quality for your campaigns.",
           items: ["Image upscaling", "AI Generation", "Professional banners"],
         },
+        {
+          title: "Consulting & Training",
+          description: "We offer specialized consulting and practical training to teach you and your team how to use artificial intelligence tools efficiently.",
+          items: ["AI Consulting", "Team training", "Practical tool usage"],
+        },
       ],
     },
     how: {
@@ -1301,6 +1311,11 @@ export const translations = {
           title: "Generación y Upscaling de Imágenes",
           description: "Ofrecemos servicio de upscaling de imágenes y generación de imágenes y banners profesionales para marcas, garantizando alta calidad para tus campañas.",
           items: ["Upscaling de imágenes", "Generación con IA", "Banners profesionales"],
+        },
+        {
+          title: "Consultoría y Capacitación",
+          description: "Ofrecemos consultoría especializada y capacitación práctica para enseñarte a ti y a tu equipo a usar herramientas de inteligencia artificial de manera eficiente.",
+          items: ["Consultoría en IA", "Capacitación de equipos", "Uso práctico de herramientas"],
         },
       ],
     },
