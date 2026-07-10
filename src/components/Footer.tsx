@@ -19,6 +19,9 @@ const Footer = () => {
             <Link to={languagePath("termos-de-uso")} className="hover:text-foreground transition-colors">
               {t.footer.terms}
             </Link>
+            <Link to={languagePath("politica-de-cookies")} className="hover:text-foreground transition-colors">
+              {t.footer.cookies}
+            </Link>
           </div>
         </div>
       </div>

@@ -421,6 +421,7 @@ export const translations = {
       backHome: "Voltar para a home",
       lgpd: "LGPD",
       terms: "Termos de uso",
+      cookies: "Política de Cookies",
     },
     whatsapp: {
       number: "553197546901020",
@@ -1047,6 +1048,7 @@ export const translations = {
       backHome: "Back to home",
       lgpd: "GDPR / Privacy Policy",
       terms: "Terms of Use",
+      cookies: "Cookie Policy",
     },
     whatsapp: {
       number: "553197546901020",
@@ -1669,6 +1671,9 @@ export const translations = {
     footer: {
       rights: "Todos los derechos reservados.",
       backHome: "Volver al inicio",
+      lgpd: "RGPD / Política de Privacidad",
+      terms: "Términos de uso",
+      cookies: "Política de Cookies",
     },
     whatsapp: {
       number: "553197546901020",

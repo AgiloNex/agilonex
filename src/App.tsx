@@ -9,6 +9,7 @@ import WhatsAppFloat from "@/components/WhatsAppFloat";
 import Index from "./pages/Index.tsx";
 import Lgpd from "./pages/Lgpd.tsx";
 import Terms from "./pages/Terms.tsx";
+import Cookies from "./pages/Cookies.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -49,6 +50,7 @@ const App = () => (
               <Route index element={<Index />} />
               <Route path="lgpd" element={<Lgpd />} />
               <Route path="termos-de-uso" element={<Terms />} />
+              <Route path="politica-de-cookies" element={<Cookies />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
