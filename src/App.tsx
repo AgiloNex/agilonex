@@ -6,7 +6,12 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { LanguageProvider, useLanguage } from "@/i18n/LanguageContext";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
+import CookieConsent from "@/components/CookieConsent";
+import AdSenseLoader from "@/components/AdSenseLoader";
 import Index from "./pages/Index.tsx";
+import About from "./pages/About.tsx";
+import Contact from "./pages/Contact.tsx";
+import PrivacyPolicy from "./pages/PrivacyPolicy.tsx";
 import Lgpd from "./pages/Lgpd.tsx";
 import Terms from "./pages/Terms.tsx";
 import Cookies from "./pages/Cookies.tsx";
@@ -44,10 +49,15 @@ const App = () => (
           <Toaster />
           <Sonner />
           <WhatsAppFloat />
+          <CookieConsent />
+          <AdSenseLoader />
           <Routes>
             <Route path="/" element={<Navigate to="/pt" replace />} />
             <Route path="/:lang" element={<LanguageRouteGuard />}>
               <Route index element={<Index />} />
+              <Route path="sobre" element={<About />} />
+              <Route path="contato" element={<Contact />} />
+              <Route path="privacidade" element={<PrivacyPolicy />} />
               <Route path="lgpd" element={<Lgpd />} />
               <Route path="termos-de-uso" element={<Terms />} />
               <Route path="politica-de-cookies" element={<Cookies />} />

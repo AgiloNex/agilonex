@@ -11,6 +11,9 @@ export const env = {
   api: {
     baseUrl: import.meta.env.VITE_API_BASE_URL || "http://localhost:3000",
   },
+  adsense: {
+    clientId: import.meta.env.VITE_ADSENSE_CLIENT_ID || "",
+  },
 };
 
 // Validation
@@ -36,6 +39,13 @@ export const validateEnv = () => {
   if (!hasAiKey) {
     console.warn(
       "No AI API key configured. Please add VITE_OPENAI_API_KEY or VITE_ANTHROPIC_API_KEY to your .env file."
+    );
+  }
+
+  // Warn if AdSense client ID is not configured
+  if (!env.adsense.clientId) {
+    console.warn(
+      "Missing VITE_ADSENSE_CLIENT_ID. Google AdSense script will not be loaded. Add it to your .env file when ready."
     );
   }
 };
