@@ -1,38 +1,30 @@
+import { lazy, Suspense } from "react";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
-import ProcessSection from "@/components/ProcessSection";
-import PricingSection from "@/components/PricingSection";
-import AboutSection from "@/components/AboutSection";
 import ServicesSection from "@/components/ServicesSection";
-import HowItWorksSection from "@/components/HowItWorksSection";
-import BenefitsSection from "@/components/BenefitsSection";
-import PortfolioSection from "@/components/PortfolioSection";
-import ChatDemo from "@/components/ChatDemo";
-import ROICalculator from "@/components/ROICalculator";
 import NichosSections from "@/components/NichosSections";
-import FAQSection from "@/components/FAQSection";
-import CtaSection from "@/components/CtaSection";
-import ContactSection from "@/components/ContactSection";
+import PortfolioSection from "@/components/PortfolioSection";
+import ProcessSection from "@/components/ProcessSection";
 import Footer from "@/components/Footer";
+
+const FAQSection = lazy(() => import("@/components/FAQSection"));
+const CtaSection = lazy(() => import("@/components/CtaSection"));
+const ContactSection = lazy(() => import("@/components/ContactSection"));
 
 const Index = () => (
   <>
     <Header />
     <main>
       <HeroSection />
-      <ChatDemo />
-      <ProcessSection />
-      <PricingSection />
-      <AboutSection />
       <ServicesSection />
-      <HowItWorksSection />
-      <BenefitsSection />
       <PortfolioSection />
-      <ROICalculator />
       <NichosSections />
-      <FAQSection />
-      <CtaSection />
-      <ContactSection />
+      <ProcessSection />
+      <Suspense fallback={<div className="h-40" />}>
+        <FAQSection />
+        <CtaSection />
+        <ContactSection />
+      </Suspense>
     </main>
     <Footer />
   </>

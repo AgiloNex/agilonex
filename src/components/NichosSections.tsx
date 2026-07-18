@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { motion } from "framer-motion";
+import { motion , useReducedMotion } from "framer-motion";
 import { ArrowRight, Check, X } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
@@ -21,6 +21,8 @@ type Niche = {
 };
 
 const NichosSections = () => {
+  const shouldReduceMotion = useReducedMotion();
+
   const { t } = useLanguage();
   const whatsappBaseUrl = `https://wa.me/${t.whatsapp.number}?text=`;
   const [activeId, setActiveId] = useState<NicheId>("salao");
@@ -71,6 +73,8 @@ const NichosSections = () => {
   }, [niches]);
 
   const handleTabClick = (id: NicheId) => {
+  const shouldReduceMotion = useReducedMotion();
+
     setActiveId(id);
     document.getElementById(id)?.scrollIntoView({
       behavior: "smooth",
@@ -83,7 +87,7 @@ const NichosSections = () => {
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
       <div className="container relative">
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: shouldReduceMotion ? 1 : 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
@@ -133,7 +137,7 @@ const NichosSections = () => {
               >
                 <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
                   <motion.div
-                    initial={{ opacity: 0, x: reverse ? 18 : -18 }}
+                    initial={{ opacity: shouldReduceMotion ? 1 : 0, x: reverse ? 18 : -18 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
@@ -200,7 +204,7 @@ const NichosSections = () => {
                   </motion.div>
 
                   <motion.div
-                    initial={{ opacity: 0, x: reverse ? -18 : 18, scale: 0.98 }}
+                    initial={{ opacity: shouldReduceMotion ? 1 : 0, x: reverse ? -18 : 18, scale: 0.98 }}
                     whileInView={{ opacity: 1, x: 0, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.55, delay: 0.05 }}

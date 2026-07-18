@@ -1,9 +1,11 @@
 import { ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion , useReducedMotion } from "framer-motion";
 import heroImg from "@/assets/hero-illustration.png";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const HeroSection = () => {
+  const shouldReduceMotion = useReducedMotion();
+
   const { t } = useLanguage();
   const whatsappUrl = `https://wa.me/${t.whatsapp.number}?text=${encodeURIComponent(t.whatsapp.msgDefault)}`;
   return (
@@ -12,7 +14,7 @@ const HeroSection = () => {
       <div className="container relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <motion.div
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: shouldReduceMotion ? 1 : 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
           >
@@ -43,7 +45,7 @@ const HeroSection = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: shouldReduceMotion ? 1 : 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
             className="hidden md:block"

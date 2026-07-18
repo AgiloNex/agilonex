@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { motion , useReducedMotion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { translations } from "@/i18n/translations";
@@ -180,6 +180,8 @@ const getFlowForLanguage = (lang: "pt" | "en" | "es"): Record<NodeId, Node> => {
 };
 
 const ChatDemo = () => {
+  const shouldReduceMotion = useReducedMotion();
+
   const { language } = useLanguage();
   const t = translations[language];
   const FLOW = getFlowForLanguage(language);
@@ -192,6 +194,8 @@ const ChatDemo = () => {
   const messageIdRef = useRef(0);
 
   const clearTimer = () => {
+  const shouldReduceMotion = useReducedMotion();
+
     if (timerRef.current !== null) {
       window.clearTimeout(timerRef.current);
       timerRef.current = null;
@@ -199,19 +203,27 @@ const ChatDemo = () => {
   };
 
   const nextMessageId = () => {
+  const shouldReduceMotion = useReducedMotion();
+
     messageIdRef.current += 1;
     return messageIdRef.current;
   };
 
   const pushBotMessage = (text: string) => {
+  const shouldReduceMotion = useReducedMotion();
+
     setMessages((current) => [...current, { id: nextMessageId(), sender: "bot", text }]);
   };
 
   const pushUserMessage = (text: string) => {
+  const shouldReduceMotion = useReducedMotion();
+
     setMessages((current) => [...current, { id: nextMessageId(), sender: "user", text }]);
   };
 
   const showNode = (nodeId: NodeId, delay = 800) => {
+  const shouldReduceMotion = useReducedMotion();
+
     clearTimer();
     setTyping(true);
     setOptions([]);
@@ -225,6 +237,8 @@ const ChatDemo = () => {
   };
 
   const resetDemo = () => {
+  const shouldReduceMotion = useReducedMotion();
+
     clearTimer();
     setMessages([]);
     setOptions([]);
@@ -257,6 +271,8 @@ const ChatDemo = () => {
   }, [messages, options, typing]);
 
   const handleOptionClick = (label: string, next: NodeId) => {
+  const shouldReduceMotion = useReducedMotion();
+
     pushUserMessage(label);
     showNode(next);
   };
@@ -271,7 +287,7 @@ const ChatDemo = () => {
 
       <div className="container relative">
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: shouldReduceMotion ? 1 : 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
@@ -290,7 +306,7 @@ const ChatDemo = () => {
 
         <div className="flex justify-center">
           <motion.div
-            initial={{ opacity: 0, y: 18, scale: 0.98 }}
+            initial={{ opacity: shouldReduceMotion ? 1 : 0, y: 18, scale: 0.98 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.05 }}

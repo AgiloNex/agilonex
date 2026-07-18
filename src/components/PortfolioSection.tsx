@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion , useReducedMotion } from "framer-motion";
 import { ShieldCheck, BrainCircuit, Sparkles, Code, Play, ExternalLink, Plane, ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
@@ -11,12 +11,14 @@ const accents = [
 ];
 
 const PortfolioSection = () => {
+  const shouldReduceMotion = useReducedMotion();
+
   const { t } = useLanguage();
   return (
     <section id="portfolio" className="py-20 md:py-28 bg-foreground text-background">
       <div className="container">
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: shouldReduceMotion ? 1 : 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
@@ -38,7 +40,7 @@ const PortfolioSection = () => {
           href="https://agilo-miles.lovable.app"
           target="_blank"
           rel="noopener noreferrer"
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: shouldReduceMotion ? 1 : 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
@@ -83,7 +85,7 @@ const PortfolioSection = () => {
                 href={p.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 16 }}
+                initial={{ opacity: shouldReduceMotion ? 1 : 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.12 }}

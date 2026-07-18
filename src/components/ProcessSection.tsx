@@ -1,34 +1,19 @@
 import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { motion , useReducedMotion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const ProcessSection = () => {
+  const shouldReduceMotion = useReducedMotion();
+
   const { t } = useLanguage();
   const whatsappUrl = `https://wa.me/${t.whatsapp.number}?text=${encodeURIComponent(t.whatsapp.msgDiagnosis)}`;
   const sectionRef = useRef<HTMLElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
 
+  // Remover IntersectionObserver manual para evitar conteúdo oculto caso falhe
   useEffect(() => {
-    const element = sectionRef.current;
-    if (!element) return undefined;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      {
-        threshold: 0.3,
-        rootMargin: "0px 0px -10% 0px",
-      }
-    );
-
-    observer.observe(element);
-
-    return () => observer.disconnect();
+    setIsVisible(true); //Fallback simples ou usar framer-motion in-view nativo
   }, []);
 
   return (
@@ -39,7 +24,7 @@ const ProcessSection = () => {
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
       <div className="container relative">
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: shouldReduceMotion ? 1 : 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
@@ -76,7 +61,7 @@ const ProcessSection = () => {
               return (
                 <motion.div
                   key={step.title}
-                  initial={{ opacity: 0, y: 18, scale: 0.98 }}
+                  initial={{ opacity: shouldReduceMotion ? 1 : 0, y: 18, scale: 0.98 }}
                   animate={isVisible ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 18, scale: 0.98 }}
                   transition={{ duration: 0.45, delay: isVisible ? delay / 1000 : 0 }}
                   className="relative pl-14 md:pl-0"

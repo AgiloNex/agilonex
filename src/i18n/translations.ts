@@ -12,12 +12,12 @@ export const translations = {
       cta: "Fale Conosco",
     },
     hero: {
-      title1: "Automatize, Integre e Proteja seu Negócio com",
-      titleHighlight: "Tecnologia",
+      title1: "Cresça no digital com tecnologia que faz seu",
+      titleHighlight: "negócio avançar",
       subtitle:
-        "Soluções em IA, sistemas e privacidade de dados para empresas que querem crescer com eficiência, não burocracia.",
-      ctaWhats: "Fale comigo no WhatsApp",
-      ctaServices: "Conheça os serviços",
+        "Da automação e marketing à criação de sites, software e produtos digitais, transformamos sua próxima ideia em uma solução prática.",
+      ctaWhats: "Falar com um especialista no WhatsApp",
+      ctaServices: "Ver projetos e resultados",
       imgAlt: "Ilustração de tecnologia conectada",
     },
     about: {
@@ -779,12 +779,12 @@ export const translations = {
       cta: "Talk to Us",
     },
     hero: {
-      title1: "Automate, Integrate and Protect your Business with",
-      titleHighlight: "Technology",
+      title1: "Grow in the digital world with technology that makes your",
+      titleHighlight: "business advance",
       subtitle:
-        "AI, systems and data privacy solutions for businesses that want to grow with efficiency, not bureaucracy.",
-      ctaWhats: "Chat on WhatsApp",
-      ctaServices: "Explore services",
+        "From automation and marketing to website creation, software, and digital products, we turn your next idea into a practical solution.",
+      ctaWhats: "Talk to an expert on WhatsApp",
+      ctaServices: "See projects and results",
       imgAlt: "Illustration of connected technology",
     },
     about: {
@@ -1490,12 +1490,12 @@ export const translations = {
       cta: "Habla con Nosotros",
     },
     hero: {
-      title1: "Automatiza, Integra y Protege tu Negocio con",
-      titleHighlight: "Tecnología",
+      title1: "Crece en el mundo digital con tecnología que hace que tu",
+      titleHighlight: "negocio avance",
       subtitle:
-        "Soluciones de IA, sistemas y privacidad de datos para empresas que quieren crecer con eficiencia, no burocracia.",
-      ctaWhats: "Habla por WhatsApp",
-      ctaServices: "Conoce los servicios",
+        "Desde la automatización y el marketing hasta la creación de sitios web, software y productos digitales, convertimos tu próxima idea en una solución práctica.",
+      ctaWhats: "Hablar con un experto en WhatsApp",
+      ctaServices: "Ver proyectos y resultados",
       imgAlt: "Ilustración de tecnología conectada",
     },
     about: {

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion , useReducedMotion } from "framer-motion";
 import { Cookie, Settings2, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -14,6 +14,8 @@ import {
 } from "@/lib/cookieConsent";
 
 const CookieConsent = () => {
+  const shouldReduceMotion = useReducedMotion();
+
   const { t, languagePath } = useLanguage();
   const [showBanner, setShowBanner] = useState(false);
   const [showPanel, setShowPanel] = useState(false);
@@ -117,7 +119,7 @@ const CookieConsent = () => {
       <AnimatePresence>
         {showBanner && (
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: shouldReduceMotion ? 1 : 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 24 }}
             transition={{ duration: 0.25 }}
@@ -164,14 +166,14 @@ const CookieConsent = () => {
             <motion.button
               type="button"
               aria-label={t.cookieConsent.close}
-              initial={{ opacity: 0 }}
+              initial={{ opacity: shouldReduceMotion ? 1 : 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               className="fixed inset-0 z-[80] bg-black/60"
               onClick={closePanel}
             />
             <motion.div
-              initial={{ opacity: 0, y: 24, scale: 0.98 }}
+              initial={{ opacity: shouldReduceMotion ? 1 : 0, y: 24, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 24, scale: 0.98 }}
               transition={{ duration: 0.2 }}

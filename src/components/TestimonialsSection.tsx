@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion , useReducedMotion } from "framer-motion";
 import { Star } from "lucide-react";
 
 const testimonials = [
@@ -23,7 +23,7 @@ const TestimonialsSection = () => (
   <section id="depoimentos" className="py-20 md:py-28">
     <div className="container">
       <motion.div
-        initial={{ opacity: 0, y: 12 }}
+        initial={{ opacity: shouldReduceMotion ? 1 : 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
@@ -39,7 +39,7 @@ const TestimonialsSection = () => (
         {testimonials.map((t, i) => (
           <motion.div
             key={t.name}
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: shouldReduceMotion ? 1 : 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: i * 0.1 }}

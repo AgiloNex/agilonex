@@ -1,16 +1,18 @@
-import { motion } from "framer-motion";
+import { motion , useReducedMotion } from "framer-motion";
 import { Target, Lightbulb, Handshake } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const icons = [Target, Lightbulb, Handshake];
 
 const AboutSection = () => {
+  const shouldReduceMotion = useReducedMotion();
+
   const { t } = useLanguage();
   return (
     <section id="sobre" className="py-20 md:py-28">
       <div className="container">
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: shouldReduceMotion ? 1 : 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
@@ -31,7 +33,7 @@ const AboutSection = () => {
             return (
               <motion.div
                 key={item.title}
-                initial={{ opacity: 0, y: 12 }}
+                initial={{ opacity: shouldReduceMotion ? 1 : 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}

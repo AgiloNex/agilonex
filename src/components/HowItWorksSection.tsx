@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion , useReducedMotion } from "framer-motion";
 import { Search, Code2, Rocket } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
@@ -6,12 +6,14 @@ const icons = [Search, Code2, Rocket];
 const nums = ["01", "02", "03"];
 
 const HowItWorksSection = () => {
+  const shouldReduceMotion = useReducedMotion();
+
   const { t } = useLanguage();
   return (
     <section id="como-funciona" className="py-20 md:py-28">
       <div className="container">
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: shouldReduceMotion ? 1 : 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
@@ -31,7 +33,7 @@ const HowItWorksSection = () => {
             return (
               <motion.div
                 key={nums[i]}
-                initial={{ opacity: 0, y: 12 }}
+                initial={{ opacity: shouldReduceMotion ? 1 : 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.15 }}

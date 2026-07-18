@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence , useReducedMotion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useLanguage } from "@/i18n/LanguageContext";
 import logoMark from "@/assets/agilonex-logo-full.png";
 
 const Header = () => {
+  const shouldReduceMotion = useReducedMotion();
+
   const [open, setOpen] = useState(false);
   const { t, language, languagePath } = useLanguage();
   const location = useLocation();
@@ -72,8 +74,9 @@ const Header = () => {
 
         <button
           onClick={() => setOpen(!open)}
-          className="md:hidden p-2 text-foreground"
+          className="md:hidden flex items-center justify-center p-2 text-foreground min-h-[44px] min-w-[44px] rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
           aria-label="Menu"
+          aria-expanded={open}
         >
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -82,7 +85,7 @@ const Header = () => {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
+            initial={{ opacity: shouldReduceMotion ? 1 : 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-card border-b border-border overflow-hidden"

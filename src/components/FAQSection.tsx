@@ -1,9 +1,11 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion , useReducedMotion } from "framer-motion";
 import { Minus, Plus } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const FAQSection = () => {
+  const shouldReduceMotion = useReducedMotion();
+
   const { t } = useLanguage();
   const whatsappUrl = `https://wa.me/${t.whatsapp.number}?text=${encodeURIComponent(t.whatsapp.msgDefault)}`;
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -13,7 +15,7 @@ const FAQSection = () => {
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
       <div className="container relative">
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: shouldReduceMotion ? 1 : 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
@@ -37,7 +39,7 @@ const FAQSection = () => {
             return (
               <motion.div
                 key={item.question}
-                initial={{ opacity: 0, y: 12 }}
+                initial={{ opacity: shouldReduceMotion ? 1 : 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}

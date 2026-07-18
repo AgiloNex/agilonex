@@ -1,16 +1,18 @@
-import { motion } from "framer-motion";
+import { motion , useReducedMotion } from "framer-motion";
 import { Clock, Ban, FolderKanban, Lock } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const icons = [Clock, Ban, FolderKanban, Lock];
 
 const BenefitsSection = () => {
+  const shouldReduceMotion = useReducedMotion();
+
   const { t } = useLanguage();
   return (
     <section className="py-20 md:py-28 bg-secondary/50">
       <div className="container">
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: shouldReduceMotion ? 1 : 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
@@ -28,7 +30,7 @@ const BenefitsSection = () => {
             return (
               <motion.div
                 key={b.title}
-                initial={{ opacity: 0, y: 12 }}
+                initial={{ opacity: shouldReduceMotion ? 1 : 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}

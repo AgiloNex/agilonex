@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion , useReducedMotion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const WhatsAppFloat = () => {
+  const shouldReduceMotion = useReducedMotion();
+
   const { t } = useLanguage();
   const [isTooltipOpen, setIsTooltipOpen] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
@@ -38,6 +40,8 @@ const WhatsAppFloat = () => {
 
   useEffect(() => {
     const handlePointerDown = (event: MouseEvent | TouchEvent) => {
+  const shouldReduceMotion = useReducedMotion();
+
       if (!containerRef.current) return;
       if (!containerRef.current.contains(event.target as Node)) {
         setIsTooltipOpen(false);
@@ -59,7 +63,7 @@ const WhatsAppFloat = () => {
       <AnimatePresence>
         {isTooltipOpen && isDesktop && (
           <motion.div
-            initial={{ opacity: 0, x: 12, scale: 0.96 }}
+            initial={{ opacity: shouldReduceMotion ? 1 : 0, x: 12, scale: 0.96 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             exit={{ opacity: 0, x: 8, scale: 0.96 }}
             transition={{ duration: 0.2 }}

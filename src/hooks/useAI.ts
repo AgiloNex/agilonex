@@ -24,7 +24,7 @@ export const useAI = (options: UseAIOptions = {}) => {
       setError(null);
 
       try {
-        const result = await callAI(messages, defaultProvider as any);
+        const result = await callAI(messages, defaultProvider as "openai" | "anthropic");
         setResponse(result);
         return result;
       } catch (err) {

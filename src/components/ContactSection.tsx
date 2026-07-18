@@ -1,5 +1,5 @@
 import { useMemo, useState, type ChangeEvent, type FormEvent } from "react";
-import { motion } from "framer-motion";
+import { motion , useReducedMotion } from "framer-motion";
 import { AlertCircle, Instagram, Linkedin, Loader2, MessageCircle, Send, Sparkles } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
@@ -9,11 +9,11 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Textarea } from "@/components/ui/textarea";
 import { useLanguage } from "@/i18n/LanguageContext";
 
-const WEBHOOK_URL = "[WEBHOOK_URL]";
-
-
+const WEBHOOK_URL = import.meta.env.VITE_WEBHOOK_URL || "";
 
 const formatWhatsapp = (value: string) => {
+  const shouldReduceMotion = useReducedMotion();
+
   const digits = value.replace(/\D/g, "").slice(0, 11);
   if (digits.length <= 2) return digits ? `(${digits}` : "";
   if (digits.length <= 7) return `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
@@ -23,6 +23,8 @@ const formatWhatsapp = (value: string) => {
 const isValidWhatsapp = (value: string) => /^\(\d{2}\)\s\d{4,5}-\d{4}$/.test(value);
 
 const ContactSection = () => {
+  const shouldReduceMotion = useReducedMotion();
+
   const { t } = useLanguage();
   const whatsappLink = `https://wa.me/${t.whatsapp.number}`;
   const [name, setName] = useState("");
@@ -32,10 +34,13 @@ const ContactSection = () => {
   const [loading, setLoading] = useState(false);
   const [submittedName, setSubmittedName] = useState("");
   const [success, setSuccess] = useState(false);
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
   const whatsappDigits = useMemo(() => whatsapp.replace(/\D/g, ""), [whatsapp]);
 
   const handleWhatsappChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const shouldReduceMotion = useReducedMotion();
+
     setWhatsapp(formatWhatsapp(e.target.value));
   };
 
@@ -43,14 +48,26 @@ const ContactSection = () => {
     e.preventDefault();
     const trimmedName = name.trim();
     const trimmedWhatsapp = whatsapp.trim();
+    
+    const newErrors: { [key: string]: string } = {};
 
-    if (!trimmedName || !segmento || !isValidWhatsapp(trimmedWhatsapp) || whatsappDigits.length !== 11) {
-      toast.error(t.contactSection.toast, {
-        action: {
-          label: t.contactSection.toastAction,
-          onClick: () => window.open(whatsappLink, "_blank", "noopener,noreferrer"),
-        },
-      });
+    if (!trimmedName) newErrors.name = t.contactSection.form.nameError || "Nome é obrigatório";
+    if (!segmento) newErrors.segmento = t.contactSection.form.segmentError || "Segmento é obrigatório";
+    if (!isValidWhatsapp(trimmedWhatsapp) || whatsappDigits.length !== 11) newErrors.whatsapp = t.contactSection.form.whatsappError || "WhatsApp inválido";
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+    
+    setErrors({});
+
+    if (!WEBHOOK_URL) {
+      // Fallback if no webhook is configured
+      const text = `Olá, meu nome é ${trimmedName}. Gostaria de falar sobre ${segmento}.${mensagem ? `\n\nMensagem: ${mensagem}` : ""}`;
+      window.open(`${whatsappLink}?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
+      setSubmittedName(trimmedName);
+      setSuccess(true);
       return;
     }
 
@@ -78,12 +95,11 @@ const ContactSection = () => {
       setSegmento("");
       setMensagem("");
     } catch {
-      toast.error(t.contactSection.toast, {
-        action: {
-          label: t.contactSection.toastAction,
-          onClick: () => window.open(whatsappLink, "_blank", "noopener,noreferrer"),
-        },
-      });
+      // Fallback on error
+      const text = `Olá, meu nome é ${trimmedName}. Gostaria de falar sobre ${segmento}.${mensagem ? `\n\nMensagem: ${mensagem}` : ""}`;
+      window.open(`${whatsappLink}?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
+      setSubmittedName(trimmedName);
+      setSuccess(true);
     } finally {
       setLoading(false);
     }
@@ -98,7 +114,7 @@ const ContactSection = () => {
       <div className="container relative">
         <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-[1.25fr_0.85fr] md:gap-8">
           <motion.div
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: shouldReduceMotion ? 1 : 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
@@ -126,7 +142,7 @@ const ContactSection = () => {
 
           <motion.form
             onSubmit={handleSubmit}
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: shouldReduceMotion ? 1 : 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
@@ -155,11 +171,14 @@ const ContactSection = () => {
                     id="name"
                     name="name"
                     value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    onChange={(e) => { setName(e.target.value); setErrors(prev => ({ ...prev, name: "" })) }}
                     required
                     placeholder={t.contactSection.form.namePh}
-                    className="h-11 border-border/70 bg-background/90 focus-visible:ring-2 focus-visible:ring-blue-500/80 focus-visible:ring-offset-0"
+                    aria-invalid={!!errors.name}
+                    aria-describedby={errors.name ? "name-error" : undefined}
+                    className={`h-11 border-border/70 bg-background/90 focus-visible:ring-2 focus-visible:ring-offset-0 ${errors.name ? 'border-red-500 focus-visible:ring-red-500' : 'focus-visible:ring-blue-500/80'}`}
                   />
+                  {errors.name && <p id="name-error" className="text-sm text-red-500">{errors.name}</p>}
                 </div>
 
                 <div className="space-y-2">
@@ -168,20 +187,23 @@ const ContactSection = () => {
                     id="whatsapp"
                     name="whatsapp"
                     value={whatsapp}
-                    onChange={handleWhatsappChange}
+                    onChange={(e) => { handleWhatsappChange(e); setErrors(prev => ({ ...prev, whatsapp: "" })) }}
                     inputMode="numeric"
                     autoComplete="tel"
                     required
                     maxLength={15}
                     placeholder="(11) 99999-9999"
-                    className="h-11 border-border/70 bg-background/90 focus-visible:ring-2 focus-visible:ring-blue-500/80 focus-visible:ring-offset-0"
+                    aria-invalid={!!errors.whatsapp}
+                    aria-describedby={errors.whatsapp ? "whatsapp-error" : undefined}
+                    className={`h-11 border-border/70 bg-background/90 focus-visible:ring-2 focus-visible:ring-offset-0 ${errors.whatsapp ? 'border-red-500 focus-visible:ring-red-500' : 'focus-visible:ring-blue-500/80'}`}
                   />
+                  {errors.whatsapp && <p id="whatsapp-error" className="text-sm text-red-500">{errors.whatsapp}</p>}
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="segmento">{t.contactSection.form.segment}</Label>
-                  <Select value={segmento} onValueChange={(value) => setSegmento(value)}>
-                    <SelectTrigger id="segmento" className="h-11 border-border/70 bg-background/90 focus:ring-2 focus:ring-blue-500/80 focus:ring-offset-0">
+                  <Select value={segmento} onValueChange={(value) => { setSegmento(value); setErrors(prev => ({ ...prev, segmento: "" })) }}>
+                    <SelectTrigger id="segmento" aria-invalid={!!errors.segmento} aria-describedby={errors.segmento ? "segmento-error" : undefined} className={`h-11 border-border/70 bg-background/90 focus:ring-2 focus:ring-offset-0 ${errors.segmento ? 'border-red-500 focus:ring-red-500' : 'focus:ring-blue-500/80'}`}>
                       <SelectValue placeholder={t.contactSection.form.segmentPh} />
                     </SelectTrigger>
                     <SelectContent>
@@ -192,6 +214,7 @@ const ContactSection = () => {
                       ))}
                     </SelectContent>
                   </Select>
+                  {errors.segmento && <p id="segmento-error" className="text-sm text-red-500">{errors.segmento}</p>}
                 </div>
 
                 <div className="space-y-2">
@@ -220,7 +243,7 @@ const ContactSection = () => {
           </motion.form>
 
           <motion.aside
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: shouldReduceMotion ? 1 : 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}

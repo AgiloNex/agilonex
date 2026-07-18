@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion , useReducedMotion } from "framer-motion";
 import { Check, Crown, Headphones, Lock, ShieldCheck, Sparkles, Star, Calendar, Gem, Globe } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/i18n/LanguageContext";
@@ -54,6 +54,8 @@ const sitePlans = [
 ];
 
 const PricingSection = () => {
+  const shouldReduceMotion = useReducedMotion();
+
   const { t, language } = useLanguage();
   const [activeTab, setActiveTab] = useState<"ai" | "sites" | "robust">("ai");
   const [billingCycle, setBillingCycle] = useState<BillingCycle>("monthly");
@@ -76,7 +78,7 @@ const PricingSection = () => {
     <section id="planos" className="py-20 md:py-28 bg-background">
       <div className="container">
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: shouldReduceMotion ? 1 : 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
@@ -129,7 +131,7 @@ const PricingSection = () => {
             {activeTab === "ai" && (
               <motion.div
                 key="ai-plans"
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: shouldReduceMotion ? 1 : 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.3 }}
@@ -137,7 +139,7 @@ const PricingSection = () => {
               >
                 <div className="flex flex-col items-center gap-4">
                   <motion.div
-                    initial={{ opacity: 0, y: 8 }}
+                    initial={{ opacity: shouldReduceMotion ? 1 : 0, y: 8 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: 0.1 }}
@@ -193,7 +195,7 @@ const PricingSection = () => {
                       <AnimatePresence>
                         {billingCycle === "annual" && (
                           <motion.span
-                            initial={{ opacity: 0, y: -8, scale: 0.95 }}
+                            initial={{ opacity: shouldReduceMotion ? 1 : 0, y: -8, scale: 0.95 }}
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             exit={{ opacity: 0, y: -8, scale: 0.95 }}
                             transition={{ duration: 0.25 }}
@@ -229,7 +231,7 @@ const PricingSection = () => {
                     return (
                       <motion.article
                         key={plan.key}
-                        initial={{ opacity: 0, y: 16 }}
+                        initial={{ opacity: shouldReduceMotion ? 1 : 0, y: 16 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.45 }}
@@ -278,7 +280,7 @@ const PricingSection = () => {
                               <AnimatePresence mode="wait">
                                 <motion.div
                                   key={billingCycle}
-                                  initial={{ opacity: 0, y: 8 }}
+                                  initial={{ opacity: shouldReduceMotion ? 1 : 0, y: 8 }}
                                   animate={{ opacity: 1, y: 0 }}
                                   exit={{ opacity: 0, y: -8 }}
                                   transition={{ duration: 0.25 }}
@@ -301,7 +303,7 @@ const PricingSection = () => {
                                         {t.pricing.billedYearly.replace("{amount}", formatBRL(plan.annualTotal))}
                                       </div>
                                       <motion.div
-                                        initial={{ opacity: 0, y: 10 }}
+                                        initial={{ opacity: shouldReduceMotion ? 1 : 0, y: 10 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{ duration: 0.3, delay: 0.08 }}
                                         className="inline-flex items-center rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1.5 text-xs font-semibold text-emerald-300"
@@ -364,7 +366,7 @@ const PricingSection = () => {
             {activeTab === "sites" && (
               <motion.div
                 key="sites-plans"
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: shouldReduceMotion ? 1 : 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.3 }}
@@ -382,7 +384,7 @@ const PricingSection = () => {
                   return (
                     <motion.article
                       key={plan.key}
-                      initial={{ opacity: 0, y: 16 }}
+                      initial={{ opacity: shouldReduceMotion ? 1 : 0, y: 16 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.45 }}
@@ -460,7 +462,7 @@ const PricingSection = () => {
             {activeTab === "robust" && (
               <motion.div
                 key="robust-plans"
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: shouldReduceMotion ? 1 : 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.3 }}

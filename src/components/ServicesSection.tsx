@@ -1,16 +1,18 @@
 import { Brain, Cpu, LayoutDashboard, ShieldCheck, ArrowRight, ImagePlus } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion , useReducedMotion } from "framer-motion";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const icons = [Brain, Cpu, LayoutDashboard, ShieldCheck, ImagePlus];
 
 const ServicesSection = () => {
+  const shouldReduceMotion = useReducedMotion();
+
   const { t } = useLanguage();
   return (
     <section id="servicos" className="py-20 md:py-28 bg-secondary/50">
       <div className="container">
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: shouldReduceMotion ? 1 : 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
@@ -31,7 +33,7 @@ const ServicesSection = () => {
             return (
               <motion.div
                 key={service.title}
-                initial={{ opacity: 0, y: 12 }}
+                initial={{ opacity: shouldReduceMotion ? 1 : 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}

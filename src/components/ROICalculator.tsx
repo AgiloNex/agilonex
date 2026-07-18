@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion , useReducedMotion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Slider } from "@/components/ui/slider";
 import { useLanguage } from "@/i18n/LanguageContext";
@@ -24,6 +24,8 @@ type AnimatedNumberProps = {
 };
 
 const AnimatedNumber = ({ value, formatter, className }: AnimatedNumberProps) => {
+  const shouldReduceMotion = useReducedMotion();
+
   const [displayValue, setDisplayValue] = useState(value);
 
   useEffect(() => {
@@ -34,6 +36,8 @@ const AnimatedNumber = ({ value, formatter, className }: AnimatedNumberProps) =>
     let frame = 0;
 
     const animate = (timestamp: number) => {
+  const shouldReduceMotion = useReducedMotion();
+
       if (!startTime) startTime = timestamp;
       const progress = Math.min((timestamp - startTime) / duration, 1);
       const nextValue = startValue + (endValue - startValue) * progress;
@@ -53,6 +57,8 @@ const AnimatedNumber = ({ value, formatter, className }: AnimatedNumberProps) =>
 };
 
 const ROICalculator = () => {
+  const shouldReduceMotion = useReducedMotion();
+
   const { t } = useLanguage();
   const [messagesPerDay, setMessagesPerDay] = useState(50);
   const [manualHours, setManualHours] = useState(3);
@@ -71,6 +77,8 @@ const ROICalculator = () => {
     (setter: (value: number) => void) => (value: number[]) => setter(value[0] ?? 0);
 
   const formatSignedCurrency = (value: number) => {
+  const shouldReduceMotion = useReducedMotion();
+
     const formatted = currency.format(Math.abs(value));
     return value >= 0 ? formatted : `- ${formatted}`;
   };
@@ -82,7 +90,7 @@ const ROICalculator = () => {
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
       <div className="container relative">
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: shouldReduceMotion ? 1 : 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
@@ -99,7 +107,7 @@ const ROICalculator = () => {
 
         <div className="grid gap-6 lg:grid-cols-[1.05fr,0.95fr]">
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: shouldReduceMotion ? 1 : 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.05 }}
@@ -208,7 +216,7 @@ const ROICalculator = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: shouldReduceMotion ? 1 : 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}

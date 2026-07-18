@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-18T14:00:00.000Z",
+  "title": "Design System: AgiloNex",
+  "extensions": {
+    "colorMeta": {
+      "background": { "role": "neutral", "displayName": "Fundo Noturno", "canonical": "hsl(215 28% 7%)" },
+      "foreground": { "role": "neutral", "displayName": "Texto Claro", "canonical": "hsl(210 20% 96%)" },
+      "primary": { "role": "primary", "displayName": "Azul de Acao", "canonical": "hsl(231 100% 52%)" },
+      "accent": { "role": "primary", "displayName": "Azul de Destaque", "canonical": "hsl(231 100% 62%)" },
+      "whatsapp": { "role": "tertiary", "displayName": "WhatsApp", "canonical": "hsl(142 70% 49%)" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero headlines and core positioning." },
+      "body": { "displayName": "Body", "purpose": "Explanations and conversion support copy." }
+    },
+    "shadows": [
+      { "name": "card-base", "value": "var(--shadow-card)", "purpose": "Low elevation for information cards." },
+      { "name": "card-hover", "value": "var(--shadow-card-hover)", "purpose": "Hover response only." }
+    ],
+    "motion": [
+      { "name": "reveal", "value": "opacity and translateY 12px, 0.5s", "purpose": "Optional enhancement; content remains visible without it." },
+      { "name": "reduced-motion", "value": "instant or opacity-only", "purpose": "Respect prefers-reduced-motion." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Primary WhatsApp conversion action.",
+      "html": "<button class=\"ds-btn-primary\">Falar no WhatsApp</button>",
+      "css": ".ds-btn-primary { background: #0A24FF; color: #FFFFFF; padding: 0.75rem 1.5rem; border: 0; border-radius: 0.5rem; font: 600 0.875rem/1.4 Inter, system-ui, sans-serif; transition: opacity 180ms ease, box-shadow 180ms ease; } .ds-btn-primary:hover { opacity: 0.9; } .ds-btn-primary:focus-visible { outline: 3px solid #4759FF; outline-offset: 3px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Secondary route to portfolio or supporting content.",
+      "html": "<button class=\"ds-btn-secondary\">Ver projetos</button>",
+      "css": ".ds-btn-secondary { background: #131A20; color: #F2F4F6; padding: 0.75rem 1.5rem; border: 1px solid #222D37; border-radius: 0.5rem; font: 600 0.875rem/1.4 Inter, system-ui, sans-serif; } .ds-btn-secondary:hover { background: #1B232B; } .ds-btn-secondary:focus-visible { outline: 3px solid #4759FF; outline-offset: 3px; }"
+    },
+    {
+      "name": "Information Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Quiet container for service or proof content.",
+      "html": "<article class=\"ds-card\"><h3>Solucao pratica</h3><p>Clareza antes da complexidade.</p></article>",
+      "css": ".ds-card { background: #131A20; color: #F2F4F6; padding: 2rem; border-radius: 1rem; border: 1px solid #222D37; } .ds-card h3 { margin: 0; font: 700 1.25rem/1.25 Inter, system-ui, sans-serif; } .ds-card p { margin: 0.75rem 0 0; color: #8F9AA8; font: 400 1rem/1.6 Inter, system-ui, sans-serif; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "A Oficina Digital que Faz o Negocio Avancar",
+    "overview": "Uma oficina digital pratica e proxima, com tecnologia suficiente para resolver problemas reais sem intimidar quem esta entrando no digital.",
+    "keyCharacteristics": ["Pratico", "Proximo", "Tecnologico", "Orientado a resultados"],
+    "rules": [
+      { "name": "The One Action Rule", "body": "Azul eletrico indica a proxima acao e nao deve virar decoracao.", "section": "colors" },
+      { "name": "The Clear Voice Rule", "body": "Hierarquia tipografica organiza a leitura; tracking nao substitui clareza.", "section": "typography" },
+      { "name": "The Flat-by-Default Rule", "body": "Camadas tonais comunicam profundidade antes de sombras e blur.", "section": "elevation" }
+    ],
+    "dos": ["Do manter o conteudo visivel por padrao.", "Do usar cases reais como prova."],
+    "donts": ["Don't parecer um template generico de SaaS.", "Don't esconder conteudo essencial em animacoes."]
+  }
+}
