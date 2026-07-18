@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react";
-import { motion , useReducedMotion } from "framer-motion";
-import heroImg from "@/assets/hero-illustration.png";
+import { motion, useReducedMotion } from "framer-motion";
+import ChatDemo from "./ChatDemo";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const HeroSection = () => {
@@ -44,19 +44,23 @@ const HeroSection = () => {
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: shouldReduceMotion ? 1 : 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
-            className="hidden md:block"
-          >
-            <img
-              src={heroImg}
-              alt={t.hero.imgAlt}
-              className="w-full rounded-2xl shadow-card"
-              loading="eager"
-            />
-          </motion.div>
+          <div className="hidden md:block relative">
+            <div className="absolute -left-12 -top-12 h-64 w-64 rounded-full bg-primary/10 blur-3xl pointer-events-none" />
+            <div className="absolute -right-12 -bottom-12 h-64 w-64 rounded-full bg-accent/10 blur-3xl pointer-events-none" />
+            
+            <ChatDemo />
+            
+            <motion.div
+              initial={{ opacity: shouldReduceMotion ? 1 : 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="mt-6 text-center"
+            >
+              <p className="text-sm text-muted-foreground/80 max-w-[320px] mx-auto text-pretty">
+                Experimente na prática nossa <strong className="font-medium text-foreground">automação com IA</strong> simulada. Transforme seu <strong>WhatsApp</strong> em uma máquina de <strong>marketing digital</strong> e descubra como nossas <strong>soluções digitais</strong> podem escalar suas vendas.
+              </p>
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>

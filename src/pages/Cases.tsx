@@ -41,7 +41,7 @@ const Cases = () => {
                   Redução de fricção no agendamento
                 </li>
               </ul>
-              <Link 
+              <Link
                 to={`/${lang}/cases/barbershop`}
                 className="inline-flex items-center gap-2 font-medium text-blue-500 transition-colors hover:text-blue-600"
               >
@@ -68,8 +68,8 @@ const Cases = () => {
                   Segurança e privacidade de dados
                 </li>
               </ul>
-              <a 
-                href="https://patrimonio-landing.gabrieluizdev.workers.dev/"
+              <a
+                href="https://patrimonio-landing.agilonex.workers.dev/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 font-medium text-blue-500 transition-colors hover:text-blue-600"
