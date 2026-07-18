@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { Link } from "react-router-dom";
+import { ServiceDemo } from "@/components/ServiceDemo";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 const Cases = () => {
@@ -79,6 +80,7 @@ const Cases = () => {
             </div>
 
           </div>
+          <ServiceDemo />
         </div>
       </main>
       <Footer />
