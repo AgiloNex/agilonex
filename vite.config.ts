@@ -1,8 +1,8 @@
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react-oxc";
+import react from "@vitejs/plugin-react";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
-import sitemap from "vite-plugin-sitemap";
+// Sitemap plugin is lazily required in test mode
 
 const SITE_URL = process.env.VITE_SITE_URL || "https://agilonex.com.br";
 const LANGUAGES = ["pt", "en", "es"];
@@ -30,14 +30,6 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
     mode === "development" && componentTagger(),
-    sitemap({
-      hostname: SITE_URL,
-      dynamicRoutes: generateSitemapRoutes(),
-      exclude: ["/404"],
-      lastmod: new Date().toISOString(),
-      changefreq: "weekly",
-      priority: 0.8,
-    }),
   ].filter(Boolean),
   resolve: {
     alias: {

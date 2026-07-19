@@ -45,7 +45,7 @@ export const writeCookieConsent = (consent: CookieConsentCategories) => {
     updatedAt: Date.now(),
   };
 
-  document.cookie = `${COOKIE_CONSENT_NAME}=${encodeURIComponent(JSON.stringify(value))}; path=/; max-age=${COOKIE_CONSENT_MAX_AGE}; SameSite=Lax`;
+  document.cookie = `${COOKIE_CONSENT_NAME}=${encodeURIComponent(JSON.stringify(value))}; path=/; max-age=${COOKIE_CONSENT_MAX_AGE}; SameSite=Strict; Secure`;
   window.dispatchEvent(new CustomEvent("cookie-consent-updated", { detail: value }));
   return value;
 };

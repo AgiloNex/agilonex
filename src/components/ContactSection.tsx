@@ -35,6 +35,8 @@ const ContactSection = () => {
   const [submittedName, setSubmittedName] = useState("");
   const [success, setSuccess] = useState(false);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
+  // Honeypot: bots fill this hidden field; humans leave it empty
+  const [honeypot, setHoneypot] = useState("");
 
   const whatsappDigits = useMemo(() => whatsapp.replace(/\D/g, ""), [whatsapp]);
 
@@ -60,6 +62,9 @@ const ContactSection = () => {
       return;
     }
     
+    // Honeypot check — silently reject bot submissions
+    if (honeypot) return;
+
     setErrors({});
 
     if (!WEBHOOK_URL) {
@@ -165,6 +170,17 @@ const ContactSection = () => {
               </div>
             ) : (
               <div className="space-y-5">
+                {/* Honeypot field — visually hidden, must remain empty for real users */}
+                <input
+                  type="text"
+                  name="website"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px", overflow: "hidden" }}
+                />
                 <div className="space-y-2">
                   <Label htmlFor="name">{t.contactSection.form.name}</Label>
                   <Input
