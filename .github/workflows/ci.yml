@@ -1,0 +1,6 @@
+on: [pull_request]
+jobs:
+  security:
+    uses: DevGabrielLuiz/ci-templates/.github/workflows/security.yml@main
+    with:
+      language: node
