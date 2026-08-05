@@ -44,14 +44,14 @@ const ProcessSection = () => {
         <div className="relative">
           <div className="absolute left-6 top-8 hidden h-[2px] w-[calc(100%-3rem)] overflow-hidden rounded-full bg-white/10 md:block">
             <div
-              className="h-full rounded-full bg-primary transition-all duration-1000 ease-out"
-              style={{ width: isVisible ? "100%" : "0%" }}
+              className="h-full rounded-full bg-primary transition-transform duration-1000 ease-out origin-left"
+              style={{ transform: isVisible ? "scaleX(1)" : "scaleX(0)" }}
             />
           </div>
           <div className="absolute left-7 top-8 block h-[calc(100%-2rem)] w-[2px] overflow-hidden rounded-full bg-white/10 md:hidden">
             <div
-              className="rounded-full bg-primary transition-all duration-1000 ease-out"
-              style={{ height: isVisible ? "100%" : "0%" }}
+              className="rounded-full bg-primary transition-transform duration-1000 ease-out origin-top w-full h-full"
+              style={{ transform: isVisible ? "scaleY(1)" : "scaleY(0)" }}
             />
           </div>
 

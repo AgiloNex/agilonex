@@ -35,7 +35,7 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
       <div className="container flex items-center justify-between h-24 md:h-28">
         <Link to={languagePath()} className="flex items-center" aria-label="AgiloNex">
-          <img src={logoMark} alt="AgiloNex" className="h-20 md:h-24 w-auto object-contain" />
+          <img src={logoMark} alt="AgiloNex" className="h-20 md:h-24 w-auto object-contain" width="586" height="586" />
         </Link>
 
         <nav className="hidden md:flex items-center gap-6">

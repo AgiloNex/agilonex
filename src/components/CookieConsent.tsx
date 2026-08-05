@@ -131,11 +131,11 @@ const CookieConsent = () => {
                   <h2 className="text-base font-semibold text-foreground">{t.cookieConsent.bannerTitle}</h2>
                   <p className="text-sm leading-relaxed text-muted-foreground">
                     {t.cookieConsent.bannerText}{" "}
-                    <Link to={languagePath("politica-de-cookies")} className="text-primary hover:underline">
+                    <Link to={languagePath("politica-de-cookies")} className="text-blue-400 hover:underline">
                       {t.cookieConsent.cookiePolicyLink}
                     </Link>{" "}
                     {t.cookieConsent.and}{" "}
-                    <Link to={languagePath("lgpd")} className="text-primary hover:underline">
+                    <Link to={languagePath("privacidade")} className="text-blue-400 hover:underline">
                       {t.cookieConsent.privacyLink}
                     </Link>
                     .

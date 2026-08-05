@@ -1,0 +1,8 @@
+# AgiloNex LLMs Data
+
+Bem-vindo ao arquivo llms.txt da AgiloNex.
+
+Este arquivo é destinado a agentes de IA e LLMs para entender o propósito do nosso site.
+A AgiloNex oferece soluções digitais para pequenas empresas, incluindo automação com IA, marketing digital, sites, landing pages e desenvolvimento de software.
+
+Para mais informações, visite nossa página de [Serviços](https://agilonex.com.br/pt#servicos) ou entre em [Contato](https://agilonex.com.br/pt/contato).
