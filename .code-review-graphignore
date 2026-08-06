@@ -1,0 +1,14 @@
+# Dependências e outputs de build
+node_modules/**
+target/**
+build/**
+dist/**
+.venv/**
+
+# Diretórios de IDE
+.idea/**
+.vscode/**
+
+# Arquivos gerados e assets
+*.generated.*
+src/test/resources/**
