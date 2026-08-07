@@ -1,12 +1,22 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { useSEO } from "@/hooks/useSEO";
+import { collectionPageSchema, BASE_URL } from "@/lib/seoSchemas";
 import { Link } from "react-router-dom";
 import { ServiceDemo } from "@/components/ServiceDemo";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 const Cases = () => {
-  const { lang } = useLanguage();
+  const { t, language, languagePath } = useLanguage();
+  useSEO({
+    title: "Projetos e Resultados",
+    description: "Conheça as soluções que desenvolvemos para negócios reais. Da ideia à execução.",
+    canonical: `${BASE_URL}${languagePath("cases")}`,
+    lang: language,
+    schema: collectionPageSchema(language, "", "Cases da Agilonex"),
+  });
+  const lang = language;
 
   return (
     <>

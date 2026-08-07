@@ -2,10 +2,18 @@ import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { useSEO } from "@/hooks/useSEO";
 
 const NotFound = () => {
   const location = useLocation();
-  const { t, languagePath } = useLanguage();
+  const { t, language } = useLanguage();
+
+  useSEO({
+    title: "404 — Página não encontrada",
+    description: "A página que você procurou não foi encontrada.",
+    lang: language,
+    noIndex: true,
+  });
 
   useEffect(() => {
     console.error("404 Error: User attempted to access non-existent route:", location.pathname);

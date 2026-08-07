@@ -26,6 +26,26 @@ export const translations = {
       title: "Tecnologia que resolve, não que complica",
       subtitle:
         "A AgiloNex nasceu para tornar a tecnologia acessível e prática para empresas que querem crescer sem dor de cabeça.",
+      missionTitle: "Por que a AgiloNex existe",
+      missionBody:
+        "Pequenos negócios não precisam de menos tecnologia — precisam de tecnologia feita para a sua realidade. A AgiloNex nasceu dessa observação simples: a maioria das agências vende solução de grande empresa, com prazo e preço de grande empresa, para quem tem orçamento de bairro. A nossa missão é tornar o digital acessível para negócios reais, sem jargão e sem complicação.",
+      beliefsTitle: "No que acreditamos",
+      beliefsBody: "Três convicções guiam todo trabalho da AgiloNex:",
+      beliefsItems: [
+        { title: "Tecnologia que resolve", text: "Se não ajuda a faturar ou a poupar tempo, não é tecnologia — é despesa. Tudo o que entregamos precisa resolver uma dor real do seu negócio." },
+        { title: "Preço acessível com transparência", text: "Pequeno negócio não pode pagar preço de grande — mas também não merece preço tão baixo que desconfie. Cobramos o justo, mostramos o que está incluso e não surpreendemos com extras." },
+        { title: "Conversa com a pessoa", text: "Você não precisa saber a diferença entre landing page, funil ou chatbot. Você chega com a sensação da dor, a gente traduz em solução." },
+      ],
+      founderTitle: "Quem está por trás",
+      founderRole: "Desenvolvedor de software · Fundador e Responsável Técnico",
+      founderBio:
+        "Gabriel Luiz é desenvolvedor de software e fundador da Agilonex. Atua conectando pequenos negócios a tecnologia: já automatizou atendimentos por WhatsApp, integrou IA em sites de escritórios de advocacia e publicou projetos web em produção. Mantém os dados dos seus clientes como responsabilidade séria — ele mesmo é o Encarregado de Dados (DPO) da Agilonex.",
+      founderLocation: "Belo Horizonte, Minas Gerais — Brasil",
+      founderLinks: { linkedin: "LinkedIn", github: "GitHub", email: "E-mail" },
+      ctaTitle: "Vamos conversar?",
+      ctaBody:
+        "A maneira mais simples de entender se a Agilonex serve para o seu caso é conversar. Diagnóstico gratuito, sem compromisso, em até 1 dia útil.",
+      ctaWhatsapp: "Falar no WhatsApp",
       items: [
         { title: "Foco em PMEs", text: "Entendemos os desafios de pequenas e médias empresas e criamos soluções que cabem na sua realidade." },
         { title: "Soluções Acessíveis", text: "Tecnologia de ponta sem custos exorbitantes. Resultados reais com investimento justo." },
@@ -636,6 +656,14 @@ export const translations = {
           title: "5. Alterações e suporte",
           body: "Podemos atualizar estes termos para refletir melhorias operacionais, legais ou de segurança. O suporte e os prazos seguem o que foi acordado em contrato ou proposta.",
         },
+        {
+          title: "6. Legislação e foro",
+          body: "Estes termos são regidos pelas leis brasileiras. Fica eleito o foro da comarca de Belo Horizonte, Minas Gerais, para dirimir quaisquer dúvidas ou litígios decorrentes destes termos, com renúncia a qualquer outro, por mais privilegiado que seja.",
+        },
+        {
+          title: "7. Contato",
+          body: "Para dúvidas sobre estes termos, entre em contato pelo e-mail gabrielluizsilva.contato@gmail.com ou pelo WhatsApp disponível no site.",
+        },
       ],
       disclaimer: "Este conteúdo é um modelo operacional e deve ser adaptado ao contrato final e à orientação jurídica.",
     },
@@ -809,6 +837,26 @@ export const translations = {
       title: "Technology that solves, not complicates",
       subtitle:
         "AgiloNex was born to make technology accessible and practical for companies that want to grow without headaches.",
+      missionTitle: "Why Agilonex exists",
+      missionBody:
+        "Small businesses don't need less technology — they need technology built for their reality. Agilonex was born out of a simple observation: most agencies sell big-company solutions, with big-company timelines and prices, to budget-of-the-neighborhood clients. Our mission is to make digital accessible for real businesses, without jargon and without complications.",
+      beliefsTitle: "What we believe",
+      beliefsBody: "Three convictions guide all of Agilonex's work:",
+      beliefsItems: [
+        { title: "Technology that solves", text: "If it doesn't help you earn revenue or save time, it's not technology — it's an expense. Everything we deliver has to solve a real pain in your business." },
+        { title: "Affordable price with transparency", text: "A small business can't pay big-company prices — but it also doesn't deserve a price so low it makes you suspicious. We charge what's fair, show what's included, and never surprise you with extras." },
+        { title: "Talking with the person", text: "You don't need to know the difference between a landing page, a funnel, or a chatbot. You arrive with the feeling of the pain, we translate it into a solution." },
+      ],
+      founderTitle: "Who's behind it",
+      founderRole: "Software developer · Founder and Technical Lead",
+      founderBio:
+        "Gabriel Luiz is a software developer and the founder of Agilonex. He connects small businesses to technology: he has automated WhatsApp service, integrated AI into law firm websites, and shipped web projects to production. He treats his clients' data as a serious responsibility — he is himself Agilonex's Data Protection Officer (DPO).",
+      founderLocation: "Belo Horizonte, Minas Gerais — Brazil",
+      founderLinks: { linkedin: "LinkedIn", github: "GitHub", email: "Email" },
+      ctaTitle: "Shall we talk?",
+      ctaBody:
+        "The simplest way to find out whether Agilonex fits your case is to talk. Free diagnosis, no obligation, within 1 business day.",
+      ctaWhatsapp: "Talk on WhatsApp",
       items: [
         { title: "SMB Focused", text: "We understand the challenges of small and medium businesses and create solutions that fit your reality." },
         { title: "Affordable Solutions", text: "Cutting-edge technology without exorbitant costs. Real results with fair investment." },
@@ -1417,6 +1465,14 @@ export const translations = {
           title: "5. Changes and support",
           body: "We may update these terms to reflect operational, legal or security improvements. Support and deadlines follow what was agreed in contract or proposal.",
         },
+        {
+          title: "6. Governing law and jurisdiction",
+          body: "These terms are governed by the laws of Brazil. The courts of Belo Horizonte, Minas Gerais, are hereby elected to settle any disputes arising from these terms, with waiver of any other, however privileged.",
+        },
+        {
+          title: "7. Contact",
+          body: "For questions about these terms, contact us at gabrielluizsilva.contato@gmail.com or via the WhatsApp available on the site.",
+        },
       ],
       disclaimer: "This content is an operational model and should be adapted to the final contract and legal guidance.",
     },
@@ -1536,6 +1592,26 @@ export const translations = {
       title: "Tecnología que resuelve, no que complica",
       subtitle:
         "AgiloNex nació para hacer la tecnología accesible y práctica para empresas que quieren crecer sin dolores de cabeza.",
+      missionTitle: "Por qué existe Agilonex",
+      missionBody:
+        "Los pequeños negocios no necesitan menos tecnología — necesitan tecnología hecha para su realidad. Agilonex nació de una observación simple: la mayoría de las agencias vende soluciones de gran empresa, con plazos y precios de gran empresa, a quien tiene presupuesto de barrio. Nuestra misión es hacer lo digital accesible para negocios reales, sin jerga y sin complicaciones.",
+      beliefsTitle: "En qué creemos",
+      beliefsBody: "Tres convicciones guían todo el trabajo de Agilonex:",
+      beliefsItems: [
+        { title: "Tecnología que resuelve", text: "Si no ayuda a facturar o a ahorrar tiempo, no es tecnología — es gasto. Todo lo que entregamos tiene que resolver un dolor real de tu negocio." },
+        { title: "Precio accesible con transparencia", text: "Un pequeño negocio no puede pagar precio de grande — pero tampoco merece un precio tan bajo que desconfíe. Cobramos lo justo, mostramos qué está incluido y nunca sorprendemos con extras." },
+        { title: "Hablar con la persona", text: "No necesitas saber la diferencia entre landing page, funnel o chatbot. Llegas con la sensación del dolor, nosotros lo traducimos en solución." },
+      ],
+      founderTitle: "Quién está detrás",
+      founderRole: "Desarrollador de software · Fundador y Responsable Técnico",
+      founderBio:
+        "Gabriel Luiz es desarrollador de software y fundador de Agilonex. Conecta pequeños negocios con tecnología: ha automatizado atenciones por WhatsApp, integrado IA en sitios de despachos de abogados y publicado proyectos web en producción. Trata los datos de sus clientes como una responsabilidad seria — él mismo es el Encargado de Datos (DPO) de Agilonex.",
+      founderLocation: "Belo Horizonte, Minas Gerais — Brasil",
+      founderLinks: { linkedin: "LinkedIn", github: "GitHub", email: "Correo" },
+      ctaTitle: "¿Hablamos?",
+      ctaBody:
+        "La forma más simple de entender si Agilonex encaja en tu caso es conversar. Diagnóstico gratuito, sin compromiso, en 1 día útil.",
+      ctaWhatsapp: "Hablar por WhatsApp",
       items: [
         { title: "Foco en PYMEs", text: "Entendemos los desafíos de pequeñas y medianas empresas y creamos soluciones que se adaptan a tu realidad." },
         { title: "Soluciones Accesibles", text: "Tecnología de punta sin costos exorbitantes. Resultados reales con inversión justa." },
@@ -2145,6 +2221,14 @@ export const translations = {
         {
           title: "5. Cambios y soporte",
           body: "Podemos actualizar estos términos para reflejar mejoras operativas, legales o de seguridad. El soporte y los plazos siguen lo acordado en el contrato o propuesta.",
+        },
+        {
+          title: "6. Legislación y fuero",
+          body: "Estos términos se rigen por las leyes brasileñas. Se elige el fuero de la comarca de Belo Horizonte, Minas Gerais, para resolver cualquier duda o litigio derivado de estos términos, con renuncia a cualquier otro, por más privilegiado que sea.",
+        },
+        {
+          title: "7. Contacto",
+          body: "Para dudas sobre estos términos, contáctanos en gabrielluizsilva.contato@gmail.com o por el WhatsApp disponible en el sitio.",
         },
       ],
       disclaimer: "Este contenido es un modelo operativo y debe adaptarse al contrato final y a la orientación jurídica.",

@@ -39,14 +39,12 @@ export interface Post {
   content: Localized<PostBlock[]>;
 }
 
+import { founder } from "@/lib/identity";
+
 const agilonexAuthor: Post["author"] = {
-  name: "Gabriel Luiz Silva Espírito Santo",
+  name: founder.fullName,
   url: "https://agilonex.com.br/sobre",
-  bio: {
-    pt: "Fundador e responsável técnico da AgiloNex. Atua há alguns anos conectando pequenos negócios a tecnologia: já automatizou atendimentos por WhatsApp, integrou IA em sites de escritórios de advocacia e publicou projetos web publicados em produção.",
-    en: "Founder and technical lead at AgiloNex. For the past few years he has been connecting small businesses to technology: automating WhatsApp service, integrating AI into law firm websites, and shipping web projects to production.",
-    es: "Fundador y responsable técnico de AgiloNex. Desde hace algunos años conecta pequeños negocios con tecnología: ha automatizado atenciones por WhatsApp, integrado IA en sitios de despachos de abogados y publicado proyectos web en producción.",
-  },
+  bio: founder.bio,
 };
 
 export const posts: Post[] = [

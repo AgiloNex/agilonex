@@ -1,8 +1,17 @@
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { useSEO } from "@/hooks/useSEO";
+import { legalPageSchema, BASE_URL } from "@/lib/seoSchemas";
 
 const Lgpd = () => {
-  const { t, languagePath } = useLanguage();
+  const { t, language, languagePath } = useLanguage();
+  useSEO({
+    title: t.lgpd.title,
+    description: t.lgpd.subtitle,
+    canonical: `${BASE_URL}${languagePath("lgpd")}`,
+    lang: language,
+    schema: legalPageSchema(language, "lgpd", t.lgpd.title),
+  });
   return (
     <main className="min-h-screen bg-background py-20 md:py-28">
       <div className="container max-w-4xl">

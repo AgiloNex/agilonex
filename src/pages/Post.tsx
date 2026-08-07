@@ -6,6 +6,8 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { type Language } from "@/i18n/translations";
+import { useSEO } from "@/hooks/useSEO";
+import { blogPostingSchema, breadcrumbSchema, BASE_URL } from "@/lib/seoSchemas";
 import { formatDate, getPostBySlug, type PostBlock } from "@/data/posts";
 
 const renderBlock = (block: PostBlock, key: number) => {
@@ -53,6 +55,24 @@ const Post = () => {
   const { t, language, languagePath } = useLanguage();
   const lang = language as Language;
   const post = slug ? getPostBySlug(slug) : undefined;
+
+  useSEO({
+    title: post ? post.title[lang] : "Post não encontrado",
+    description: post ? post.excerpt[lang] : t.blog.subtitle,
+    canonical: post ? `${BASE_URL}${languagePath(`blog/${post.slug}`)}` : undefined,
+    lang: language,
+    ogType: "article",
+    noIndex: !post,
+    schema: post
+      ? [
+          blogPostingSchema(lang, post),
+          breadcrumbSchema(lang, [
+            { name: t.blog.title, path: "/blog" },
+            { name: post.title[lang], path: `/blog/${post.slug}` },
+          ]),
+        ]
+      : undefined,
+  });
 
   useEffect(() => {
     if (post) {

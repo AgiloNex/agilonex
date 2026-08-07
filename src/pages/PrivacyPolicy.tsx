@@ -1,9 +1,17 @@
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { useSEO } from "@/hooks/useSEO";
+import { legalPageSchema, BASE_URL } from "@/lib/seoSchemas";
 
 const PrivacyPolicy = () => {
-  const { t, languagePath } = useLanguage();
-
+  const { t, language, languagePath } = useLanguage();
+  useSEO({
+    title: t.privacyPolicy.title,
+    description: t.privacyPolicy.subtitle,
+    canonical: `${BASE_URL}${languagePath("privacidade")}`,
+    lang: language,
+    schema: legalPageSchema(language, "privacidade", t.privacyPolicy.title),
+  });
   return (
     <main className="min-h-screen bg-background py-20 md:py-28">
       <div className="container max-w-4xl">

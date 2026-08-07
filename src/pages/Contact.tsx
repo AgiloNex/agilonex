@@ -8,6 +8,8 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { useSEO } from "@/hooks/useSEO";
+import { contactPageSchema, BASE_URL } from "@/lib/seoSchemas";
 
 const WEBHOOK_URL = "[WEBHOOK_URL]";
 
@@ -21,7 +23,14 @@ const formatWhatsapp = (value: string) => {
 const isValidWhatsapp = (value: string) => /^\(\d{2}\)\s\d{4,5}-\d{4}$/.test(value);
 
 const Contact = () => {
-  const { t } = useLanguage();
+  const { t, language, languagePath } = useLanguage();
+  useSEO({
+    title: t.contactSection.title,
+    description: t.contactSection.subtitle,
+    canonical: `${BASE_URL}${languagePath("contato")}`,
+    lang: language,
+    schema: contactPageSchema(language),
+  });
   const whatsappLink = `https://wa.me/${t.whatsapp.number}`;
   const [name, setName] = useState("");
   const [whatsapp, setWhatsapp] = useState("");

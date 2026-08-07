@@ -1,8 +1,11 @@
 import { type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { useSEO } from "@/hooks/useSEO";
+import { legalPageSchema, BASE_URL } from "@/lib/seoSchemas";
+import { founder } from "@/lib/identity";
 
-const CONTACT_EMAIL = "contato@agilonex.com.br";
+const CONTACT_EMAIL = founder.email;
 const LAST_UPDATED = { pt: "10 de julho de 2026", en: "July 10, 2026", es: "10 de julio de 2026" };
 
 const content = {
@@ -181,6 +184,13 @@ const content = {
 
 const Cookies = () => {
   const { language, languagePath, t } = useLanguage();
+  useSEO({
+    title: "Política de Cookies",
+    description: "Como a AgiloNex usa cookies e tecnologias semelhantes, e como você controla isso.",
+    canonical: `${BASE_URL}${languagePath("politica-de-cookies")}`,
+    lang: language,
+    schema: legalPageSchema(language, "politica-de-cookies", "Política de Cookies"),
+  });
   const copy = content[language] ?? content.pt;
   const updated = LAST_UPDATED[language] ?? LAST_UPDATED.pt;
   const privacyPolicyPath = languagePath("lgpd");

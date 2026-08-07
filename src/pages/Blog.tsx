@@ -5,6 +5,8 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { type Language } from "@/i18n/translations";
+import { useSEO } from "@/hooks/useSEO";
+import { blogSchema, itemListSchema, BASE_URL } from "@/lib/seoSchemas";
 import { formatDate, getPostsSorted } from "@/data/posts";
 
 const Blog = () => {
@@ -12,6 +14,14 @@ const Blog = () => {
   const lang = language as Language;
   const sortedPosts = getPostsSorted();
   const whatsappUrl = `https://wa.me/${t.whatsapp.number}?text=${encodeURIComponent(t.whatsapp.msgDefault)}`;
+
+  useSEO({
+    title: t.blog.title,
+    description: t.blog.subtitle,
+    canonical: `${BASE_URL}${languagePath("blog")}`,
+    lang: language,
+    schema: [blogSchema(language), itemListSchema(language, sortedPosts)],
+  });
 
   return (
     <>
