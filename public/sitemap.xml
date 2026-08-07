@@ -62,6 +62,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://agilonex.com.br/pt/blog/por-que-confiar-na-agilonex</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://agilonex.com.br/en</loc>
     <lastmod>2026-08-07</lastmod>
     <changefreq>weekly</changefreq>
@@ -122,6 +128,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://agilonex.com.br/en/blog/por-que-confiar-na-agilonex</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://agilonex.com.br/es</loc>
     <lastmod>2026-08-07</lastmod>
     <changefreq>weekly</changefreq>
@@ -177,6 +189,12 @@
   </url>
   <url>
     <loc>https://agilonex.com.br/es/blog/o-que-e-a-agilonex</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://agilonex.com.br/es/blog/por-que-confiar-na-agilonex</loc>
     <lastmod>2026-08-07</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>

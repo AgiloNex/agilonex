@@ -216,6 +216,178 @@ export const posts: Post[] = [
       ],
     },
   },
+  {
+    slug: "por-que-confiar-na-agilonex",
+    publishedAt: "2026-08-07",
+    readingMinutes: 6,
+    tags: ["confiança", "atendimento", "preço acessível", "parceria"],
+    author: agilonexAuthor,
+    title: {
+      pt: "Por que confiar na Agilonex: conversa, entendimento e preço acessível",
+      en: "Why trust Agilonex: conversation, understanding, and an affordable price",
+      es: "Por qué confiar en Agilonex: conversación, entendimiento y precio accesible",
+    },
+    excerpt: {
+      pt: "Confiança não se decreta — se constrói. Na Agilonex a gente conversa com a pessoa, busca entender o que o negócio precisa de verdade e cobra um preço acessível. Este post explica como isso vira prática.",
+      en: "Trust isn't declared — it's built. At Agilonex we talk with the person, try to truly understand what the business needs, and charge an affordable price. This post explains how that works in practice.",
+      es: "La confianza no se decreta — se construye. En Agilonex hablamos con la persona, buscamos entender de verdad lo que el negocio necesita y cobramos un precio accesible. Este artículo explica cómo eso se vuelve práctica.",
+    },
+    content: {
+      pt: [
+        { type: "paragraph", text: "Quem nunca pagou por um serviço de tecnologia e se arrependeu? É uma pergunta retórica — quase todo dono de pequeno negócio já passou por isso. Pagou caro, demorou, e quando veio não era bem o que ele tinha pedido. Por causa disso, a primeira barreira com qualquer nova empresa de tecnologia não é técnica. É a confiança." },
+        { type: "paragraph", text: "Este post é pra você entender, antes de qualquer contrato, por que dá pra confiar na Agilonex. A resposta curta é: a gente conversa com a pessoa, busca entender o que o negócio precisa de fato, e cobra um preço acessível. A resposta longa está abaixo — sem maquiagem." },
+
+        { type: "heading", level: 2, text: "1. A gente conversa com a pessoa, não com um briefing" },
+        { type: "paragraph", text: "Muita empresa começa o atendimento pedindo pra você preencher um formulário enorme antes de falar com qualquer humano. Na Agilonex é ao contrário: você manda um WhatsApp contando a ideia do seu jeito, com as palavras que você usa no dia a dia, e a primeira resposta é nossa — em até um dia útil, com gente de verdade — não um robô de triagem." },
+        { type: "paragraph", text: "Isso significa que você pode falar \"quero mais cliente do bairro no WhatsApp\" sem saber se isso é marketing, automação ou site. A nossa função é traduzir o que você quer em solução técnica, não cobrar de você o vocabulário certo." },
+        { type: "quote", text: "Tecnologia que resolve, não que complica.", cite: "Princípio da Agilonex" },
+
+        { type: "heading", level: 2, text: "2. Buscamos entender o que o negócio precisa de verdade" },
+        { type: "paragraph", text: "Entender o problema do cliente parece óbvio. Mas, no mercado de tecnologia, é raro. O comum é vender a mesma solução pra todo mundo, sem diferenciar uma barbearia de uma clínica ou um e-commerce de uma prestadora de serviço." },
+        { type: "paragraph", text: "Na Agilonex a primeira pergunta não é \"qual plano você quer?\", é \"qual dor você tá sentindo?\". A partir daí faremos um diagnóstico gratuito, em até 7 dias úteis, com nome no papel: o que faz sentido fazer primeiro, o que pode esperar, e — sobretudo — o que não vale o seu dinheiro agora." },
+        { type: "list", items: [
+          "Se o seu problema for atendimento que demora pra responder no WhatsApp, a solução é automação com IA, não necessariamente um site novo.",
+          "Se o problema é que o cliente entra no site e não entende o que você faz, a solução é refazer a comunicação da home, não uma campanha de anúncios.",
+          "Se o problema é que você perde agendamento por vacilo manual, a solução é um fluxo simples de WhatsApp + calendário, não uma plataforma cheia de recursos que você nunca vai usar.",
+        ]},
+        { type: "paragraph", text: "Esse jeito de fazer diagnóstico vem de uma convicção: tecnologia que não resolve dor não é tecnologia — é despesa. Melhor não vender nada do que vender a coisa errada para o seu caso." },
+
+        { type: "heading", level: 2, text: "3. Preço acessível não é preço baixo qualquer" },
+        { type: "paragraph", text: "Pequeno negócio não pode pagar preço de grande empresa. Mas também não pode aceitar preço tão baixo que desconfie. Por isso, o ponto da Agilonex não é ser a \"opção mais barata\" — é ser a opção com preço acessível que você entende. Antes de fechar qualquer projeto, a gente mostra pra você:" },
+        { type: "list", items: [
+          "O que está incluso e o que não está (não tem surpresa de \"ah, isso é croposta\")",
+          "Quanto custa em moeda, não em \"unidades de trabalho abstratas\"",
+          "Qual o tempo estimado de entrega — com um intervalo honesto e não uma fantasia pra fechar a venda",
+          "O que é de você e o que é da gente: o código, a hospedagem, o domínio — tudo em nome da empresa, sem amarras de plataforma",
+        ]},
+        { type: "paragraph", text: "A meta é que o preço faça sentido sem você precisar consultar outro dessenvolvedor pra saber se foi justo. Transparência é mais barata do que gente imagina." },
+
+        { type: "heading", level: 2, text: "4. Por que dá pra cobrar acessível sem ser ruim" },
+        { type: "paragraph", text: "Uma dúvida comum: \"se é tão acessível assim, o serviço tem que ser ruim\". Não tem. Acontece que muito do preço alto no mercado de tecnologia vem de três coisas que não pesam na operação real:" },
+        { type: "list", items: [
+          "Equipes pequenas com estrutura corporativa grande — a agência paga sala, diretoria em três camadas, jargão — e você paga por isso no preço.",
+          "Cobrança por hora em vez de por resultado — quanto mais lento, mais faturado.",
+          "Ferramentas e ERPs internos complicados que encarecem tudo só porque o processo da agência é travado.",
+        ]},
+        { type: "paragraph", text: "A Agilonex é enxuta por opção. Não tem diretoria em camadas, não tem processo interno pesado, não tem ferramenta cara que você paga indireto. O que você paga cobre um humano competente, a ferramenta necessária, e uma margem justa. Isso vira preço acessível sem ser ruim." },
+
+        { type: "heading", level: 2, text: "5. Provas que você pode verificar" },
+        { type: "paragraph", text: "Confiança na conversa é importante, mas nada substitui trabalho publicado. A Agilonex não esconde nada: uma barbearia local com site e atendimento automático, um sistema de gestão de patrimônio para empresários, e a integração de IA num escritório de advocacia com treinamento dos funcionários. Você consegue ver cada um desses projetos na página de Cases." },
+        { type: "paragraph", text: "E, mais do que isso, o nome do responsável técnico não é uma abstração corporativa — é Gabriel Luiz Silva Espírito Santo, o mesmo nome que assina como Encarregado de Dados (DPO) na nossa Política de Privacidade. Quando a responsabilidade tem nome, fica mais fácil confiar." },
+
+        { type: "heading", level: 2, text: "6. E se eu não souber o que preciso?" },
+        { type: "paragraph", text: "Esse é o caso mais normal. A maioria dos donos de pequeno negócio não deveria precisar saber a diferença entre landing page, site institucional, funil, chatbot ou dashboard. Esse é o nosso trabalho. Você chega com a sensação de \"tô perdendo cliente pra concorrente na internet\" ou \"demoro demais pra responder mensagem\" — a gente converte isso em solução e te mostra o porquê da escolha." },
+        { type: "paragraph", text: "Se na conversa ficar claro que você precisa de algo fora do nosso alcance — uma app mobile nativa muito complexa, por exemplo —, a gente te diz com sinceridade e te ajuda a encontrar quem faça melhor. Não vendemos o que não conseguimos entregar." },
+
+        { type: "heading", level: 2, text: "7. Conversar não compromete nada" },
+        { type: "paragraph", text: "Confiança se prova falando. Você não precisa comprar nada pra conversar com a Agilonex. Não tem cobrança por reunião de diagnóstico, não tem proposta escondida atrás de formulário. Você manda um WhatsApp, a gente responde. Se der certo a parceria, ótimo. Se não, você sai sabendo pelo menos o que faz sentido pro seu caso — sem pagar nada por isso." },
+        { type: "quote", text: "Da ideia ao resultado: soluções digitais que fazem o negócio avançar.", cite: "A frase que resume todo trabalho da Agilonex" },
+        { type: "paragraph", text: "Se isso te parece o jeito de trabalhar que você procura, manda um WhatsApp agora ou explorá os cases publicados pra ver com prova o que cada projeto entregou. A próxima confiança que você constrói é a primeira conversa." },
+      ],
+      en: [
+        { type: "paragraph", text: "Who has never paid for a tech service and regretted it? It's a rhetorical question — almost every small business owner has been there. Paid a lot, it took long, and when it arrived it wasn't what they had asked for. Because of that, the first barrier with any new tech company isn't technical. It's trust." },
+        { type: "paragraph", text: "This post is so you can understand, before any contract, why you can trust Agilonex. The short answer: we talk with the person, try to truly understand what the business needs, and charge an affordable price. The long answer is below — no sugar-coating." },
+
+        { type: "heading", level: 2, text: "1. We talk with the person, not with a briefing" },
+        { type: "paragraph", text: "Many companies start the engagement by asking you to fill out a long form before talking to a human. At Agilonex it's the opposite: you send a WhatsApp telling the idea your way, in the words you use every day, and the first reply is ours — within one business day, from a real person, not a triage bot." },
+        { type: "paragraph", text: "It means you can say \"I want more customers from my neighborhood on WhatsApp\" without knowing whether that's marketing, automation, or a website. Our job is to translate what you want into a technical solution, not to bill you for the right vocabulary." },
+        { type: "quote", text: "Technology that solves, not that complicates.", cite: "Agilonex principle" },
+
+        { type: "heading", level: 2, text: "2. We try to truly understand what the business needs" },
+        { type: "paragraph", text: "Understanding the client's problem seems obvious. But in the tech market, it's rare. The norm is to sell the same solution to everyone, without differentiating a barbershop from a clinic or an e-commerce from a service provider." },
+        { type: "paragraph", text: "At Agilonex the first question isn't \"which plan do you want?\" — it's \"what pain are you feeling?\". From there we run a free diagnosis, within 7 business days, with names on paper: what makes sense to do first, what can wait, and — above all — what isn't worth your money right now." },
+        { type: "list", items: [
+          "If your problem is slow replies on WhatsApp, the solution is AI automation — not necessarily a new site.",
+          "If the problem is the visitor not understanding what you do, the solution is reworking your homepage messaging — not an ad campaign.",
+          "If the problem is losing bookings to manual slip-ups, the solution is a simple WhatsApp + calendar flow — not a platform full of features you'll never use.",
+        ]},
+        { type: "paragraph", text: "This way of doing diagnosis comes from a conviction: technology that doesn't solve pain isn't technology — it's an expense. Better not to sell anything than to sell the wrong thing for your case." },
+
+        { type: "heading", level: 2, text: "3. Affordable price isn't just any low price" },
+        { type: "paragraph", text: "A small business can't pay large-company prices. But it also can't accept a price so low it makes you suspicious. So Agilonex's point isn't to be the \"cheapest option\" — it's to be the option with an affordable price you can understand. Before any project is confirmed, we show you:" },
+        { type: "list", items: [
+          "What's included and what isn't (no surprise \"ah, that's an extra\")",
+          "The cost in money, not in \"abstract work units\"",
+          "The estimated delivery time — with an honest range, not a fantasy to close the sale",
+          "What's yours and what's ours: the code, hosting, domain — everything in the company's name, no platform lock-in",
+        ]},
+        { type: "paragraph", text: "The goal is for the price to make sense without you needing to consult another developer to know if it was fair. Transparency is cheaper than people imagine." },
+
+        { type: "heading", level: 2, text: "4. Why we can charge affordably without being bad" },
+        { type: "paragraph", text: "A common doubt: \"if it's so affordable, the service must be bad\". It isn't. What happens is that much of the high pricing in the tech market comes from three things that don't weigh on actual operations:" },
+        { type: "list", items: [
+          "Small teams with big corporate structure — the agency pays for office, three layers of directors, jargon — and you pay for it in the price.",
+          "Hourly billing instead of outcome — the slower, the more billed.",
+          "Expensive internal tools and ERPs that bloat everything just because the agency's own process is stuck.",
+        ]},
+        { type: "paragraph", text: "Agilonex is lean by choice. No layered directors, no heavy internal process, no expensive tool you pay for indirectly. What you pay covers one competent human, the necessary tool, and a fair margin. That becomes an affordable price without being bad." },
+
+        { type: "heading", level: 2, text: "5. Proof you can verify" },
+        { type: "paragraph", text: "Trust in the conversation matters, but nothing replaces published work. Agilonex hides nothing: a local barbershop with a site and automated service, an asset management system for business owners, and AI integration in a law firm with staff training. You can see each of these projects on the Cases page." },
+        { type: "paragraph", text: "And more than that, the technical lead's name isn't a corporate abstraction — it's Gabriel Luiz Silva Espírito Santo, the same name signed as Data Protection Officer (DPO) in our Privacy Policy. When responsibility has a name, it's easier to trust." },
+
+        { type: "heading", level: 2, text: "6. What if I don't know what I need?" },
+        { type: "paragraph", text: "That's the most normal case. Most small business owners shouldn't have to know the difference between a landing page, an institutional site, a funnel, a chatbot, or a dashboard. That's our job. You arrive with the feeling \"I'm losing customers to the competitor online\" or \"it takes me too long to reply to messages\" — we turn that into a solution and show you why we chose it." },
+        { type: "paragraph", text: "If during the conversation it turns out you need something outside our scope — like a very complex native mobile app, for example — we honestly tell you and help you find someone better. We don't sell what we can't deliver." },
+
+        { type: "heading", level: 2, text: "7. Talking commits you to nothing" },
+        { type: "paragraph", text: "Trust is proven by talking. You don't have to buy anything to talk to Agilonex. There's no charge for a diagnosis meeting, no hidden proposal behind a form. You send a WhatsApp, we reply. If the partnership works out, great. If not, you leave at least knowing what makes sense for your case — without paying anything for it." },
+        { type: "quote", text: "From idea to result: digital solutions that move the business forward.", cite: "The phrase that sums up all of Agilonex's work" },
+        { type: "paragraph", text: "If this sounds like the way of working you're after, send a WhatsApp now or explore the published cases to see what each project delivered, with proof. The next trust you build is the first conversation." },
+      ],
+      es: [
+        { type: "paragraph", text: "¿Quién nunca pagó por un servicio de tecnología y se arrepintió? Es una pregunta retórica — casi todo dueño de pequeño negocio ya pasó por eso. Pagó caro, tardó, y cuando llegó no era bien lo que había pedido. Por eso, la primera barrera con cualquier empresa nueva de tecnología no es técnica. Es la confianza." },
+        { type: "paragraph", text: "Este artículo es para que entiendas, antes de cualquier contrato, por qué da para confiar en Agilonex. La respuesta corta: hablamos con la persona, buscamos entender de verdad lo que el negocio necesita y cobramos un precio accesible. La respuesta larga está abajo — sin maquillaje." },
+
+        { type: "heading", level: 2, text: "1. Hablamos con la persona, no con un briefing" },
+        { type: "paragraph", text: "Muchas empresas empiezan la atención pidiéndote rellenar un formulario enorme antes de hablar con cualquier humano. En Agilonex es al contrario: mandas un WhatsApp contando la idea a tu manera, con las palabras que usas en el día a día, y la primera respuesta es nuestra — en un día útil, con gente de verdad — no un bot de triaje." },
+        { type: "paragraph", text: "Significa que puedes decir \"quiero más clientes del barrio en WhatsApp\" sin saber si eso es marketing, automatización o un sitio. Nuestra función es traducir lo que quieres en solución técnica, no cobrarte por el vocabulario correcto." },
+        { type: "quote", text: "Tecnología que resuelve, no que complica.", cite: "Principio de Agilonex" },
+
+        { type: "heading", level: 2, text: "2. Buscamos entender de verdad lo que el negocio necesita" },
+        { type: "paragraph", text: "Entender el problema del cliente parece obvio. Pero en el mercado de tecnología, es raro. Lo común es vender la misma solución a todos, sin diferenciar una barbería de una clínica o un e-commerce de un prestador de servicios." },
+        { type: "paragraph", text: "En Agilonex la primera pregunta no es \"¿qué plan quieres?\", es \"¿qué dolor estás sintiendo?\". Desde ahí hacemos un diagnóstico gratuito, en 7 días útiles, con nombres en el papel: qué conviene hacer primero, qué puede esperar, y — sobre todo — qué no vale tu dinero ahora." },
+        { type: "list", items: [
+          "Si tu problema es la atención que tarda en responder en WhatsApp, la solución es automatización con IA — no necesariamente un sitio nuevo.",
+          "Si el problema es que el visitante no entiende lo que haces, la solución es rehacer la comunicación de la home — no una campaña de anuncios.",
+          "Si el problema es que pierdes reservas por distracción manual, la solución es un flujo simple de WhatsApp + calendario — no una plataforma llena de features que jamás usarás.",
+        ]},
+        { type: "paragraph", text: "Esta forma de hacer diagnóstico viene de una convicción: la tecnología que no resuelve dolor no es tecnología — es gasto. Mejor no vender nada que vender lo equivocado para tu caso." },
+
+        { type: "heading", level: 2, text: "3. Precio accesible no es cualquier precio bajo" },
+        { type: "paragraph", text: "Un pequeño negocio no puede pagar precio de grande empresa. Pero tampoco puede aceptar un precio tan bajo que desconfíes. Por eso, el punto de Agilonex no es ser la \"opción más barata\" — es la opción con un precio accesible que entiendes. Antes de cerrar cualquier proyecto, te mostramos:" },
+        { type: "list", items: [
+          "Qué está incluido y qué no (sin sorpresas de \"ah, eso es extra\")",
+          "Cuánto cuesta en moneda, no en \"unidades de trabajo abstractas\"",
+          "Cuál es el tiempo estimado de entrega — con un intervalo honesto y no una fantasía para cerrar la venta",
+          "Qué es tuyo y qué es nuestro: el código, el hospedaje, el dominio — todo a nombre de la empresa, sin amarre de plataforma",
+        ]},
+        { type: "paragraph", text: "La meta es que el precio tenga sentido sin que necesites consultar a otro desarrollador para saber si fue justo. La transparencia es más barata de lo que la gente imagina." },
+
+        { type: "heading", level: 2, text: "4. Por qué da para cobrar accesible sin ser malo" },
+        { type: "paragraph", text: "Una duda común: \"si es tan accesible, el servicio tiene que ser malo\". No. Lo que pasa es que gran parte del precio alto en el mercado de tecnología viene de tres cosas que no pesan en la operación real:" },
+        { type: "list", items: [
+          "Equipos pequeños con estructura corporativa grande — la agencia paga oficina, dirección en tres capas, jerga — y tú pagas por eso en el precio.",
+          "Cobro por hora en vez de por resultado — cuanto más lento, más se factura.",
+          "Herramientas y ERPs internos caros que encarecen todo solo porque el proceso de la agencia está trabado.",
+        ]},
+        { type: "paragraph", text: "Agilonex es ágil por opción. No hay dirección en capas, no hay proceso interno pesado, no hay herramienta cara que pagues indirectamente. Lo que pagas cubre a un humano competente, la herramienta necesaria, y un margen justo. Eso se vuelve un precio accesible sin ser malo." },
+
+        { type: "heading", level: 2, text: "5. Pruebas que puedes verificar" },
+        { type: "paragraph", text: "La confianza en la conversación importa, pero nada reemplaza el trabajo publicado. Agilonex no esconde nada: una barbería local con sitio y atención automática, un sistema de gestión de patrimonio para empresarios, y la integración de IA en un despacho de abogados con formación de los empleados. Puedes ver cada uno de estos proyectos en la página de Cases." },
+        { type: "paragraph", text: "Y, más que eso, el nombre del responsable técnico no es una abstracción corporativa — es Gabriel Luiz Silva Espírito Santo, el mismo nombre que firma como Encargado de Datos (DPO) en nuestra Política de Privacidad. Cuando la responsabilidad tiene nombre, es más fácil confiar." },
+
+        { type: "heading", level: 2, text: "6. ¿Y si no sé qué necesito?" },
+        { type: "paragraph", text: "Ese es el caso más normal. La mayoría de dueños de pequeños negocios no debería tener que saber la diferencia entre landing page, sitio institucional, funnel, chatbot o dashboard. Eso es nuestro trabajo. Llegas con la sensación \"estoy perdiendo clientes con el competidor online\" o \"tardo demasiado en responder mensajes\" — nosotros lo convertimos en solución y te mostramos el porqué de la elección." },
+        { type: "paragraph", text: "Si en la conversación queda claro que necesitas algo fuera de nuestro alcance — una app móvil nativa muy compleja, por ejemplo —, te decimos con sinceridad y te ayudamos a encontrar quien lo haga mejor. No vendemos lo que no conseguimos entregar." },
+
+        { type: "heading", level: 2, text: "7. Hablar no te compromete a nada" },
+        { type: "paragraph", text: "La confianza se prueba hablando. No tienes que comprar nada para hablar con Agilonex. No hay cobro por reunión de diagnóstico, no hay propuesta escondida detrás de formulario. Mandas un WhatsApp, respondemos. Si funciona la sociedad, estupendo. Si no, sales al menos sabiendo qué tiene sentido para tu caso — sin pagar nada por eso." },
+        { type: "quote", text: "De la idea al resultado: soluciones digitales que hacen avanzar al negocio.", cite: "La frase que resume todo el trabajo de Agilonex" },
+        { type: "paragraph", text: "Si esto te parece la forma de trabajar que buscas, manda un WhatsApp ahora o explora los cases publicados para ver con prueba lo que entregó cada proyecto. La próxima confianza que construyes es la primera conversación." },
+      ],
+    },
+  },
 ];
 
 export const getPostBySlug = (slug: string): Post | undefined =>
