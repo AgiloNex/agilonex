@@ -18,6 +18,8 @@ import Cookies from "./pages/Cookies.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import Cases from "./pages/Cases.tsx";
 import BarbershopCase from "./pages/cases/Barbershop.tsx";
+import Blog from "./pages/Blog.tsx";
+import Post from "./pages/Post.tsx";
 
 const queryClient = new QueryClient();
 
@@ -59,6 +61,8 @@ const App = () => (
               <Route index element={<Index />} />
               <Route path="sobre" element={<About />} />
               <Route path="contato" element={<Contact />} />
+              <Route path="blog" element={<Blog />} />
+              <Route path="blog/:slug" element={<Post />} />
               <Route path="privacidade" element={<PrivacyPolicy />} />
               <Route path="lgpd" element={<Lgpd />} />
               <Route path="termos-de-uso" element={<Terms />} />

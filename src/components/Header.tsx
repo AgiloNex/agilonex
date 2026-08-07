@@ -24,6 +24,7 @@ const Header = () => {
   }
   const navLinks: NavLink[] = [
     { label: t.nav.about, to: languagePath("sobre"), isPage: true },
+    { label: t.nav.blog, to: languagePath("blog"), isPage: true },
     { label: t.nav.services, to: `${basePath}#servicos`, isPage: false },
     { label: t.nav.how, to: `${basePath}#como-funciona`, isPage: false },
     { label: t.nav.pricing, to: `${basePath}#planos`, isPage: false },

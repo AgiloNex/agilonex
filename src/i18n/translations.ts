@@ -4,6 +4,7 @@ export const translations = {
   pt: {
     nav: {
       about: "Sobre",
+      blog: "Blog",
       services: "Serviços",
       how: "Como Funciona",
       portfolio: "Portfólio",
@@ -151,6 +152,20 @@ export const translations = {
         },
       ],
       cta: "Ainda tem dúvidas? Fale com a gente →",
+    },
+    blog: {
+      tag: "Conteúdo",
+      title: "Blog da AgiloNex",
+      subtitle: "Aprofundamentos sobre automação, IA, marketing digital e tecnologia para pequenos negócios.",
+      emptyTitle: "Ainda não há posts publicados",
+      emptyText: "Em breve traremos artigos práticos. Enquanto isso, fale com a gente no WhatsApp para tirar dúvidas.",
+      readMore: "Ler artigo",
+      backToList: "Voltar ao blog",
+      publishedOn: "Publicado em",
+      by: "por",
+      minutesRead: "min de leitura",
+      shareTitle: "Compartilhar este artigo",
+      ctaWhats: "Falar sobre este assunto no WhatsApp",
     },
     roi: {
       tag: "Calculadora de ROI",
@@ -419,6 +434,7 @@ export const translations = {
     footer: {
       rights: "Todos os direitos reservados.",
       backHome: "Voltar para a home",
+      blog: "Blog",
       lgpd: "LGPD",
       terms: "Termos de uso",
       cookies: "Política de Cookies",
@@ -694,7 +710,7 @@ export const translations = {
         },
         {
           title: "8. Cookies",
-          body: "Este site pode utilizar cookies técnicos essenciais para seu funcionamento correto (ex: preferência de idioma, sessão). Cookies analíticos de terceiros só serão ativados mediante seu consentimento explícito via banner de cookies.\n\nVocê pode bloquear todos os cookies nas configurações do seu navegador, sem prejuízo ao acesso ao conteúdo do site.",
+          body: "Este site pode utilizar cookies técnicos essenciais para seu funcionamento correto (ex: preferência de idioma, sessão). Cookies analíticos e de publicidade de terceiros (Google Analytics, Meta Pixel, Google AdSense) só serão ativados mediante seu consentimento explícito via banner de cookies.\n\nO Google AdSense, como fornecedor terceirizado, usa cookies para exibir anúncios com base em visitas anteriores do usuário a este e a outros sites. Você pode desativar a publicidade personalizada em https://www.google.com/settings/ads e saber como o Google usa dados de sites parceiros em https://policies.google.com/technologies/partner-sites.\n\nVocê pode bloquear todos os cookies nas configurações do seu navegador, sem prejuízo ao acesso ao conteúdo do site.",
         },
         {
           title: "9. Seus Direitos como Titular",
@@ -771,6 +787,7 @@ export const translations = {
   en: {
     nav: {
       about: "About",
+      blog: "Blog",
       services: "Services",
       how: "How It Works",
       portfolio: "Portfolio",
@@ -918,6 +935,20 @@ export const translations = {
         },
       ],
       cta: "Still have questions? Talk to us →",
+    },
+    blog: {
+      tag: "Content",
+      title: "AgiloNex Blog",
+      subtitle: "In-depth pieces on automation, AI, digital marketing, and technology for small businesses.",
+      emptyTitle: "No posts published yet",
+      emptyText: "Practical articles are coming soon. In the meantime, talk to us on WhatsApp to ask your questions.",
+      readMore: "Read article",
+      backToList: "Back to blog",
+      publishedOn: "Published on",
+      by: "by",
+      minutesRead: "min read",
+      shareTitle: "Share this article",
+      ctaWhats: "Talk about this on WhatsApp",
     },
     roi: {
       tag: "ROI Calculator",
@@ -1186,6 +1217,7 @@ export const translations = {
     footer: {
       rights: "All rights reserved.",
       backHome: "Back to home",
+      blog: "Blog",
       lgpd: "GDPR / Privacy Policy",
       terms: "Terms of Use",
       cookies: "Cookie Policy",
@@ -1457,7 +1489,7 @@ export const translations = {
         },
         {
           title: "8. Cookies",
-          body: "This site may use essential technical cookies for correct operation (e.g., language preference, session). Third-party analytical cookies will only be activated with your explicit consent via the cookie banner.\n\nYou can block all cookies in your browser settings without prejudice to site content access.",
+          body: "This site may use essential technical cookies for correct operation (e.g., language preference, session). Third-party analytical and advertising cookies (Google Analytics, Meta Pixel, Google AdSense) will only be activated with your explicit consent via the cookie banner.\n\nGoogle AdSense, as a third-party vendor, uses cookies to display ads based on a user's previous visits to this and other sites. You can opt out of personalized advertising at https://www.google.com/settings/ads and learn how Google uses data from partner sites at https://policies.google.com/technologies/partner-sites.\n\nYou can block all cookies in your browser settings without prejudice to site content access.",
         },
         {
           title: "9. Your Rights as Data Subject",
@@ -1482,6 +1514,7 @@ export const translations = {
   es: {
     nav: {
       about: "Sobre",
+      blog: "Blog",
       services: "Servicios",
       how: "Cómo Funciona",
       portfolio: "Portafolio",
@@ -1629,6 +1662,20 @@ export const translations = {
         },
       ],
       cta: "¿Aún tienes dudas? Habla con nosotros →",
+    },
+    blog: {
+      tag: "Contenido",
+      title: "Blog de AgiloNex",
+      subtitle: "Análisis a fondo sobre automatización, IA, marketing digital y tecnología para pequeños negocios.",
+      emptyTitle: "Aún no hay artículos publicados",
+      emptyText: "Pronto traeremos artículos prácticos. Mientras tanto, háblanos por WhatsApp para resolver tus dudas.",
+      readMore: "Leer artículo",
+      backToList: "Volver al blog",
+      publishedOn: "Publicado el",
+      by: "por",
+      minutesRead: "min de lectura",
+      shareTitle: "Compartir este artículo",
+      ctaWhats: "Hablar de este tema por WhatsApp",
     },
     roi: {
       tag: "Calculadora de ROI",
@@ -1897,6 +1944,7 @@ export const translations = {
     footer: {
       rights: "Todos los derechos reservados.",
       backHome: "Volver al inicio",
+      blog: "Blog",
       lgpd: "RGPD / Política de Privacidad",
       terms: "Términos de uso",
       cookies: "Política de Cookies",
@@ -2170,7 +2218,7 @@ export const translations = {
         },
         {
           title: "8. Cookies",
-          body: "Este sitio puede utilizar cookies técnicas esenciales para su correcto funcionamiento (ej: preferencia de idioma, sesión). Las cookies analíticas de terceros solo se activarán con tu consentimiento explícito a través del banner de cookies.\n\nPuedes bloquear todas las cookies en la configuración de tu navegador sin perjuicio del acceso al contenido del sitio.",
+          body: "Este sitio puede utilizar cookies técnicas esenciales para su correcto funcionamiento (ej: preferencia de idioma, sesión). Las cookies analíticas y publicitarias de terceros (Google Analytics, Meta Pixel, Google AdSense) solo se activarán con tu consentimiento explícito a través del banner de cookies.\n\nGoogle AdSense, como proveedor externo, usa cookies para mostrar anuncios según las visitas anteriores del usuario a este y a otros sitios. Puedes desactivar la publicidad personalizada en https://www.google.com/settings/ads y conocer cómo Google usa datos de sitios socios en https://policies.google.com/technologies/partner-sites.\n\nPuedes bloquear todas las cookies en la configuración de tu navegador sin perjuicio del acceso al contenido del sitio.",
         },
         {
           title: "9. Tus Derechos como Titular",

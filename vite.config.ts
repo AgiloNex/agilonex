@@ -2,21 +2,9 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
-// Sitemap plugin is lazily required in test mode
 
-const SITE_URL = process.env.VITE_SITE_URL || "https://agilonex.com.br";
-const LANGUAGES = ["pt", "en", "es"];
-const PAGES = ["", "sobre", "contato", "privacidade", "lgpd", "termos-de-uso", "politica-de-cookies"];
-
-const generateSitemapRoutes = () => {
-  const routes: string[] = [];
-  for (const lang of LANGUAGES) {
-    for (const page of PAGES) {
-      routes.push(`/${lang}/${page}`.replace(/\/$/, ""));
-    }
-  }
-  return routes;
-};
+// Sitemap e robots.txt são gerados dinamicamente em `prebuild`
+// (ver scripts/generate-sitemap.ts) à partir das rotas + src/data/posts.
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({

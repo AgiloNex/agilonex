@@ -17,6 +17,9 @@ const Footer = () => {
               <Link to={languagePath("sobre")} className="hover:text-foreground transition-colors">
                 {t.nav.about}
               </Link>
+              <Link to={languagePath("blog")} className="hover:text-foreground transition-colors">
+                {t.footer.blog}
+              </Link>
               <Link to={languagePath("contato")} className="hover:text-foreground transition-colors">
                 {t.nav.contact}
               </Link>

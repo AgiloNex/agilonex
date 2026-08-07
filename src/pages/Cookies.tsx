@@ -38,12 +38,14 @@ const content = {
         ["_ga_<container-id>", "Analítico", "Mantém o estado da sessão de navegação", "Google LLC (Google Analytics)", "2 anos"],
         ["_fbp", "Publicidade", "Identifica seu navegador entre visitas, pra medir e otimizar campanhas", "Meta Platforms, Inc. (Meta Pixel)", "90 dias"],
         ["_fbc", "Publicidade", "Associa o clique num anúncio do Facebook/Instagram à sua visita", "Meta Platforms, Inc. (Meta Pixel)", "90 dias"],
+        ["__gads / __gpi", "Publicidade", "Medem performance dos anúncios do Google AdSense e evitam repetir o mesmo anúncio", "Google LLC (Google AdSense)", "13 meses"],
+        ["IDE", "Publicidade", "Permite ao Google exibir anúncios personalizados com base em visitas anteriores a este e a outros sites", "Google LLC (Google AdSense / DoubleClick)", "13 meses"],
       ],
       footnote: "Ainda não usamos cookies de funcionalidade além do necessário. Se isso mudar — por exemplo, memorizar seu idioma preferido —, atualizamos esta tabela antes de ativar.",
     },
     s5: {
       h: "5. Pra onde seus dados vão",
-      body: "Google Analytics e Meta Pixel são operados por empresas americanas (Google LLC e Meta Platforms, Inc.), o que envolve transferência internacional de dados. Isso é permitido pela LGPD mediante as garantias e exigências do Art. 33. Se você não autorizar essas categorias no banner, esses scripts não carregam e nenhum dado é enviado a essas empresas por meio deles.",
+      body: "Google Analytics, Meta Pixel e Google AdSense são operados por empresas americanas (Google LLC e Meta Platforms, Inc.), o que envolve transferência internacional de dados. Isso é permitido pela LGPD mediante as garantias e exigências do Art. 33. Se você não autorizar essas categorias no banner, esses scripts não carregam e nenhum dado é enviado a essas empresas por meio deles.\n\nO Google AdSense, como fornecedor terceirizado, usa cookies para exibir anúncios com base em visitas anteriores do usuário a este e a outros sites. Você pode desativar a publicidade personalizada em https://www.google.com/settings/ads e saber como o Google usa dados de sites parceiros em https://policies.google.com/technologies/partner-sites.",
     },
     s6: {
       h: "6. Como gerenciar sua escolha",
@@ -93,12 +95,14 @@ const content = {
         ["_ga_<container-id>", "Analytics", "Keeps track of browsing session state", "Google LLC (Google Analytics)", "2 years"],
         ["_fbp", "Advertising", "Identifies your browser across visits, to measure and optimize campaigns", "Meta Platforms, Inc. (Meta Pixel)", "90 days"],
         ["_fbc", "Advertising", "Links a click on a Facebook/Instagram ad to your visit", "Meta Platforms, Inc. (Meta Pixel)", "90 days"],
+        ["__gads / __gpi", "Advertising", "Measure performance of Google AdSense ads and avoid repeating the same ad", "Google LLC (Google AdSense)", "13 months"],
+        ["IDE", "Advertising", "Lets Google show personalized ads based on previous visits to this and other sites", "Google LLC (Google AdSense / DoubleClick)", "13 months"],
       ],
       footnote: "We don't currently use functionality cookies beyond what's necessary. If that changes — for example, remembering your preferred language — we'll update this table before turning it on.",
     },
     s5: {
       h: "5. Where your data goes",
-      body: "Google Analytics and Meta Pixel are operated by U.S. companies (Google LLC and Meta Platforms, Inc.), which involves an international data transfer. This is permitted under the LGPD subject to the safeguards and requirements of Art. 33. If you don't authorize these categories in the banner, those scripts don't load and no data is sent to those companies through them.",
+      body: "Google Analytics, Meta Pixel, and Google AdSense are operated by U.S. companies (Google LLC and Meta Platforms, Inc.), which involves an international data transfer. This is permitted under the LGPD subject to the safeguards and requirements of Art. 33. If you don't authorize these categories in the banner, those scripts don't load and no data is sent to those companies through them.\n\nGoogle AdSense, as a third-party vendor, uses cookies to display ads based on a user's previous visits to this and other sites. You can opt out of personalized advertising at https://www.google.com/settings/ads and learn how Google uses data from partner sites at https://policies.google.com/technologies/partner-sites.",
     },
     s6: {
       h: "6. How to manage your choice",
@@ -148,12 +152,14 @@ const content = {
         ["_ga_<container-id>", "Analítica", "Mantiene el estado de la sesión de navegación", "Google LLC (Google Analytics)", "2 años"],
         ["_fbp", "Publicidad", "Identifica tu navegador entre visitas, para medir y optimizar campañas", "Meta Platforms, Inc. (Meta Pixel)", "90 días"],
         ["_fbc", "Publicidad", "Asocia el clic en un anuncio de Facebook/Instagram a tu visita", "Meta Platforms, Inc. (Meta Pixel)", "90 días"],
+        ["__gads / __gpi", "Publicidad", "Miden el rendimiento de los anuncios de Google AdSense y evitan repetir el mismo anuncio", "Google LLC (Google AdSense)", "13 meses"],
+        ["IDE", "Publicidad", "Permite a Google mostrar anuncios personalizados según visitas anteriores a este y a otros sitios", "Google LLC (Google AdSense / DoubleClick)", "13 meses"],
       ],
       footnote: "Todavía no usamos cookies de funcionalidad más allá de lo necesario. Si eso cambia — por ejemplo, recordar tu idioma preferido —, actualizamos esta tabla antes de activarlo.",
     },
     s5: {
       h: "5. A dónde van tus datos",
-      body: "Google Analytics y Meta Pixel son operados por empresas estadounidenses (Google LLC y Meta Platforms, Inc.), lo que implica una transferencia internacional de datos. Esto está permitido por la LGPD según las garantías y exigencias del Art. 33. Si no autorizas esas categorías en el banner, esos scripts no se cargan y no se envía ningún dato a esas empresas a través de ellos.",
+      body: "Google Analytics, Meta Pixel y Google AdSense son operados por empresas estadounidenses (Google LLC y Meta Platforms, Inc.), lo que implica una transferencia internacional de datos. Esto está permitido por la LGPD según las garantías y exigencias del Art. 33. Si no autorizas esas categorías en el banner, esos scripts no se cargan y no se envía ningún dato a esas empresas a través de ellos.\n\nGoogle AdSense, como proveedor externo, usa cookies para mostrar anuncios según las visitas anteriores del usuario a este y a otros sitios. Puedes desactivar la publicidad personalizada en https://www.google.com/settings/ads y conocer cómo Google usa datos de sitios socios en https://policies.google.com/technologies/partner-sites.",
     },
     s6: {
       h: "6. Cómo gestionar tu elección",
