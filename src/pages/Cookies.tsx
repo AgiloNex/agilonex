@@ -1,5 +1,7 @@
 import { type ReactNode } from "react";
 import { Link } from "react-router-dom";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useSEO } from "@/hooks/useSEO";
 import { legalPageSchema, BASE_URL } from "@/lib/seoSchemas";
@@ -196,8 +198,10 @@ const Cookies = () => {
   const privacyPolicyPath = languagePath("lgpd");
 
   return (
-    <main className="min-h-screen bg-background py-20 md:py-28">
-      <article className="container max-w-4xl text-foreground">
+    <>
+      <Header />
+      <main className="min-h-screen bg-background pt-24 pb-20">
+        <article className="container max-w-4xl text-foreground">
         <p className="text-sm text-muted-foreground mb-2">
           {copy.updatedLabel}: {updated}
         </p>
@@ -296,8 +300,10 @@ const Cookies = () => {
         >
           {t.footer.backHome}
         </Link>
-      </article>
-    </main>
+        </article>
+      </main>
+      <Footer />
+    </>
   );
 };
 

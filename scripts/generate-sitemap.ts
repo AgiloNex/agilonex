@@ -47,6 +47,16 @@ const lastMod = () => new Date().toISOString().slice(0, 10);
 const generateSitemap = () => {
   const urlBlocks: string[] = [];
 
+  const hreflangAlternates = (segment: string) => {
+    const lines: string[] = [];
+    for (const l of LANGUAGES) {
+      const isHome = segment === "";
+      const href = `${SITE_URL}/${l}${isHome ? "" : "/" + segment}`;
+      lines.push(`    <xhtml:link rel="alternate" hreflang="${HREFLANG_BY_LANG[l]}" href="${href}" />`);
+    }
+    return lines;
+  };
+
   for (const lang of LANGUAGES) {
     for (const page of STATIC_PAGES) {
       const isHome = page.segment === "";
@@ -62,19 +72,14 @@ const generateSitemap = () => {
         `    <changefreq>${page.changefreq}</changefreq>`,
         `    <priority>${lang === "pt" ? page.priority : Math.max(0, +(page.priority - 0.1).toFixed(1))}</priority>`
       );
-      if (isHome) {
-        for (const l of LANGUAGES) {
-          lines.push(
-            `    <xhtml:link rel="alternate" hreflang="${HREFLANG_BY_LANG[l]}" href="${SITE_URL}/${l}" />`
-          );
-        }
-      }
+      lines.push(...hreflangAlternates(page.segment));
       lines.push(`  </url>`);
       urlBlocks.push(lines.join("\n"));
     }
 
     for (const post of posts) {
       const loc = `${SITE_URL}/${lang}/blog/${post.slug}`;
+      const postHrefs = LANGUAGES.map((l) => `    <xhtml:link rel="alternate" hreflang="${HREFLANG_BY_LANG[l]}" href="${SITE_URL}/${l}/blog/${post.slug}" />`);
       urlBlocks.push(
         [
           `  <url>`,
@@ -82,6 +87,7 @@ const generateSitemap = () => {
           `    <lastmod>${post.publishedAt}</lastmod>`,
           `    <changefreq>yearly</changefreq>`,
           `    <priority>${lang === "pt" ? 0.7 : 0.6}</priority>`,
+          ...postHrefs,
           `  </url>`,
         ].join("\n")
       );

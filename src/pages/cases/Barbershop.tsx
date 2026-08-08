@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, CheckCircle2 } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useSEO } from "@/hooks/useSEO";
-import { collectionPageSchema, BASE_URL } from "@/lib/seoSchemas";
+import { collectionPageSchema, breadcrumbSchema, BASE_URL } from "@/lib/seoSchemas";
 
 const BarbershopCase = () => {
   const { language, languagePath } = useLanguage();
@@ -14,11 +14,17 @@ const BarbershopCase = () => {
       "Como transformamos o atendimento de uma barbearia com uma presença digital moderna e agendamento integrado.",
     canonical: `${BASE_URL}${languagePath("cases/barbershop")}`,
     lang: language,
-    schema: collectionPageSchema(
-      language,
-      "barbershop",
-      "Barbearia Local — Case Agilonex"
-    ),
+    schema: [
+      collectionPageSchema(
+        language,
+        "barbershop",
+        "Barbearia Local — Case Agilonex"
+      ),
+      breadcrumbSchema(language, [
+        { name: "Cases", path: "/cases" },
+        { name: "Barbearia Local", path: "/cases/barbershop" },
+      ]),
+    ],
   });
   const lang = language;
 

@@ -12,6 +12,7 @@ import {
   organizationSchema,
   websiteSchema,
   serviceSchema,
+  faqSchema,
   BASE_URL,
 } from "@/lib/seoSchemas";
 
@@ -31,7 +32,12 @@ const Index = () => {
     canonical,
     lang: language,
     ogType: "website",
-    schema: [organizationSchema(), websiteSchema(language), serviceSchema(language)],
+    schema: [
+      organizationSchema(),
+      websiteSchema(language),
+      serviceSchema(language),
+      faqSchema(language, t.faq.items),
+    ],
   });
 
   return (

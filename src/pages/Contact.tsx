@@ -10,6 +10,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useSEO } from "@/hooks/useSEO";
 import { contactPageSchema, BASE_URL } from "@/lib/seoSchemas";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const WEBHOOK_URL = "[WEBHOOK_URL]";
 
@@ -97,6 +99,8 @@ const Contact = () => {
   };
 
   return (
+    <>
+    <Header />
     <main className="min-h-screen bg-background">
       <section
         id="contato"
@@ -299,6 +303,8 @@ const Contact = () => {
         </div>
       </section>
     </main>
+    <Footer />
+    </>
   );
 };
 

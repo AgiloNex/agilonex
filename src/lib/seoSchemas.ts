@@ -166,6 +166,23 @@ export const breadcrumbSchema = (
   };
 };
 
+export const faqSchema = (
+  lang: Language,
+  items: { question: string; answer: string }[]
+) => ({
+  "@type": "FAQPage",
+  "@id": `${BASE_URL}${HOME_PATH[lang]}#faq`,
+  inLanguage: LOCALE[lang],
+  mainEntity: items.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer,
+    },
+  })),
+});
+
 export const legalPageSchema = (lang: Language, slug: string, name: string) => ({
   "@type": "WebPage",
   "@id": `${BASE_URL}${HOME_PATH[lang]}/${slug}`,
