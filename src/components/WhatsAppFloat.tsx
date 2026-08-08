@@ -40,8 +40,6 @@ const WhatsAppFloat = () => {
 
   useEffect(() => {
     const handlePointerDown = (event: MouseEvent | TouchEvent) => {
-  const shouldReduceMotion = useReducedMotion();
-
       if (!containerRef.current) return;
       if (!containerRef.current.contains(event.target as Node)) {
         setIsTooltipOpen(false);

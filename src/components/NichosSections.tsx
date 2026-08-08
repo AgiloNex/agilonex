@@ -73,8 +73,6 @@ const NichosSections = () => {
   }, [niches]);
 
   const handleTabClick = (id: NicheId) => {
-  const shouldReduceMotion = useReducedMotion();
-
     setActiveId(id);
     document.getElementById(id)?.scrollIntoView({
       behavior: "smooth",

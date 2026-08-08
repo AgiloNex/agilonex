@@ -12,8 +12,6 @@ import { useLanguage } from "@/i18n/LanguageContext";
 const WEBHOOK_URL = import.meta.env.VITE_WEBHOOK_URL || "";
 
 const formatWhatsapp = (value: string) => {
-  const shouldReduceMotion = useReducedMotion();
-
   const digits = value.replace(/\D/g, "").slice(0, 11);
   if (digits.length <= 2) return digits ? `(${digits}` : "";
   if (digits.length <= 7) return `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
@@ -41,8 +39,6 @@ const ContactSection = () => {
   const whatsappDigits = useMemo(() => whatsapp.replace(/\D/g, ""), [whatsapp]);
 
   const handleWhatsappChange = (e: ChangeEvent<HTMLInputElement>) => {
-  const shouldReduceMotion = useReducedMotion();
-
     setWhatsapp(formatWhatsapp(e.target.value));
   };
 
@@ -283,13 +279,13 @@ const ContactSection = () => {
               </a>
 
               <a
-                href="mailto:gabriel@agilonex.com.br"
+                href="mailto:contato@agilonex.com.br"
                 className="flex items-center gap-3 rounded-2xl border border-border/70 bg-card/70 p-4 transition-colors hover:border-blue-500/40 hover:bg-blue-500/10"
               >
                 <AlertCircle className="h-5 w-5 text-blue-400" />
                 <div>
                   <p className="font-medium text-foreground">E-mail</p>
-                  <p className="text-muted-foreground">agilonex@gmail.com</p>
+                  <p className="text-muted-foreground">contato@agilonex.com.br</p>
                 </div>
               </a>
 

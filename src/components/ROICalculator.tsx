@@ -36,8 +36,6 @@ const AnimatedNumber = ({ value, formatter, className }: AnimatedNumberProps) =>
     let frame = 0;
 
     const animate = (timestamp: number) => {
-  const shouldReduceMotion = useReducedMotion();
-
       if (!startTime) startTime = timestamp;
       const progress = Math.min((timestamp - startTime) / duration, 1);
       const nextValue = startValue + (endValue - startValue) * progress;
@@ -77,8 +75,6 @@ const ROICalculator = () => {
     (setter: (value: number) => void) => (value: number[]) => setter(value[0] ?? 0);
 
   const formatSignedCurrency = (value: number) => {
-  const shouldReduceMotion = useReducedMotion();
-
     const formatted = currency.format(Math.abs(value));
     return value >= 0 ? formatted : `- ${formatted}`;
   };
