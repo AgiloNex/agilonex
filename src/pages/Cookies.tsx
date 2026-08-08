@@ -195,7 +195,7 @@ const Cookies = () => {
   });
   const copy = content[language] ?? content.pt;
   const updated = LAST_UPDATED[language] ?? LAST_UPDATED.pt;
-  const privacyPolicyPath = languagePath("lgpd");
+  const privacyPolicyPath = languagePath("privacidade");
 
   return (
     <>
