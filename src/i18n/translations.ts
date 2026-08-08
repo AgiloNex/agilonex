@@ -755,58 +755,6 @@ export const translations = {
       ],
       disclaimer: "© 2025 AgiloNex — Todos os direitos reservados. Documento em conformidade com a Lei nº 13.709/2018 (LGPD).",
     },
-    privacyPolicy: {
-      tag: "Privacidade",
-      title: "Política de Privacidade",
-      subtitle: "Explicamos de forma direta como tratamos seus dados pessoais, quais são seus direitos e como exercê-los.",
-      sections: [
-        {
-          title: "1. Identificação do Controlador",
-          body: "Razão Social: AgiloNex Tecnologia Ltda\nCNPJ: 00.000.000/0001-00\nEndereço: Belo Horizonte, Minas Gerais, Brasil\nE-mail: privacidade@agilonex.com.br",
-        },
-        {
-          title: "2. Dados Coletados neste Site",
-          body: "O site agilonex.com.br coleta exclusivamente os dados que você fornece de forma voluntária ao preencher o formulário de contato ou solicitação de demonstração:\n\n• Nome completo: Identificação e personalização do contato comercial (Base: Consentimento)\n• E-mail: Envio de proposta, informações sobre serviços e comunicações comerciais (Base: Consentimento)\n• WhatsApp: Contato direto para apresentação da solução e atendimento comercial (Base: Consentimento)\n• Dados de navegação (IP anonimizado, navegador, páginas visitadas): Segurança, diagnóstico técnico e análise de desempenho (Base: Legítimo interesse)\n\nNão coletamos dados sensíveis nem de menores de 18 anos.",
-        },
-        {
-          title: "3. Como Usamos seus Dados",
-          body: "Os dados são utilizados unicamente para:\n• Entrar em contato por WhatsApp, telefone ou e-mail para apresentar os serviços\n• Enviar propostas comerciais personalizadas\n• Responder a dúvidas e solicitações\n• Enviar novidades sobre automação com IA — apenas com consentimento expresso\n\nNão utilizamos seus dados para decisões automatizadas com efeitos jurídicos.",
-        },
-        {
-          title: "4. Consentimento e Como Revogá-lo",
-          body: "Ao marcar a caixa de consentimento no formulário, você autoriza a AgiloNex a armazenar e utilizar seus dados. Pode revogar a qualquer momento, sem custo:\n• E-mail para privacidade@agilonex.com.br com assunto \"Revogar consentimento\"\n• Responder \"SAIR\" ou \"REMOVER\" a qualquer mensagem de WhatsApp\n• Link de descadastro em todo e-mail comercial\n\nApós revogação, dados são excluídos da base ativa em 15 dias úteis.",
-        },
-        {
-          title: "5. Compartilhamento de Dados",
-          body: "A AgiloNex não vende, não aluga e não compartilha comercialmente seus dados. Compartilhamento ocorre apenas:\n• Provedores de infraestrutura tecnológica necessários (Supabase, Google Cloud) sob acordos de processamento\n• Autoridades competentes, quando exigido por lei ou ordem judicial",
-        },
-        {
-          title: "6. Armazenamento e Segurança",
-          body: "Dados armazenados em banco seguro (Supabase) com acesso restrito. Comunicações criptografadas via HTTPS/TLS. Credenciais gerenciadas em cofre seguro (Google Secret Manager). Em caso de incidente com risco relevante, notificaremos ANPD e titulares nos prazos da LGPD.",
-        },
-        {
-          title: "7. Transferência Internacional",
-          body: "Parte da infraestrutura usa servidores Google Cloud e Supabase, que podem processar dados no exterior. Ambos possuem políticas compatíveis com LGPD e salvaguardas contratuais adequadas.",
-        },
-        {
-          title: "8. Cookies",
-          body: "Este site usa cookies técnicos essenciais (preferência de idioma, sessão). Cookies analíticos de terceiros só são ativados com consentimento explícito via banner. Você pode bloquear cookies nas configurações do navegador sem prejuízo ao acesso.",
-        },
-        {
-          title: "9. Seus Direitos como Titular",
-          body: "Nos termos do art. 18 da LGPD, você pode a qualquer momento:\n• Confirmar se tratamos seus dados\n• Acessar os dados que possuímos sobre você\n• Corrigir dados incompletos, inexatos ou desatualizados\n• Solicitar exclusão dos seus dados\n• Revogar o consentimento\n• Opor-se a tratamentos baseados em legítimo interesse\n• Solicitar portabilidade dos dados em formato estruturado\n\nTodas as solicitações são respondidas em até 15 dias úteis pelo e-mail privacidade@agilonex.com.br.",
-        },
-        {
-          title: "10. Atualizações desta Política",
-          body: "Esta Política pode ser atualizada para refletir mudanças nos serviços ou na legislação. A data de \"última atualização\" indica a versão vigente. Alterações relevantes serão comunicadas por e-mail com 15 dias de antecedência. Versão sempre atualizada em agilonex.com.br/privacidade.",
-        },
-        {
-          title: "11. Contato e Encarregado de Dados (DPO)",
-          body: "Para exercer seus direitos ou esclarecer dúvidas:\n\nE-mail: privacidade@agilonex.com.br\nResponsável (DPO): Gabriel Luiz Silva Espírito Santo\nCNPJ: 00.000.000/0001-00\nPrazo de resposta: até 15 dias úteis\n\nSe não for atendido satisfatoriamente, pode registrar reclamação à ANPD: www.gov.br/anpd",
-        },
-      ],
-      disclaimer: "© 2025 AgiloNex — Todos os direitos reservados. Documento em conformidade com a Lei nº 13.709/2018 (LGPD).",
-    },
     whatsappFloat: {
       tooltip: "💬 Fale com a gente agora",
       ariaLabel: "Fale com a gente no WhatsApp",
