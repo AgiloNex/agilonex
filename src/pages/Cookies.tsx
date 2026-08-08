@@ -4,8 +4,16 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useSEO } from "@/hooks/useSEO";
-import { legalPageSchema, BASE_URL } from "@/lib/seoSchemas";
+import { legalPageSchema, breadcrumbSchema, BASE_URL } from "@/lib/seoSchemas";
 import { founder } from "@/lib/identity";
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbSeparator,
+  BreadcrumbPage,
+} from "@/components/ui/breadcrumb";
 
 const CONTACT_EMAIL = founder.email;
 const LAST_UPDATED = { pt: "10 de julho de 2026", en: "July 10, 2026", es: "10 de julio de 2026" };
@@ -14,6 +22,7 @@ const content = {
   pt: {
     updatedLabel: "Última atualização",
     title: "Política de Cookies",
+    metaDescription: "Como a AgiloNex usa cookies e tecnologias semelhantes, e como você controla isso.",
     s1: {
       h: "1. Sobre esta política",
       pre: "Esta política explica como a AgiloNex usa cookies e tecnologias semelhantes no site agilonex.com.br, e como você controla isso. Ela complementa a nossa ",
@@ -71,6 +80,7 @@ const content = {
   en: {
     updatedLabel: "Last updated",
     title: "Cookie Policy",
+    metaDescription: "How AgiloNex uses cookies and similar technologies, and how you control that.",
     s1: {
       h: "1. About this policy",
       pre: "This policy explains how AgiloNex uses cookies and similar technologies on agilonex.com.br, and how you control that. It complements our ",
@@ -128,6 +138,7 @@ const content = {
   es: {
     updatedLabel: "Última actualización",
     title: "Política de Cookies",
+    metaDescription: "Cómo AgiloNex usa cookies y tecnologías similares, y cómo lo controlas.",
     s1: {
       h: "1. Sobre esta política",
       pre: "Esta política explica cómo AgiloNex usa cookies y tecnologías similares en el sitio agilonex.com.br, y cómo la controlas. Complementa nuestra ",
@@ -186,14 +197,18 @@ const content = {
 
 const Cookies = () => {
   const { language, languagePath, t } = useLanguage();
+  const copy = content[language] ?? content.pt;
   useSEO({
-    title: "Política de Cookies",
-    description: "Como a AgiloNex usa cookies e tecnologias semelhantes, e como você controla isso.",
+    title: copy.title,
+    description: copy.metaDescription,
     canonical: `${BASE_URL}${languagePath("politica-de-cookies")}`,
     lang: language,
-    schema: legalPageSchema(language, "politica-de-cookies", "Política de Cookies"),
+    schema: [
+      legalPageSchema(language, "politica-de-cookies", copy.title),
+      breadcrumbSchema(language, [{ name: copy.title, path: languagePath("politica-de-cookies") }]),
+    ],
   });
-  const copy = content[language] ?? content.pt;
+
   const updated = LAST_UPDATED[language] ?? LAST_UPDATED.pt;
   const privacyPolicyPath = languagePath("privacidade");
 
@@ -208,6 +223,19 @@ const Cookies = () => {
         <h1 className="text-3xl md:text-5xl font-bold tracking-tighter text-foreground normal-case mb-8">
           {copy.title}
         </h1>
+        <Breadcrumb className="mb-6">
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link to={languagePath()}>AgiloNex</Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>{copy.title}</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
 
         <Section title={copy.s1.h}>
           <p className="text-sm leading-relaxed text-muted-foreground">

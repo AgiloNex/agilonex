@@ -3,7 +3,15 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useSEO } from "@/hooks/useSEO";
-import { legalPageSchema, BASE_URL } from "@/lib/seoSchemas";
+import { legalPageSchema, breadcrumbSchema, BASE_URL } from "@/lib/seoSchemas";
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbSeparator,
+  BreadcrumbPage,
+} from "@/components/ui/breadcrumb";
 
 const PrivacyPolicy = () => {
   const { t, language, languagePath } = useLanguage();
@@ -12,7 +20,10 @@ const PrivacyPolicy = () => {
     description: t.privacyPolicy.subtitle,
     canonical: `${BASE_URL}${languagePath("privacidade")}`,
     lang: language,
-    schema: legalPageSchema(language, "privacidade", t.privacyPolicy.title),
+    schema: [
+      legalPageSchema(language, "privacidade", t.privacyPolicy.title),
+      breadcrumbSchema(language, [{ name: t.privacyPolicy.title, path: languagePath("privacidade") }]),
+    ],
   });
   return (
     <>
@@ -26,6 +37,19 @@ const PrivacyPolicy = () => {
             <h1 className="text-3xl md:text-5xl font-bold tracking-tighter text-foreground normal-case">
               {t.privacyPolicy.title}
             </h1>
+            <Breadcrumb className="mt-3">
+              <BreadcrumbList>
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to={languagePath()}>AgiloNex</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbPage>{t.privacyPolicy.title}</BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
             <p className="mt-4 text-muted-foreground text-pretty">
               {t.privacyPolicy.subtitle}
             </p>

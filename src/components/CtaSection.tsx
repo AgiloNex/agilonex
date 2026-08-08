@@ -1,5 +1,6 @@
 import { motion , useReducedMotion } from "framer-motion";
 import { ArrowRight, MessageCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const CtaSection = () => {
@@ -33,13 +34,13 @@ const CtaSection = () => {
               <MessageCircle size={18} />
               {t.cta.whats}
             </a>
-            <a
-              href="#contato"
+            <Link
+              to={{ hash: "#contato" }}
               className="inline-flex items-center gap-2 rounded-md border border-background/20 px-6 py-3 text-sm font-semibold text-background hover:bg-background/10 transition-colors duration-200"
             >
               {t.cta.quote}
               <ArrowRight size={16} />
-            </a>
+            </Link>
           </div>
         </motion.div>
       </div>

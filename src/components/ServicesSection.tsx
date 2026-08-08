@@ -52,10 +52,6 @@ const ServicesSection = () => {
                     </li>
                   ))}
                 </ul>
-                <button className="mt-6 flex items-center text-sm font-medium text-primary hover:text-accent transition-colors duration-200">
-                  {t.services.learnMore}
-                  <ArrowRight size={14} className="ml-1 transition-transform duration-200 group-hover:translate-x-1" />
-                </button>
               </motion.div>
             );
           })}

@@ -6,12 +6,20 @@ import { collectionPageSchema, breadcrumbSchema, BASE_URL } from "@/lib/seoSchem
 import { Link } from "react-router-dom";
 import { ServiceDemo } from "@/components/ServiceDemo";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbSeparator,
+  BreadcrumbPage,
+} from "@/components/ui/breadcrumb";
 
 const Cases = () => {
   const { t, language, languagePath } = useLanguage();
   useSEO({
-    title: "Projetos e Resultados",
-    description: "Conheça as soluções que desenvolvemos para negócios reais. Da ideia à execução.",
+    title: t.cases.title,
+    description: t.cases.subtitle,
     canonical: `${BASE_URL}${languagePath("cases")}`,
     lang: language,
     schema: [
@@ -28,10 +36,23 @@ const Cases = () => {
         <div className="container max-w-5xl">
           <div className="mb-12">
             <h1 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl">
-              Projetos e Resultados
+              {t.cases.title}
             </h1>
+            <Breadcrumb className="mt-3">
+              <BreadcrumbList>
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to={languagePath()}>AgiloNex</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbPage>Cases</BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
             <p className="mt-4 text-lg text-muted-foreground">
-              Conheça as soluções que desenvolvemos para negócios reais. Da ideia à execução.
+              {t.cases.subtitle}
             </p>
           </div>
 

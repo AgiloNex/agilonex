@@ -19,17 +19,18 @@ const Header = () => {
 
   interface NavLink {
     label: string;
-    to: string;
-    isPage: boolean;
+    to: string | { pathname: string; hash: string };
+    key: string;
   }
   const navLinks: NavLink[] = [
-    { label: t.nav.about, to: languagePath("sobre"), isPage: true },
-    { label: t.nav.blog, to: languagePath("blog"), isPage: true },
-    { label: t.nav.services, to: `${basePath}#servicos`, isPage: false },
-    { label: t.nav.how, to: `${basePath}#como-funciona`, isPage: false },
-    { label: t.nav.pricing, to: `${basePath}#planos`, isPage: false },
-    { label: t.nav.portfolio, to: `${basePath}#portfolio`, isPage: false },
-    { label: t.nav.contact, to: languagePath("contato"), isPage: true },
+    { label: t.nav.about, to: languagePath("sobre"), key: "sobre" },
+    { label: t.nav.cases, to: languagePath("cases"), key: "cases" },
+    { label: t.nav.blog, to: languagePath("blog"), key: "blog" },
+    { label: t.nav.services, to: { pathname: basePath, hash: "#servicos" }, key: "servicos" },
+    { label: t.nav.how, to: { pathname: basePath, hash: "#como-funciona" }, key: "como-funciona" },
+    { label: t.nav.pricing, to: { pathname: basePath, hash: "#planos" }, key: "planos" },
+    { label: t.nav.portfolio, to: { pathname: basePath, hash: "#portfolio" }, key: "portfolio" },
+    { label: t.nav.contact, to: languagePath("contato"), key: "contato" },
   ];
 
   return (
@@ -40,28 +41,15 @@ const Header = () => {
         </Link>
 
         <nav className="hidden md:flex items-center gap-6">
-          {navLinks.map((link) => {
-            if (link.isPage) {
-              return (
-                <Link
-                  key={link.to}
-                  to={link.to}
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
-                >
-                  {link.label}
-                </Link>
-              );
-            }
-            return (
-              <a
-                key={link.to}
-                href={link.to}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
-              >
-                {link.label}
-              </a>
-            );
-          })}
+          {navLinks.map((link) => (
+            <Link
+              key={link.key}
+              to={link.to}
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
+            >
+              {link.label}
+            </Link>
+          ))}
           <LanguageSwitcher />
           <a
             href={whatsappUrl}
@@ -92,30 +80,16 @@ const Header = () => {
             className="md:hidden bg-card border-b border-border overflow-hidden"
           >
             <nav className="container flex flex-col gap-4 py-6">
-              {navLinks.map((link) => {
-                if (link.isPage) {
-                  return (
-                    <Link
-                      key={link.to}
-                      to={link.to}
-                      onClick={() => setOpen(false)}
-                      className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      {link.label}
-                    </Link>
-                  );
-                }
-                return (
-                  <a
-                    key={link.to}
-                    href={link.to}
-                    onClick={() => setOpen(false)}
-                    className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                );
-              })}
+              {navLinks.map((link) => (
+                <Link
+                  key={link.key}
+                  to={link.to}
+                  onClick={() => setOpen(false)}
+                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ))}
               <LanguageSwitcher variant="mobile" />
               <a
                 href={whatsappUrl}

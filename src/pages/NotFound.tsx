@@ -6,7 +6,7 @@ import { useSEO } from "@/hooks/useSEO";
 
 const NotFound = () => {
   const location = useLocation();
-  const { t, language } = useLanguage();
+  const { t, language, languagePath } = useLanguage();
 
   useSEO({
     title: "404 — Página não encontrada",

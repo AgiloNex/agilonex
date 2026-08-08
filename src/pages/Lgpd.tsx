@@ -3,7 +3,15 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useSEO } from "@/hooks/useSEO";
-import { legalPageSchema, BASE_URL } from "@/lib/seoSchemas";
+import { legalPageSchema, breadcrumbSchema, BASE_URL } from "@/lib/seoSchemas";
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbSeparator,
+  BreadcrumbPage,
+} from "@/components/ui/breadcrumb";
 
 const Lgpd = () => {
   const { t, language, languagePath } = useLanguage();
@@ -12,7 +20,10 @@ const Lgpd = () => {
     description: t.lgpd.subtitle,
     canonical: `${BASE_URL}${languagePath("lgpd")}`,
     lang: language,
-    schema: legalPageSchema(language, "lgpd", t.lgpd.title),
+    schema: [
+      legalPageSchema(language, "lgpd", t.lgpd.title),
+      breadcrumbSchema(language, [{ name: t.lgpd.title, path: languagePath("lgpd") }]),
+    ],
   });
   return (
     <>
@@ -26,6 +37,19 @@ const Lgpd = () => {
             <h1 className="text-3xl md:text-5xl font-bold tracking-tighter text-foreground normal-case">
               {t.lgpd.title}
             </h1>
+            <Breadcrumb className="mt-3">
+              <BreadcrumbList>
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to={languagePath()}>AgiloNex</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbPage>{t.lgpd.title}</BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
             <p className="mt-4 text-muted-foreground text-pretty">
               {t.lgpd.subtitle}
             </p>

@@ -5,8 +5,16 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useSEO } from "@/hooks/useSEO";
-import { aboutPageSchema, BASE_URL } from "@/lib/seoSchemas";
+import { aboutPageSchema, breadcrumbSchema, BASE_URL } from "@/lib/seoSchemas";
 import { founder } from "@/lib/identity";
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbSeparator,
+  BreadcrumbPage,
+} from "@/components/ui/breadcrumb";
 
 const beliefIcons = [Target, Lightbulb, Handshake];
 const itemIcons = [Target, Lightbulb, Handshake];
@@ -18,7 +26,10 @@ const About = () => {
     description: t.about.subtitle,
     canonical: `${BASE_URL}${languagePath("sobre")}`,
     lang: language,
-    schema: aboutPageSchema(language),
+    schema: [
+      aboutPageSchema(language),
+      breadcrumbSchema(language, [{ name: t.about.title, path: languagePath("sobre") }]),
+    ],
   });
   const whatsappUrl = `https://wa.me/${t.whatsapp.number}?text=${encodeURIComponent(t.whatsapp.msgDefault)}`;
 
@@ -40,6 +51,19 @@ const About = () => {
           <h1 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground">
             {t.about.title}
           </h1>
+          <Breadcrumb className="mt-3 flex justify-center">
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link to={languagePath()}>AgiloNex</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>{t.nav.about}</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
           <p className="mt-4 text-muted-foreground text-pretty">
             {t.about.subtitle}
           </p>

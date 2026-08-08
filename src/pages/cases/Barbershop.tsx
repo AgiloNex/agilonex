@@ -5,13 +5,20 @@ import { ArrowLeft, CheckCircle2 } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useSEO } from "@/hooks/useSEO";
 import { collectionPageSchema, breadcrumbSchema, BASE_URL } from "@/lib/seoSchemas";
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbSeparator,
+  BreadcrumbPage,
+} from "@/components/ui/breadcrumb";
 
 const BarbershopCase = () => {
-  const { language, languagePath } = useLanguage();
+  const { t, language, languagePath } = useLanguage();
   useSEO({
-    title: "Barbearia Local: Digitalização e agendamento sem fricção",
-    description:
-      "Como transformamos o atendimento de uma barbearia com uma presença digital moderna e agendamento integrado.",
+    title: t.cases.barbershop.title,
+    description: t.cases.barbershop.subtitle,
     canonical: `${BASE_URL}${languagePath("cases/barbershop")}`,
     lang: language,
     schema: [
@@ -46,10 +53,29 @@ const BarbershopCase = () => {
                 Site & Automação
               </div>
               <h1 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl">
-                Barbearia Local: Digitalização e agendamento sem fricção
+                {t.cases.barbershop.title}
               </h1>
+              <Breadcrumb className="mb-4">
+                <BreadcrumbList>
+                  <BreadcrumbItem>
+                    <BreadcrumbLink asChild>
+                      <Link to={languagePath()}>AgiloNex</Link>
+                    </BreadcrumbLink>
+                  </BreadcrumbItem>
+                  <BreadcrumbSeparator />
+                  <BreadcrumbItem>
+                    <BreadcrumbLink asChild>
+                      <Link to={`/${lang}/cases`}>Cases</Link>
+                    </BreadcrumbLink>
+                  </BreadcrumbItem>
+                  <BreadcrumbSeparator />
+                  <BreadcrumbItem>
+                    <BreadcrumbPage>Barbearia Local</BreadcrumbPage>
+                  </BreadcrumbItem>
+                </BreadcrumbList>
+              </Breadcrumb>
               <p className="text-xl text-muted-foreground">
-                Como transformamos o atendimento de uma barbearia com uma presença digital moderna e agendamento integrado.
+                {t.cases.barbershop.subtitle}
               </p>
             </header>
 
@@ -99,12 +125,12 @@ const BarbershopCase = () => {
                 <p className="text-muted-foreground mb-6">
                   Fale conosco para entender como podemos digitalizar a sua operação.
                 </p>
-                <a 
-                  href={`/${lang}#contato`} 
+                <Link 
+                  to={{ pathname: languagePath(), hash: "#contato" }} 
                   className="inline-flex h-12 items-center justify-center rounded-lg bg-blue-600 px-8 text-sm font-medium text-white transition-colors hover:bg-blue-700"
                 >
                   Solicitar um diagnóstico
-                </a>
+                </Link>
               </div>
             </div>
           </article>

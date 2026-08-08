@@ -10,7 +10,7 @@ export const founder = {
   fullName: "Gabriel Luiz Silva Espírito Santo",
   jobTitle: "Fundador e Responsável Técnico",
   role: "Desenvolvedor de software",
-  email: "gabrielluizsilva.contato@gmail.com",
+  email: "contato@agilonex.com.br",
   location: {
     city: "Belo Horizonte",
     state: "Minas Gerais",

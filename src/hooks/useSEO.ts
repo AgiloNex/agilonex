@@ -53,6 +53,53 @@ function injectSchema(schema: Record<string, unknown> | Record<string, unknown>[
   });
 }
 
+/** Remove all hreflang <link> tags previously injected by this hook. */
+function removeHreflang() {
+  document.querySelectorAll('link[data-seo-hreflang]').forEach(el => el.remove());
+}
+
+/**
+ * Derive the language-agnostic sub-path from a canonical URL.
+ * e.g. "https://agilonex.com.br/pt/sobre" → "/sobre"
+ *      "https://agilonex.com.br/pt"        → ""
+ *      "https://agilonex.com.br/"           → ""
+ */
+function derivePathFromCanonical(canonical: string): string {
+  try {
+    const { pathname } = new URL(canonical);
+    // Strip leading /pt, /en or /es prefix
+    const withoutLang = pathname.replace(/^\/(pt|en|es)(\/|$)/, "/");
+    // Normalise: remove trailing slash (unless root)
+    return withoutLang === "/" ? "" : withoutLang.replace(/\/$/, "");
+  } catch {
+    return "";
+  }
+}
+
+/**
+ * Inject 4 hreflang <link> tags for the given path.
+ * Always call removeHreflang() first to avoid accumulating stale tags.
+ */
+function setHreflang(path: string) {
+  removeHreflang();
+
+  const langs: { hreflang: string; prefix: string }[] = [
+    { hreflang: "pt-BR",     prefix: "/pt" },
+    { hreflang: "en",        prefix: "/en" },
+    { hreflang: "es",        prefix: "/es" },
+    { hreflang: "x-default", prefix: "/pt" },
+  ];
+
+  langs.forEach(({ hreflang, prefix }) => {
+    const el = document.createElement("link");
+    el.setAttribute("rel", "alternate");
+    el.setAttribute("hreflang", hreflang);
+    el.setAttribute("href", `${BASE_URL}${prefix}${path}`);
+    el.setAttribute("data-seo-hreflang", "true");
+    document.head.appendChild(el);
+  });
+}
+
 /**
  * Hook para injetar meta tags de SEO dinamicamente por página/idioma.
  * Alternativa a react-helmet-async sem dependência externa.
@@ -85,6 +132,10 @@ export function useSEO({
     if (canonical) {
       setOrCreateLink("canonical", { rel: "canonical", href: canonical });
     }
+
+    // Hreflang — injected per-route so Google always sees the correct set
+    const hreflangPath = canonical ? derivePathFromCanonical(canonical) : "";
+    setHreflang(hreflangPath);
 
     // Robots
     setOrCreate('meta[name="robots"]', {

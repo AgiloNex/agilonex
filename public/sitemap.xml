@@ -83,6 +83,15 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://agilonex.com.br/es/politica-de-cookies" />
   </url>
   <url>
+    <loc>https://agilonex.com.br/pt/blog/engenharia-de-software-digital</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agilonex.com.br/pt/blog/engenharia-de-software-digital" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://agilonex.com.br/en/blog/engenharia-de-software-digital" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://agilonex.com.br/es/blog/engenharia-de-software-digital" />
+  </url>
+  <url>
     <loc>https://agilonex.com.br/pt/blog/o-que-e-a-agilonex</loc>
     <lastmod>2026-08-07</lastmod>
     <changefreq>yearly</changefreq>
@@ -182,6 +191,15 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://agilonex.com.br/es/politica-de-cookies" />
   </url>
   <url>
+    <loc>https://agilonex.com.br/en/blog/engenharia-de-software-digital</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agilonex.com.br/pt/blog/engenharia-de-software-digital" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://agilonex.com.br/en/blog/engenharia-de-software-digital" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://agilonex.com.br/es/blog/engenharia-de-software-digital" />
+  </url>
+  <url>
     <loc>https://agilonex.com.br/en/blog/o-que-e-a-agilonex</loc>
     <lastmod>2026-08-07</lastmod>
     <changefreq>yearly</changefreq>
@@ -279,6 +297,15 @@
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agilonex.com.br/pt/politica-de-cookies" />
     <xhtml:link rel="alternate" hreflang="en" href="https://agilonex.com.br/en/politica-de-cookies" />
     <xhtml:link rel="alternate" hreflang="es" href="https://agilonex.com.br/es/politica-de-cookies" />
+  </url>
+  <url>
+    <loc>https://agilonex.com.br/es/blog/engenharia-de-software-digital</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://agilonex.com.br/pt/blog/engenharia-de-software-digital" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://agilonex.com.br/en/blog/engenharia-de-software-digital" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://agilonex.com.br/es/blog/engenharia-de-software-digital" />
   </url>
   <url>
     <loc>https://agilonex.com.br/es/blog/o-que-e-a-agilonex</loc>

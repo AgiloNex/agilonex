@@ -9,9 +9,18 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Textarea } from "@/components/ui/textarea";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useSEO } from "@/hooks/useSEO";
-import { contactPageSchema, BASE_URL } from "@/lib/seoSchemas";
+import { contactPageSchema, breadcrumbSchema, BASE_URL } from "@/lib/seoSchemas";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Link } from "react-router-dom";
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbSeparator,
+  BreadcrumbPage,
+} from "@/components/ui/breadcrumb";
 
 const WEBHOOK_URL = "[WEBHOOK_URL]";
 
@@ -31,7 +40,10 @@ const Contact = () => {
     description: t.contactSection.subtitle,
     canonical: `${BASE_URL}${languagePath("contato")}`,
     lang: language,
-    schema: contactPageSchema(language),
+    schema: [
+      contactPageSchema(language),
+      breadcrumbSchema(language, [{ name: t.contactSection.title, path: languagePath("contato") }]),
+    ],
   });
   const whatsappLink = `https://wa.me/${t.whatsapp.number}`;
   const [name, setName] = useState("");
@@ -123,6 +135,19 @@ const Contact = () => {
               <h1 className="max-w-xl text-3xl font-bold tracking-tighter text-foreground md:text-5xl">
                 {t.contactSection.title}
               </h1>
+              <Breadcrumb className="mt-3">
+                <BreadcrumbList>
+                  <BreadcrumbItem>
+                    <BreadcrumbLink asChild>
+                      <Link to={languagePath()}>AgiloNex</Link>
+                    </BreadcrumbLink>
+                  </BreadcrumbItem>
+                  <BreadcrumbSeparator />
+                  <BreadcrumbItem>
+                    <BreadcrumbPage>{t.nav.contact}</BreadcrumbPage>
+                  </BreadcrumbItem>
+                </BreadcrumbList>
+              </Breadcrumb>
               <p className="mt-4 max-w-xl text-pretty text-base text-muted-foreground md:text-lg">
                 {t.contactSection.subtitle}
               </p>
@@ -256,13 +281,13 @@ const Contact = () => {
                 </a>
 
                 <a
-                  href="mailto:gabriel@agilonex.com.br"
+                  href="mailto:contato@agilonex.com.br"
                   className="flex items-center gap-3 rounded-2xl border border-border/70 bg-card/70 p-4 transition-colors hover:border-blue-500/40 hover:bg-blue-500/10"
                 >
                   <AlertCircle className="h-5 w-5 text-blue-400" />
                   <div>
                     <p className="font-medium text-foreground">E-mail</p>
-                    <p className="text-muted-foreground">agilonex@gmail.com</p>
+                    <p className="text-muted-foreground">contato@agilonex.com.br</p>
                   </div>
                 </a>
 

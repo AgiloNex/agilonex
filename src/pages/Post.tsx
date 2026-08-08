@@ -9,6 +9,14 @@ import { type Language } from "@/i18n/translations";
 import { useSEO } from "@/hooks/useSEO";
 import { blogPostingSchema, breadcrumbSchema, BASE_URL } from "@/lib/seoSchemas";
 import { formatDate, getPostBySlug, type PostBlock } from "@/data/posts";
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbSeparator,
+  BreadcrumbPage,
+} from "@/components/ui/breadcrumb";
 
 const renderBlock = (block: PostBlock, key: number) => {
   switch (block.type) {
@@ -105,7 +113,7 @@ const Post = () => {
   const whatsappUrl = `https://wa.me/${t.whatsapp.number}?text=${encodeURIComponent(
     `${t.whatsapp.msgDefault} — ${post.title[lang]}`
   )}`;
-  const shareUrl = `https://agilonex.com.br/${lang}/blog/${post.slug}`;
+  const shareUrl = `${BASE_URL}${languagePath(`blog/${post.slug}`)}`;
   const encodedShareUrl = encodeURIComponent(shareUrl);
   const encodedShareTitle = encodeURIComponent(post.title[lang]);
 
@@ -132,6 +140,25 @@ const Post = () => {
             <h1 className="text-3xl md:text-4xl font-bold tracking-tighter text-foreground text-pretty">
               {post.title[lang]}
             </h1>
+            <Breadcrumb className="mt-3">
+              <BreadcrumbList>
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to={languagePath()}>AgiloNex</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to={languagePath("blog")}>{t.nav.blog}</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbPage>{post.title[lang]}</BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
             <p className="mt-3 text-sm text-muted-foreground">
               {t.blog.by} <span className="font-medium text-foreground">{post.author.name}</span>
             </p>

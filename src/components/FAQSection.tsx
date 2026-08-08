@@ -45,19 +45,19 @@ const FAQSection = () => {
                 transition={{ duration: 0.4, delay: index * 0.05 }}
                 className="overflow-hidden rounded-[20px] border border-border/70 bg-card/80 shadow-[0_16px_40px_rgba(0,0,0,0.18)] backdrop-blur-sm"
               >
-                <button
-                  type="button"
-                  onClick={() => setOpenIndex(isOpen ? null : index)}
-                  aria-expanded={isOpen}
-                  className="flex w-full items-center justify-between gap-4 px-5 py-5 text-left transition-colors hover:bg-white/[0.02] md:px-6"
-                >
-                  <span className="text-base font-semibold tracking-tight text-foreground">
-                    {item.question}
-                  </span>
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-primary/20 bg-primary/10 text-primary transition-transform duration-200">
-                    {isOpen ? <Minus size={18} /> : <Plus size={18} />}
-                  </span>
-                </button>
+                <h3 className="text-base font-semibold tracking-tight text-foreground">
+                  <button
+                    type="button"
+                    onClick={() => setOpenIndex(isOpen ? null : index)}
+                    aria-expanded={isOpen}
+                    className="flex w-full items-center justify-between gap-4 px-5 py-5 text-left transition-colors hover:bg-white/[0.02] md:px-6"
+                  >
+                    <span>{item.question}</span>
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-primary/20 bg-primary/10 text-primary transition-transform duration-200">
+                      {isOpen ? <Minus size={18} /> : <Plus size={18} />}
+                    </span>
+                  </button>
+                </h3>
 
                 <div
                   className={`overflow-hidden transition-all duration-300 ease-out ${

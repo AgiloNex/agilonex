@@ -6,8 +6,16 @@ import Header from "@/components/Header";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { type Language } from "@/i18n/translations";
 import { useSEO } from "@/hooks/useSEO";
-import { blogSchema, itemListSchema, BASE_URL } from "@/lib/seoSchemas";
+import { blogSchema, itemListSchema, breadcrumbSchema, BASE_URL } from "@/lib/seoSchemas";
 import { formatDate, getPostsSorted } from "@/data/posts";
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbSeparator,
+  BreadcrumbPage,
+} from "@/components/ui/breadcrumb";
 
 const Blog = () => {
   const { t, language, languagePath } = useLanguage();
@@ -20,7 +28,7 @@ const Blog = () => {
     description: t.blog.subtitle,
     canonical: `${BASE_URL}${languagePath("blog")}`,
     lang: language,
-    schema: [blogSchema(language), itemListSchema(language, sortedPosts)],
+    schema: [blogSchema(language), itemListSchema(language, sortedPosts), breadcrumbSchema(language, [{ name: t.blog.title, path: languagePath("blog") }])],
   });
 
   return (
@@ -40,6 +48,19 @@ const Blog = () => {
             <h1 className="text-3xl md:text-5xl font-bold tracking-tighter text-foreground normal-case">
               {t.blog.title}
             </h1>
+            <Breadcrumb className="mt-3 flex justify-center">
+              <BreadcrumbList>
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to={languagePath()}>AgiloNex</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbPage>{t.nav.blog}</BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
             <p className="mt-4 text-muted-foreground text-pretty max-w-2xl mx-auto">
               {t.blog.subtitle}
             </p>

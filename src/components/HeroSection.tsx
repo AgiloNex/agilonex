@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
+import { Link } from "react-router-dom";
 import ChatDemo from "./ChatDemo";
 import { useLanguage } from "@/i18n/LanguageContext";
 
@@ -35,12 +36,12 @@ const HeroSection = () => {
                 {t.hero.ctaWhats}
                 <ArrowRight size={16} />
               </a>
-              <a
-                href="#servicos"
+              <Link
+                to={{ hash: "#servicos" }}
                 className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground hover:bg-secondary transition-colors duration-200"
               >
                 {t.hero.ctaServices}
-              </a>
+              </Link>
             </div>
           </motion.div>
 

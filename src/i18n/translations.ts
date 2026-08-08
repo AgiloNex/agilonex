@@ -4,6 +4,7 @@ export const translations = {
   pt: {
     nav: {
       about: "Sobre",
+      cases: "Cases",
       blog: "Blog",
       services: "Serviços",
       how: "Como Funciona",
@@ -88,15 +89,6 @@ export const translations = {
           description: "Oferecemos consultoria especializada e treinamentos práticos para ensinar você e sua equipe a utilizar ferramentas de inteligência artificial de forma eficiente.",
           items: ["Consultoria em IA", "Treinamento de equipes", "Uso prático de ferramentas"],
         },
-      ],
-    },
-    how: {
-      tag: "Como Funciona",
-      title: "Simples, direto e eficiente",
-      steps: [
-        { title: "Entendimento", text: "Analisamos seu negócio e identificamos onde a tecnologia pode gerar mais resultado." },
-        { title: "Desenvolvimento", text: "Criamos a solução ideal com agilidade, mantendo você no controle de cada etapa." },
-        { title: "Entrega e Suporte", text: "Implementamos, treinamos sua equipe e garantimos suporte contínuo." },
       ],
     },
     process: {
@@ -662,7 +654,7 @@ export const translations = {
         },
         {
           title: "7. Contato",
-          body: "Para dúvidas sobre estes termos, entre em contato pelo e-mail gabrielluizsilva.contato@gmail.com ou pelo WhatsApp disponível no site.",
+          body: "Para dúvidas sobre estes termos, entre em contato pelo e-mail contato@agilonex.com.br ou pelo WhatsApp disponível no site.",
         },
       ],
       disclaimer: "Este conteúdo é um modelo operacional e deve ser adaptado ao contrato final e à orientação jurídica.",
@@ -759,10 +751,19 @@ export const translations = {
       tooltip: "💬 Fale com a gente agora",
       ariaLabel: "Fale com a gente no WhatsApp",
     },
+    cases: {
+      title: "Projetos e Resultados",
+      subtitle: "Conheça as soluções que desenvolvemos para negócios reais. Da ideia à execução.",
+      barbershop: {
+        title: "Barbearia Local: Digitalização e agendamento sem fricção",
+        subtitle: "Como transformamos o atendimento de uma barbearia com uma presença digital moderna e agendamento integrado.",
+      },
+    },
   },
   en: {
     nav: {
       about: "About",
+      cases: "Work",
       blog: "Blog",
       services: "Services",
       how: "How It Works",
@@ -847,15 +848,6 @@ export const translations = {
           description: "We offer specialized consulting and practical training to teach you and your team how to use artificial intelligence tools efficiently.",
           items: ["AI Consulting", "Team training", "Practical tool usage"],
         },
-      ],
-    },
-    how: {
-      tag: "How It Works",
-      title: "Simple, direct and effective",
-      steps: [
-        { title: "Understanding", text: "We analyze your business and identify where technology can deliver the most results." },
-        { title: "Development", text: "We create the ideal solution with agility, keeping you in control of every step." },
-        { title: "Delivery & Support", text: "We deploy, train your team and ensure ongoing support." },
       ],
     },
     process: {
@@ -1419,7 +1411,7 @@ export const translations = {
         },
         {
           title: "7. Contact",
-          body: "For questions about these terms, contact us at gabrielluizsilva.contato@gmail.com or via the WhatsApp available on the site.",
+          body: "For questions about these terms, contact us at contato@agilonex.com.br or via the WhatsApp available on the site.",
         },
       ],
       disclaimer: "This content is an operational model and should be adapted to the final contract and legal guidance.",
@@ -1514,10 +1506,19 @@ export const translations = {
       tooltip: "💬 Talk to us now",
       ariaLabel: "Talk to us on WhatsApp",
     },
+    cases: {
+      title: "Projects and Results",
+      subtitle: "Discover the solutions we've built for real businesses. From concept to execution.",
+      barbershop: {
+        title: "Local Barbershop: Digitalization and seamless scheduling",
+        subtitle: "How we transformed a barbershop's customer service with a modern digital presence and integrated scheduling.",
+      },
+    },
   },
   es: {
     nav: {
       about: "Sobre",
+      cases: "Casos",
       blog: "Blog",
       services: "Servicios",
       how: "Cómo Funciona",
@@ -1602,15 +1603,6 @@ export const translations = {
           description: "Ofrecemos consultoría especializada y capacitación práctica para enseñarte a ti y a tu equipo a usar herramientas de inteligencia artificial de manera eficiente.",
           items: ["Consultoría en IA", "Capacitación de equipos", "Uso práctico de herramientas"],
         },
-      ],
-    },
-    how: {
-      tag: "Cómo Funciona",
-      title: "Simple, directo y eficiente",
-      steps: [
-        { title: "Entendimiento", text: "Analizamos tu negocio e identificamos dónde la tecnología puede generar más resultados." },
-        { title: "Desarrollo", text: "Creamos la solución ideal con agilidad, manteniéndote en control de cada etapa." },
-        { title: "Entrega y Soporte", text: "Implementamos, capacitamos a tu equipo y garantizamos soporte continuo." },
       ],
     },
     process: {
@@ -2176,7 +2168,7 @@ export const translations = {
         },
         {
           title: "7. Contacto",
-          body: "Para dudas sobre estos términos, contáctanos en gabrielluizsilva.contato@gmail.com o por el WhatsApp disponible en el sitio.",
+          body: "Para dudas sobre estos términos, contáctanos en contato@agilonex.com.br o por el WhatsApp disponible en el sitio.",
         },
       ],
       disclaimer: "Este contenido es un modelo operativo y debe adaptarse al contrato final y a la orientación jurídica.",
@@ -2270,6 +2262,14 @@ export const translations = {
     whatsappFloat: {
       tooltip: "💬 Habla con nosotros ahora",
       ariaLabel: "Habla con nosotros en WhatsApp",
+    },
+    cases: {
+      title: "Proyectos y Resultados",
+      subtitle: "Conozca las soluciones que desarrollamos para negocios reales. De la idea a la ejecución.",
+      barbershop: {
+        title: "Barbería Local: Digitalización y agenda sin fricción",
+        subtitle: "Cómo transformamos la atención de una barbería con una presencia digital moderna y agendamiento integrado.",
+      },
     },
   },
 };
