@@ -165,6 +165,12 @@ export const translations = {
       ],
       cta: "Ainda tem dúvidas? Fale com a gente →",
     },
+    testimonials: {
+      tag: "Depoimentos",
+      title: "O que nossos clientes dizem",
+      ratingAria: "Nota {value} de 5 estrelas",
+      aggregateAria: "Nota média de {value} baseada em {count} avaliações",
+    },
     blog: {
       tag: "Conteúdo",
       title: "Blog da AgiloNex",
@@ -924,6 +930,12 @@ export const translations = {
       ],
       cta: "Still have questions? Talk to us →",
     },
+    testimonials: {
+      tag: "Testimonials",
+      title: "What our clients say",
+      ratingAria: "Rating {value} of 5 stars",
+      aggregateAria: "Average rating of {value} based on {count} reviews",
+    },
     blog: {
       tag: "Content",
       title: "AgiloNex Blog",
@@ -1678,6 +1690,12 @@ export const translations = {
         },
       ],
       cta: "¿Aún tienes dudas? Habla con nosotros →",
+    },
+    testimonials: {
+      tag: "Testimonios",
+      title: "Lo que dicen nuestros clientes",
+      ratingAria: "Nota {value} de 5 estrellas",
+      aggregateAria: "Nota media de {value} basada en {count} reseñas",
     },
     blog: {
       tag: "Contenido",

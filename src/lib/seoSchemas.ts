@@ -6,6 +6,8 @@
  * as páginas emitam dados consistentes sem duplicação.
  */
 import type { Post } from "@/data/posts";
+import type { Review } from "@/data/reviews";
+import { BEST_RATING, WORST_RATING, averageRating, reviewCount, reviews } from "@/data/reviews";
 import type { Language } from "@/i18n/translations";
 import { founder } from "@/lib/identity";
 
@@ -191,3 +193,61 @@ export const legalPageSchema = (lang: Language, slug: string, name: string) => (
   inLanguage: LOCALE[lang],
   publisher: { "@id": `${BASE_URL}/#organization` },
 });
+
+/**
+ * Schema `AggregateRating` referente aos depoimentos exibidos na home.
+ *
+ * Segundo as diretrizes do Google, o `AggregateRating` só gera rich
+ * snippet (estrelas na SERP) quando o item avaliado (`itemReviewed`)
+ * é um `Service`, `Product`, `Organization` etc. válido e quando as
+ * avaliações individuais também estão marcadas com `Review`. Por isso
+ * este builder é sempre acompanhado de `reviewsSchema()` na mesma
+ * página (ver `Index.tsx`).
+ */
+export const aggregateRatingSchema = () => ({
+  "@type": "AggregateRating",
+  "@id": `${BASE_URL}/#aggregate-rating`,
+  ratingValue: averageRating(),
+  reviewCount: reviewCount(),
+  bestRating: BEST_RATING,
+  worstRating: WORST_RATING,
+  itemReviewed: { "@id": `${BASE_URL}/#organization` },
+});
+
+/**
+ * Schema `Review` individual — um por depoimento exibido na página.
+ *
+ * O `author` é a `Person` citada no depoimento (nome + cargo), e o
+ * `itemReviewed` aponta para a `Organization` avaliada. Os campos
+ * `reviewBody`, `datePublished`, `reviewRating` e `inLanguage` são os
+ * que o Google lê para Validar o rich snippet.
+ */
+export const reviewSchema = (lang: Language, review: Review) => ({
+  "@type": "Review",
+  "@id": `${BASE_URL}/#review-${review.id}`,
+  inLanguage: LOCALE[lang],
+  author: {
+    "@type": "Person",
+    name: review.author[lang],
+    description: review.role[lang],
+  },
+  itemReviewed: { "@id": `${BASE_URL}/#organization` },
+  reviewRating: {
+    "@type": "Rating",
+    ratingValue: review.ratingValue,
+    bestRating: BEST_RATING,
+    worstRating: WORST_RATING,
+  },
+  datePublished: review.datePublished,
+  reviewBody: review.text[lang],
+});
+
+/**
+ * Conjunto de esquemas `Review` para todos os depoimentos. Inclui o
+ * `aggregateRatingSchema()` ao final, já que ambos devem coexistir na
+ * mesma página para gerar as estrelas na SERP.
+ */
+export const reviewsSchema = (lang: Language) => [
+  ...reviews.map((review) => reviewSchema(lang, review)),
+  aggregateRatingSchema(),
+];

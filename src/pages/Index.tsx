@@ -5,6 +5,7 @@ import ServicesSection from "@/components/ServicesSection";
 import NichosSections from "@/components/NichosSections";
 import PortfolioSection from "@/components/PortfolioSection";
 import ProcessSection from "@/components/ProcessSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useSEO } from "@/hooks/useSEO";
@@ -13,6 +14,7 @@ import {
   websiteSchema,
   serviceSchema,
   faqSchema,
+  reviewsSchema,
   BASE_URL,
 } from "@/lib/seoSchemas";
 
@@ -37,6 +39,7 @@ const Index = () => {
       websiteSchema(language),
       serviceSchema(language),
       faqSchema(language, t.faq.items),
+      ...reviewsSchema(language),
     ],
   });
 
@@ -49,6 +52,7 @@ const Index = () => {
         <PortfolioSection />
         <NichosSections />
         <ProcessSection />
+        <TestimonialsSection />
         <Suspense fallback={<div className="h-40" />}>
           <FAQSection />
           <CtaSection />
