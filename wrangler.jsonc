@@ -5,6 +5,7 @@
   "observability": {
     "enabled": true
   },
+  "main": "worker/index.ts",
   "assets": {
     "directory": "dist",
     "not_found_handling": "single-page-application",
@@ -15,8 +16,19 @@
         "Referrer-Policy": "strict-origin-when-cross-origin",
         "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
         "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
-        "Content-Security-Policy": "default-src 'self'; script-src 'self' 'unsafe-inline' https://pagead2.googlesyndication.com https://partner.googleadservices.com https://tpc.googlesyndication.com https://adservice.google.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https:; connect-src 'self' https://*.supabase.co; frame-src https://tpc.googlesyndication.com; frame-ancestors 'none';"
+        "Content-Security-Policy": "default-src 'self'; script-src 'self' 'unsafe-inline' https://pagead2.googlesyndication.com https://partner.googleadservices.com https://tpc.googlesyndication.com https://adservice.google.com https://www.googletagmanager.com https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https:; connect-src 'self' https://*.supabase.co https://www.google.com/recaptcha/; frame-src https://tpc.googlesyndication.com https://www.google.com/recaptcha/; frame-ancestors 'none';"
       }
     }
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "agilo-nex-comments",
+      "database_id": "COLOQUE_O_DATABASE_ID_APOS_CRIAR_COM_wrangler_d1_create",
+      "migrations_dir": "worker/migrations"
+    }
+  ],
+  "vars": {
+    "IP_SALT": "gere-um-salt-aleatorio-de-32-bytes"
   }
 }

@@ -8,6 +8,7 @@
 import type { Post } from "@/data/posts";
 import type { Review } from "@/data/reviews";
 import { BEST_RATING, WORST_RATING, averageRating, reviewCount, reviews } from "@/data/reviews";
+import type { PublicComment } from "@/lib/comments";
 import type { Language } from "@/i18n/translations";
 import { founder } from "@/lib/identity";
 
@@ -251,3 +252,48 @@ export const reviewsSchema = (lang: Language) => [
   ...reviews.map((review) => reviewSchema(lang, review)),
   aggregateRatingSchema(),
 ];
+
+/**
+ * Schema `Comment` para UGC em posts do blog.
+ *
+ * Os comentários aprovados vêm do Worker (D1) e são montados como um
+ * `@graph` de `Comment` referenciando o `BlogPosting` via `parentItem`.
+ * O Google lê essa marcação e pode exibi-la na SERP — exigência do guia
+ * SEO/UGC para que os comentários sejam rastreáveis e indexáveis mesmo
+ * em um SPA. Links deixados pelos usuários recebem `rel="ugc nofollow"`
+ * no renderizador `sanitizeComment` (não há o que marcar no JSON-LD,
+ * mas o `author.url` aqui reflete exatamente o que aparece na página).
+ */
+export const commentSchema = (
+  lang: Language,
+  slug: string,
+  list: PublicComment[]
+): { "@context": string; "@graph": Record<string, unknown>[] } => {
+  const articleId = `${BASE_URL}${HOME_PATH[lang]}/blog/${slug}`;
+  return {
+    "@context": "https://schema.org",
+    "@graph": list.map((c) => ({
+      "@type": "Comment",
+      "@id": `${articleId}#comment-${c.id}`,
+      parentItem: { "@id": `${articleId}#article` },
+      author: {
+        "@type": "Person",
+        name: c.authorName,
+        ...(c.authorUrl ? { url: c.authorUrl } : {}),
+      },
+      datePublished: c.createdAt,
+      text: c.body,
+      ...(c.rating
+        ? {
+            reviewRating: {
+              "@type": "Rating",
+              ratingValue: c.rating,
+              bestRating: BEST_RATING,
+              worstRating: WORST_RATING,
+            },
+          }
+        : {}),
+      inLanguage: LOCALE[lang],
+    })),
+  };
+};
