@@ -162,8 +162,6 @@ export const posts: Post[] = [
   },
   {
     slug: "avancos-ia-medicina-ciencia",
-  {
-    slug: "avancos-ia-medicina-ciencia",
     publishedAt: "2026-08-14",
     readingMinutes: 8,
     tags: ["ia", "medicina", "ciencia", "inovacao", "saude", "tecnologia", "pesquisa"],
