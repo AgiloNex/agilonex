@@ -22,7 +22,7 @@ import {
   BreadcrumbPage,
 } from "@/components/ui/breadcrumb";
 
-const WEBHOOK_URL = "[WEBHOOK_URL]";
+const WEBHOOK_URL = import.meta.env.VITE_WEBHOOK_URL || "";
 
 const formatWhatsapp = (value: string) => {
   const digits = value.replace(/\D/g, "").slice(0, 11);
@@ -75,6 +75,14 @@ const Contact = () => {
       return;
     }
 
+    if (!WEBHOOK_URL) {
+      const text = `Olá, meu nome é ${trimmedName}. Gostaria de falar sobre ${segmento}.${mensagem ? `\n\nMensagem: ${mensagem}` : ""}`;
+      window.open(`${whatsappLink}?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
+      setSubmittedName(trimmedName);
+      setSuccess(true);
+      return;
+    }
+
     setLoading(true);
     try {
       const response = await fetch(WEBHOOK_URL, {
@@ -99,12 +107,10 @@ const Contact = () => {
       setSegmento("");
       setMensagem("");
     } catch {
-      toast.error(t.contactSection.toast, {
-        action: {
-          label: t.contactSection.toastAction,
-          onClick: () => window.open(whatsappLink, "_blank", "noopener,noreferrer"),
-        },
-      });
+      const text = `Olá, meu nome é ${trimmedName}. Gostaria de falar sobre ${segmento}.${mensagem ? `\n\nMensagem: ${mensagem}` : ""}`;
+      window.open(`${whatsappLink}?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
+      setSubmittedName(trimmedName);
+      setSuccess(true);
     } finally {
       setLoading(false);
     }

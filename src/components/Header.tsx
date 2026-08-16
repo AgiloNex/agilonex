@@ -28,7 +28,6 @@ const Header = () => {
     { label: t.nav.blog, to: languagePath("blog"), key: "blog" },
     { label: t.nav.services, to: { pathname: basePath, hash: "#servicos" }, key: "servicos" },
     { label: t.nav.how, to: { pathname: basePath, hash: "#como-funciona" }, key: "como-funciona" },
-    { label: t.nav.pricing, to: { pathname: basePath, hash: "#planos" }, key: "planos" },
     { label: t.nav.portfolio, to: { pathname: basePath, hash: "#portfolio" }, key: "portfolio" },
     { label: t.nav.contact, to: languagePath("contato"), key: "contato" },
   ];
