@@ -146,20 +146,22 @@ export async function verifyRecaptcha(
   }
 }
 
+const LINK_PATTERN = /https?:\/\/\S+/gi;
+
 /** Checagem simples de spam heurística por palavras/links conhecidos. */
 const SPAM_PATTERNS = [
   /\bviagra\b/i,
   /\bcasino\b/i,
   /\bpayday\s*loan\b/i,
-  /https?:\/\/\S+/gi, // muitos links podem indicar spam (verificado por contagem)
+  LINK_PATTERN, // muitos links podem indicar spam (verificado por contagem)
 ];
 
 export const looksLikeSpam = (body: string, name: string): boolean => {
   const text = `${name} ${body}`;
-  const linkCount = (text.match(/https?:\/\/\S+/gi) ?? []).length;
+  const linkCount = (text.match(LINK_PATTERN) ?? []).length;
   if (linkCount > 3) return true;
   for (const pat of SPAM_PATTERNS) {
-    if (pat === /https?:\/\/\S+/gi) continue;
+    if (pat === LINK_PATTERN) continue;
     if (pat.test(text)) return true;
   }
   return false;

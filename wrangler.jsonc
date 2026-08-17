@@ -24,7 +24,7 @@
     {
       "binding": "DB",
       "database_name": "agilo-nex-comments",
-      "database_id": "COLOQUE_O_DATABASE_ID_APOS_CRIAR_COM_wrangler_d1_create",
+      "database_id": "ce83e50c-59df-4c95-954d-eb8ec490e9d5",
       "migrations_dir": "worker/migrations"
     }
   ],
