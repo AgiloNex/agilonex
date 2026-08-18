@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import CommentsSection from "@/components/CommentsSection";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { type Language } from "@/i18n/translations";
 import { useSEO } from "@/hooks/useSEO";
@@ -236,6 +237,7 @@ const Post = () => {
             {t.blog.ctaWhats}
           </a>
         </article>
+        <CommentsSection slug={post.slug} />
       </main>
       <Footer />
     </>

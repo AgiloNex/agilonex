@@ -64,18 +64,18 @@ export const validateWebsite = (url: string): boolean => {
 };
 
 /**
- * Escape de HTML do corpo do comentário (o Worker também já stripa HTML,
- * mas nunca confiamos no servidor sozinho — defence in depth). Depois
- * converte URLs soltas em <a> com rel="ugc nofollow noopener" — exigência
- * do guia SEO/UGC para qualquer link deixado por usuário.
+ * Escape de HTML do corpo do comentario (o Worker tambem ja stripa HTML,
+ * mas nunca confiamos no servidor sozinho -- defence in depth). Depois
+ * converte URLs soltas em <a> com rel="ugc nofollow noopener" -- exigencia
+ * do guia SEO/UGC para qualquer link deixado por usuario.
  */
 export const sanitizeComment = (raw: string): string => {
   const escaped = raw
     .replace(/&/g, "&")
     .replace(/</g, "<")
     .replace(/>/g, ">")
-    .replace(/"/g, """)
-    .replace(/'/g, "&#39;");
+    .replace(/"/g, '"')
+    .replace(/'/g, "'");
   const withLinks = escaped.replace(/(https?:\/\/[^\s<]+)/g, (url) => {
     return `<a href="${url}" rel="ugc nofollow noopener" target="_blank">${url}</a>`;
   });
